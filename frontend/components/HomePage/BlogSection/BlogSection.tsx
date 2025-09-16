@@ -6,7 +6,7 @@ import Htag from '@/components/htag/htag';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import Button from '@/components/button/button';
+
 import Link from 'next/link';
 
 export default function BlogSection() {
@@ -22,19 +22,7 @@ export default function BlogSection() {
         image: string;
     };
 
-    type PageInfo = {
-        currentPage: number;
-        pageSize: number;
-        totalPage: number;
-        tableSize: number;
-        currentPageSize: number;
-    };
 
-    type ArticlesResponse = {
-        payload: Article[];
-        pageInfo: PageInfo;
-        status: 'OK' | 'ERROR';
-    };
 
     useEffect(() => {
       axios

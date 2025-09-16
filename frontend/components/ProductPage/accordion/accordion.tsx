@@ -38,15 +38,19 @@ export default function CollapsibleAccordion({
     const el = contentRef.current;
     if (!el) return;
 
-    function resizeObserverCb() {
-      if (open) setMaxHeight(`${el.scrollHeight}px`);
-    }
+    const resizeObserverCb = () => {
+      if (open) {
+        setMaxHeight(`${el.scrollHeight}px`);
+      }
+    };
 
     const ro = new ResizeObserver(resizeObserverCb);
     ro.observe(el);
-    return () => ro.disconnect();
-  }, [open]);
 
+    return () => {
+      ro.disconnect();
+    };
+  }, [open]);
   return (
     <div   className={`${styles.wrapper} ${open ? styles.openWrapper : ''} ${className}`}>
       <button

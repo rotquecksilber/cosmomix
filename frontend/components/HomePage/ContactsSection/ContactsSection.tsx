@@ -1,6 +1,6 @@
 import styles from './ContactsSection.module.css';
 import Htag from '@/components/htag/htag';
-import Button from '@/components/button/button';
+
 import Image from 'next/image';
 
 export default function ContactsSection() {

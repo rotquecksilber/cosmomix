@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './StagesSection.module.css';
 import Image from 'next/image';
 import Htag from '@/components/htag/htag';

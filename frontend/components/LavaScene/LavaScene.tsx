@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from './LavaScene.module.css';
+
 import * as THREE from 'three';
 import { MarchingCubes } from 'three/examples/jsm/objects/MarchingCubes.js';
 
@@ -120,10 +120,10 @@ export default function LavaLampScene() {
       });
     }
 
-    const clock = new THREE.Clock();
+
 
     const animate = () => {
-      const delta = clock.getDelta();
+
 
       effect.reset();
       const subtract = 10;

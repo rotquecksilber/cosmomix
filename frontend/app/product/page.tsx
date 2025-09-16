@@ -1,7 +1,6 @@
 // components/ProductPage.tsx
 import Gallery from '@/components/ProductPage/gallery/gallery';
 import styles from './page.module.css';
-import cn from 'classnames';
 import LavaScene from '@/components/LavaScene/LavaScene';
 import Advantages from '@/components/ProductPage/advanatages/advantages';
 import IngredientsCard from '@/components/ProductPage/ingredients/ingredients';

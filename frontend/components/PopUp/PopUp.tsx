@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
 import { jura } from '@/lib/fonts';
-import Image from 'next/image';
 
 type FormData = {
     name: string;

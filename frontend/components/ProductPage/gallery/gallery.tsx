@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import {motion, AnimatePresence, PanInfo} from 'framer-motion';
 import styles from './gallery.module.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Htag from '@/components/htag/htag';
@@ -42,7 +42,10 @@ export default function Gallery({ images, title }: GalleryProps) {
   // --- MOBILE swipe logic ---
   const [dragX, setDragX] = useState(0);
 
-  const handleDragEnd = (_: any, info: any) => {
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
     if (info.offset.x < -100) {
       next();
     } else if (info.offset.x > 100) {

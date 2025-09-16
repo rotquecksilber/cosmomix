@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import styles from './ingredients.module.css';
 import Image from 'next/image';
 import Htag from '@/components/htag/htag';
