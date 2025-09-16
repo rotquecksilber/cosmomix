@@ -1,5 +1,4 @@
-// File: components/CollapsibleAccordion/CollapsibleAccordion.tsx
-// Next.js + TypeScript + CSS Module
+
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './accordion.module.css';

@@ -6,17 +6,28 @@ import styles from './Header.module.css';
 import cs from 'classnames';
 import { usePathname } from 'next/navigation';
 import PopUp from '@/components/PopUp/PopUp';
-import { useState } from 'react';
+import {useState} from 'react';
 import Burger from '@/components/burger/burger';
 
 const navLinks = [
   { href: '/about', text: 'О нас' },
-  { href: '/capability', text: 'Возможности' },
+  {
+    href: '/capability',
+    text: 'Возможности',
+    submenu: [
+      { href: '/capability/laboratory', text: 'Лаборатория' },
+      { href: '/capability/production', text: 'Производство' },
+    ],
+  },
   {
     href: '/catalog',
     text: 'Продукция',
     submenu: [
       { href: '/product', text: 'Тестовый продукт' },
+      { href: '/catalog/decor', text: 'Декоративная косметика' },
+      { href: '/catalog/care', text: 'Уходовая косметика' },
+      { href: '/catalog/kids', text: 'Натуральная детская косметика' },
+      { href: '/catalog/pets', text: 'Косметика для животных' },
     ],
   },
   { href: '/cases', text: 'Кейсы' },
@@ -27,11 +38,16 @@ const navLinks = [
 export default function Header() {
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+  // Используем null или индекс для отслеживания открытого подменю
+  const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setSubmenuOpen(false);
+    setOpenSubmenu(null); // Закрываем все подменю при закрытии основного меню
+  };
+
+  const toggleSubmenu = (index: number) => {
+    setOpenSubmenu(openSubmenu === index ? null : index);
   };
 
   return (
@@ -68,23 +84,49 @@ export default function Header() {
                     {link.text}
                   </Link>
 
+                  {/* Мегаменю */}
                   {link.submenu && (
-                    <ul className={styles.submenu}>
-                      {link.submenu.map((sub, subIndex) => (
-                        <li key={subIndex}>
-                          <Link href={sub.href} className={styles.submenuLink}>
+                    <div className={styles.megamenu}>
+                      <div className={styles.megamenu__products}>
+                        <div className={styles.megamenu__productCard}>
+                          <Image
+                            src="/test1.jpg"
+                            alt="Продукт 1"
+                            width={200}
+                            height={150}
+                          />
+                          <p>Продукт 1</p>
+                        </div>
+                        <div className={styles.megamenu__productCard}>
+                          <Image
+                            src="/test2.jpg"
+                            alt="Продукт 2"
+                            width={200}
+                            height={150}
+                          />
+                          <p>Продукт 2</p>
+                        </div>
+                      </div>
+
+                      <div className={styles.megamenu__categories}>
+                        {link.submenu.map((sub, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={sub.href}
+                            className={styles.megamenu__link}
+                          >
                             {sub.text}
                           </Link>
-                        </li>
-                      ))}
-                    </ul>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </li>
               );
             })}
           </ul>
         </nav>
-        {/* The PopUp component (for the "Submit an Application" button) is now back in the desktop wrapper */}
+
         <PopUp />
       </div>
 
@@ -103,7 +145,7 @@ export default function Header() {
               />
             </Link>
           </div>
-          {/* The PopUp component for mobile is now back in the mobile wrapper */}
+
           <div className={styles.header_mobile__popup}>
             <PopUp />
           </div>
@@ -111,7 +153,6 @@ export default function Header() {
           <Burger isOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} />
         </div>
 
-        {/* Overlay + Menu */}
         {menuOpen && (
           <>
             <button
@@ -124,6 +165,7 @@ export default function Header() {
               <ul className={styles.mobileMenu_menu}>
                 {navLinks.map((link, index) => {
                   const isActive = pathName === link.href;
+                  const isSubmenuOpen = openSubmenu === index;
 
                   if (link.submenu) {
                     return (
@@ -133,18 +175,24 @@ export default function Header() {
                           className={cs(styles.header_desk__navLinks, {
                             [styles.active]: isActive,
                           })}
-                          onClick={() => setSubmenuOpen(!submenuOpen)}
-                          aria-expanded={submenuOpen}
+                          onClick={() => toggleSubmenu(index)}
+                          aria-expanded={isSubmenuOpen}
                           aria-controls={`submenu-mobile-${index}`}
                         >
                           {link.text}
                         </button>
 
-                        {submenuOpen && (
-                          <ul id={`submenu-mobile-${index}`} className={styles.submenuMobile}>
+                        {isSubmenuOpen && (
+                          <ul
+                            id={`submenu-mobile-${index}`}
+                            className={styles.submenuMobile}
+                          >
                             {link.submenu.map((sub, subIndex) => (
                               <li key={subIndex} onClick={closeMenu}>
-                                <Link href={sub.href} className={styles.submenuLink}>
+                                <Link
+                                  href={sub.href}
+                                  className={styles.submenuLink}
+                                >
                                   {sub.text}
                                 </Link>
                               </li>

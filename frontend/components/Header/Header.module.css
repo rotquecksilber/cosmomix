@@ -1,20 +1,17 @@
 .header_desk {
-
-
+    position: relative;
 }
 
 .header_desk__wrapper {
-    position: fixed; /* Закрепляем наверху окна браузера */
-    top: 0; /* Всегда остаётся на самом верху */
+    position: fixed;
+    top: 0;
     z-index: 999;
     background-color: white;
     width: 100%;
-    height: 130px;/* Обеспечиваем, что занимает всю ширину страницы */
+    height: 130px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для визуального отделения */
-
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 95px;
-
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -23,7 +20,6 @@
 
 .header_desk__nav {
     display: flex;
-    flex-wrap: wrap;
     gap: 21px;
     list-style: none;
 }
@@ -33,6 +29,7 @@
     font-size: clamp(14px, 1.5vw, 24px);
     font-weight: 600;
     transition: opacity 0.3s ease-in-out;
+
 }
 
 .header_desk__navLinks:hover {
@@ -43,21 +40,85 @@
     font-weight: 800;
 }
 
+.navItem {
+    position: relative;
+}
+
+/* --- Мегаменю --- */
+.megamenu {
+    display: none; /* <- скрыто по умолчанию */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 50vw;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 2rem;
+    z-index: 2;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.hasSubmenu:hover .megamenu {
+    display: grid; /* <- показывается только на hover */
+}
+
+.megamenu__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.megamenu__productCard {
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.megamenu__productCard:hover {
+    transform: translateY(-4px);
+}
+
+.megamenu__productCard img {
+    max-width: 100%;
+    height: auto;
+}
+
+.megamenu__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.megamenu__link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #222;
+    text-decoration: none;
+}
+
+.megamenu__link:hover {
+    color: var(--primary-hover);
+}
+
+/* --- Mobile --- */
 .header_mobile {
     position: fixed;
     bottom: 0;
     z-index: 9999;
     background-color: white;
     width: 100vw;
-    height: 80px;/* Обеспечиваем, что занимает всю ширину страницы */
-
+    height: 80px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 0 15px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .header_mobile__wrapper {
@@ -79,22 +140,17 @@
     right: 16px;
 }
 
-.header_mobile__burger {
-    /* Центруется автоматически через flex-контейнер */
-}
-
-/* Оверлей */
+/* Overlay + Mobile menu */
 .mobileOverlay {
     position: fixed;
     bottom: 80px;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--brand-light-60); /* тёмный фон */
+    background-color: var(--brand-light-60);
     z-index: 998;
 }
 
-/* Меню */
 .mobileMenu {
     position: fixed;
     bottom: 80px;
@@ -115,6 +171,7 @@
     transform: translateY(0);
     pointer-events: auto;
 }
+
 .mobileMenu_menu {
     display: flex;
     flex-direction: column;
@@ -122,60 +179,9 @@
     align-items: center;
     gap: 20px;
     padding: 20px 15px;
-    text-decoration: none;
-    list-style: none;
-    color: var(--primary)
-}
-
-
-
-.header_mobile__burger{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.header_mobile__burgerLine {
-    width: 50px;
-    height: 1px;
-    background: var(--primary);
-}
-.navItem {
-    position: relative;
-}
-
-.hasSubmenu:hover .submenu {
-    display: block;
-}
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%; /* под пунктом меню */
-    left: 0;
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    padding: 0.5rem 0;
-    z-index: 1000;
-}
-
-.submenu li {
     list-style: none;
 }
 
-.submenuLink {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #222;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.submenuLink:hover {
-    background: #f0f0f0;
-}
 .submenuMobile {
     padding-left: 1rem;
     margin-top: 0.5rem;
@@ -193,15 +199,16 @@
 }
 
 .submenuMobile a:hover {
-    color: #563d82; /* твой фирменный оттенок */
+    color: #563d82;
 }
 
-
+/* --- Media --- */
 @media (max-width: 815px) {
     .header_desk__wrapper {
         display: none;
     }
 }
+
 @media (min-width: 816px) {
     .header_mobile {
         display: none;
