@@ -1,0 +1,129 @@
+.advantagesWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* gif слева, преимущества справа */
+    align-items: stretch;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    background: #f7f6fb;
+    border-radius: 1rem;
+    max-width: 1200px;
+    margin: 60px auto 0;
+
+}
+
+.gifWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+    max-height: calc(150px*2 + 1rem);
+}
+
+.gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.advantage {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 айтема в строке */
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+}
+
+.advantageItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 1rem;
+    max-height: 150px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+
+}
+
+.advantageItem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+    width: 150px;
+    height: 150px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.iconWrapper img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.advantageText {
+
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 500;
+    text-align: left;
+    color: #3d2f5a;
+    line-height: 1.4;
+}
+
+/* 📱 Адаптив */
+@media (max-width: 1100px) {
+    .advantagesWrapper {
+        grid-template-columns: 1fr; /* gif сверху */
+    }
+
+    .gifWrapper {
+        max-height: 300px;
+    }
+
+    .advantage {
+        grid-template-columns: 1fr 1fr; /* планшет — 2 колонки */
+    }
+}
+
+@media (max-width: 925px) {
+    .advantage {
+        grid-template-columns: 1fr; /* мобильный — одна колонка */
+    }
+
+    .advantageItem {
+        flex-direction: column;
+        text-align: center;
+gap: 5px;
+        max-height: none;
+        transition: none;
+    }
+
+    .iconWrapper {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+    .advantageItem:hover {
+        transform: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .advantageText {
+
+        text-align: center;
+    }
+
+
+}

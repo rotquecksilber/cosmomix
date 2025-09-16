@@ -1,0 +1,55 @@
+.standard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;/* Чтобы элемент стал "блоковым" (кнопка), но оставался в потоке */
+
+    font-weight: 600; /* Толщина текста */
+    text-align: center; /* Центрируем текст по горизонтали */
+    padding: 20px 30px; /* Внутренние отступы со всех сторон (увеличивают кнопку) */
+    border: none; /* Убираем стандартную границу (если есть) */
+    border-radius: 10px; /* Добавляем скругление углов (по желанию) */
+    cursor: pointer; /* Указываем, что элемент кликабелен */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    max-width: 35vw; /* Максимальная ширина для адаптивности */
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+    font-size: clamp(16px, 1.5vw, 28px);
+}
+
+
+.uppercase {
+    text-transform: uppercase; /* Преобразуем текст в заглавные */
+}
+
+.color-black {
+    background: var(--black); /* Цвет фона */
+    color: var(--white); /* Цвет текста */
+}
+.color-black:hover {
+    box-shadow: 0 4px 30px var(--primary);
+}
+
+.primary {
+    background: var(--primary); /* Цвет фона */
+    color: var(--white); /* Цвет текста */
+}
+
+.white {
+    background: var(--white);
+    color: var(--black);
+}
+
+.color-soft {
+    background: #CCB6EC; /* Цвет фона */
+    color: var(--white);
+}
+@media (max-width: 780px) {
+    .standard {
+        width: 70vw;
+        max-width: none;
+    }
+    .connect_button {
+        background: var(--primary) !important; /* только если очень нужно */
+    }
+
+}

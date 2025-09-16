@@ -1,0 +1,195 @@
+.stages {
+    position: relative;
+    overflow: visible;
+    margin: 0 95px;
+    padding-top: 100px;
+}
+
+.stages_wrapper {
+    max-width: 2000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.title {
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+    width: 100%;
+}
+
+.step {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 50vw;
+}
+
+.step_number {
+    z-index: 0;
+}
+
+.step_description {
+    font-size: clamp(16px, 2vw, 24px);
+    color: var(--primary);
+}
+
+.stages_photo {
+    position: absolute;
+    top: 50px;
+    right: -700px;
+    width: 1200px;
+    height: auto;
+    pointer-events: none;
+    z-index: -1;
+    object-fit: contain;
+}
+
+/* show/hide blocks */
+.desktopVersion {
+    display: block;
+}
+.mobileVersion {
+    display: none;
+}
+@media(max-width: 1266px) {
+    .stages_photo {
+        position: absolute;
+        top: 50px;
+        right: -700px;
+        width: 1000px;
+        height: auto;
+        pointer-events: none;
+        z-index: -1;
+        object-fit: contain;
+    }
+}
+
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+    .stages_photo_mobile {
+        width: 500px;
+        height: auto;
+        position: absolute;
+        top: 70px;
+    }
+    .stages {
+        margin: 0;
+    }
+    .desktopVersion {
+        display: none;
+    }
+
+    .mobileVersion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        min-width: 100%;
+        height: 850px;
+
+    }
+
+    .mobileSwiperWrap {
+
+        position: relative;
+        width: 100%;
+        height: 320px; /* под высоту карточек */
+        overflow: visible;
+        margin-top: 400px;
+        display: flex;
+        justify-content: center; /* центрируем активную карточку */
+        align-items: center;
+    }
+
+    .cardWrapStyle {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        /*left: 50%;*/
+        width: 300px;
+        height: 320px;
+        transform-origin: center center;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--primary);
+        padding: 20px;
+        box-sizing: border-box;
+        list-style: none;
+        cursor: grab;
+        user-select: none;
+        /* Центрирование карточки по горизонтали */
+        transform: translateX(-50%);
+        /* Убираем CSS transition, Framer Motion сам анимирует */
+        transition: none;
+    }
+
+    .mobileCard {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border-radius: 16px;
+        background: white;
+        padding: 18px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Убираем transition */
+        transition: none;
+    }
+
+    .step_number {
+        margin-bottom: 12px;
+        width: 70px;
+        height: 70px;
+
+    }
+
+    .title {
+        margin: 0;
+        color: var(--primary);
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .title_wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .step_description {
+        padding: 10px 0;
+        font-size: 14px;
+        color: var(--primary);
+        text-align: left;
+    }
+}

@@ -1,0 +1,171 @@
+.capability {
+    display: grid;
+
+    justify-items: center;
+    padding: 100px 95px;
+    position: relative;
+
+
+
+}
+
+/* Элементы списка */
+.capabilityItem {
+    position: relative; /* нужно для ::before */
+    z-index: 1; /* текст выше псевдоэлемента */
+    padding: 20px;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    background: transparent; /* фон задаётся через hover */
+    transition: background 0.4s ease-in-out;
+}
+
+/* Градиент под текстом */
+.capabilityItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            290deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(230, 225, 237, 0.75) 25%,
+            rgba(205, 195, 219, 0.8) 51%,
+            rgba(205, 195, 219, 0.8) 55%,
+            rgba(230, 225, 237, 0.75) 79%,
+            rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 0; /* под текстом */
+}
+
+/* Заголовок и блоки */
+.capabilityHeader {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.capabilityId {
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.capabilityTitle {
+    position: relative;
+    z-index: 1; /* текст выше ::before */
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Факты */
+.capabilityFacts {
+    display: flex;
+    gap: 200px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.capabilityFacts li {
+    position: relative;
+}
+
+.capabilityFacts li:not(:last-child)::after {
+    content: "•";
+    position: absolute;
+    right: -100px; /* половина gap */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.capabilityFacts li:last-child::after {
+    content: "";
+}
+
+/* Описание */
+.capabilityDescriptionWrapper {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.capabilityDescription {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.button {
+    margin-top: 12px;
+   width: 25vw;
+    background: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.4s ease-in-out;
+}
+.button:hover {
+    background: var(--primary);
+    color: var(--white);
+
+}
+.accordionIcon {
+
+display: none;
+}
+/* Мобильная версия */
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .capability {
+        padding: 40px 20px;
+    }
+
+    .capabilityHeader {
+        grid-template-columns: 1fr; /* всё в колонку */
+        gap: 12px;
+    }
+
+    .capabilityFacts {
+        flex-wrap: wrap;
+        gap: 20px; /* компактнее чем 200px */
+        margin-top: 8px;
+    }
+
+    .capabilityFacts li:not(:last-child)::after {
+        right: -12px; /* точка ближе к слову */
+        font-size: 18px; /* меньше сама точка */
+    }
+
+    .button {
+        width: 100%; /* на всю ширину */
+    }
+    .accordionIcon {
+        display: block;
+        margin-left: auto;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .capabilityIcon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+

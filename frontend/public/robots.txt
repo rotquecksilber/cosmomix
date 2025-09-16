@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cosmo-mix.ru
+
+# Sitemaps
+Sitemap: https://cosmo-mix.ru/sitemap.xml

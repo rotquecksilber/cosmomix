@@ -1,0 +1,64 @@
+.partners {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    /*background: linear-gradient(*/
+
+    /*        #FFFFFF 0%,*/
+    /*        #decdfd 18%,*/
+    /*        #a788db 30%,*/
+    /*        #9b7cce 40%,*/
+    /*        #a98ed4 46%,*/
+    /*        #ccb6ec 56%,*/
+
+    /*        #ffffff 80%*/
+    /*);*/
+
+}
+
+.partners_image {
+    width: 20vw;
+    height: auto;
+border-radius: 70px;
+    filter: drop-shadow(0px 0px 30px rgba(86, 61, 130, 1));
+}
+
+.partners_image__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+}
+.partners_image:hover {
+    transform: scale(1.02); /* лёгкий ховер для интерактива */
+}
+
+@media (max-width: 780px) {
+    .partners {
+        margin-top: 60px;
+        gap: 32px;
+        padding: 0 15px;
+    }
+
+    .partners_image__wrapper {
+        flex-direction: row; /* партнёры в один столбец */
+        gap: 20px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .partners_image {
+        width: 100%;
+        max-width: 200px; /* чтобы не растягивалось на больших телефонах */
+        height: auto;
+        border-radius: 25px; /* современный маленький скруглённый угол */
+        filter: drop-shadow(0px 4px 12px rgba(86, 61, 130, 1));
+        transition: transform 0.2s ease;
+    }
+
+
+}

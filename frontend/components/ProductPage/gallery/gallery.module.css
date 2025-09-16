@@ -1,0 +1,333 @@
+.gallery {
+    width: 100%;
+padding: 20px 0 0 20px;
+margin-top: 130px;
+    position: relative;
+    background: #F2F1F4;
+
+}
+
+.slideRowWrapper {
+    overflow: hidden;
+    /* This is crucial for hiding slides outside the view */
+    width: 100%;
+}
+
+.slideRow {
+    display: flex;
+    gap: 16px;
+
+    /* No longer need to manually center, let Framer Motion handle `x` */
+}
+
+.slideWrapper {
+    flex: 0 0 calc(100% / 3 - 11px); /* Use calc to account for the gap */
+    border-radius: 12px;
+    overflow: hidden;
+    user-select: none;
+    /* No need for minWidth here, flex handles it */
+}
+
+.slideWrapper:active {
+    cursor: grabbing;
+}
+
+.slide {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+
+}
+
+.slide.active {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Controls */
+.controls {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progressWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.progressBar {
+    flex: 1;
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 95px;
+}
+
+.progressFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: #6b3fa0;
+    border-radius: 2px;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+padding: 0 95px;
+    margin-bottom: 20px;
+    gap: 20px;
+
+}
+
+.buttons button {
+    padding: 6px 14px;
+border: none;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--primary)
+}
+
+.buttons button:hover {
+    background: #6b3fa0;
+    color: white;
+}
+
+.counter {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+@supports (-webkit-backdrop-filter: blur(10px)) {
+    .glass {
+        background:
+                linear-gradient(220deg, rgba(86, 61, 130, 0.1) 0%, rgba(86, 61, 130, 0) 100%),
+                linear-gradient(10deg, rgba(86, 61, 130, 0.4) 0%, rgba(222, 205, 253, 0.4) 100%);
+        -webkit-backdrop-filter: blur(20px);
+
+    }
+}
+
+.glass {
+    background:
+        /* нижний слой обязательно полупрозрачный для Safari */
+            linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+                /* верхний можно любой */
+            linear-gradient(90deg, rgba(86, 61, 130, 0.4) 0%, rgba(222, 205, 253, 0.4) 100%);
+
+    backdrop-filter: blur(20px); /* остальные */
+
+
+
+
+    box-shadow:
+        /* Нижний и правый эффект глубины */
+            inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
+                /* Верхний и левый эффект глубины */
+            inset +0.75px +0.5px rgba(255, 255, 255, 0.025),
+                /* Эффект тени */
+            3px 2px 10px rgba(0, 0, 0, 0.25),
+                /* Короткий подповерхностный эффект */
+            inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
+                /* Длинный подповерхностный эффект */
+            inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
+
+    position: absolute;
+    top: 20px;
+    right: 0;
+    /* Новая логика расположения */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем элементы по высоте */
+    padding: 3rem;
+    width: 57vw;
+    height: 450px;
+    box-sizing: border-box;
+
+    color: white;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Единый отступ между элементами контента */
+    text-align: left; /* Выравнивание по левому краю для современного вида */
+}
+
+/* Стили для текстовых элементов */
+.title {
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Адаптивный размер */
+    font-weight: 800; /* Более жирный шрифт для акцента */
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+}
+
+.description {
+    font-size: 1.1rem;
+    font-weight: 300;
+margin-top: 10px;
+    max-width: 80%;
+}
+
+/* Стили для блока с ингредиентами */
+.ingredients {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500; /* Более жирный шрифт для читабельности */
+    opacity: 0.9; /* Повышенная непрозрачность */
+
+    /* Добавляем градиентную обводку или фон */
+    border: 1px solid rgba(222, 205, 253, 0.4);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    background: rgba(222, 205, 253, 0.1);
+    margin: 10px 0;
+}
+
+.ingredients span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fbf4ff; /* Акцентный цвет для текста */
+}
+
+.ingredients span:not(:last-child)::after {
+    content: "•"; /* Используем маркер-точку как разделитель */
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Стили для кнопки CTA */
+.ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3b2f5b;
+    background-color: #e0cffc;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.ctaButton:hover {
+    background-color: #d1b8fa;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 815px) {
+    .gallery {
+        margin-top: 0;
+        padding: 0;
+
+        height: 100%;
+        width: 100%;
+    }
+
+    .slideRowWrapper {
+        overflow: hidden;
+    }
+
+    .slideRow {
+        gap: 8px;
+    }
+
+    .slideWrapper {
+        flex: 0 0 100%; /* всегда одна картинка */
+        min-width: 100%;
+        border-radius: 0; /* full-bleed image */
+    }
+
+    .slide {
+        height: 60vh; /* адаптивная высота */
+        object-fit: cover;
+    }
+
+    /* Текстовый блок — карточка снизу */
+    .glass {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        padding: 1.5rem;
+        margin-top: 0; /* лёгкое наложение */
+        border-radius: 0;
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+
+        background:
+            /* нижний слой обязательно полупрозрачный для Safari */
+                linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+                    /* верхний можно любой */
+                linear-gradient(90deg, rgba(86, 61, 130, 1) 0%, rgba(222, 205, 253, 1) 100%);
+
+        backdrop-filter: blur(20px); /* остальные */
+
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .description {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .ingredients {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: flex-start;
+
+    }
+
+    .ctaButton {
+        width: 100%; /* мобильный паттерн CTA */
+        text-align: center;
+        border-radius: 12px;
+    }
+
+    .buttons {
+        padding: 0 1rem;
+        margin-bottom: 10px;
+        gap: 10px;
+    }
+
+    .ctaButton {
+        margin-top: 10px;
+    }
+}

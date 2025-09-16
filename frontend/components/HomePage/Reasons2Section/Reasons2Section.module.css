@@ -1,0 +1,129 @@
+.reasons {
+
+}
+
+.reasons_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+    padding: 100px 95px;
+}
+
+.reasons_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+.reasons_reason {
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.first,
+.second,
+.fourth {
+    background-color: #9574CC;
+
+}
+
+.third {
+    background-color: var(--primary);
+}
+
+
+.first {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.second {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.third {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+
+}
+
+.fourth {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.reason_titleWrapper {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.reasons_icon {
+    margin-top: 20px;
+    filter: drop-shadow(0px 0px 60px rgba(86, 61, 130, 0.6));
+}
+
+.reasons_description {
+    color: var(--white);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.5;
+}
+
+.reason_buttonWrapper {
+    padding-top: 20px;
+}
+
+@media (max-width: 1200px) {
+    .reasons_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .third {
+        order: 5; /* ставим последней */
+    }
+}
+
+/* ==== АДАПТИВ ==== */
+@media (max-width: 768px) {
+    .reasons_wrapper {
+        padding: 60px 20px;
+        gap: 40px;
+    }
+
+
+
+    .reasons_reason {
+        padding: 16px;
+        gap: 18px;
+    }
+
+    /* Переносим карточку с кнопкой вниз */
+
+
+    .reasons_icon {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+    }
+
+    .reason_titleWrapper {
+        min-height: auto;
+    }
+
+    .reasons_description {
+        font-size: 16px;
+    }
+}

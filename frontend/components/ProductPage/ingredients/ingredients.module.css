@@ -1,0 +1,219 @@
+.container {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 20px 10px;
+    text-align: center;
+    background: #f7f6fb;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.title {
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: clamp(16px, 2vw, 24px);
+    color: var(--primary);
+    margin-bottom: 3rem;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 25vw;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 23rem;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.imageWrapper {
+    margin-bottom: 1rem;
+}
+
+.name {
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    font-size: clamp(16px, 2vw, 24px);
+    color: var(--primary);
+    line-height: 1.5;
+}
+
+.fullWrapper {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.fullComposition {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 1rem;
+    background: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+.fullComposition.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1.5rem;
+}
+
+.fullText {
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.6;
+    color: var(--primary);
+}
+
+.toggleBtn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: clamp(16px, 2vw, 24px);
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #563D82, #9C6ADE);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.toggleBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 1279px) {
+    .name_wrapper {
+        height: clamp(18px, 2.5vw, 30px);
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+@media (max-width: 1032px) {
+    .card {
+
+        width: 25vw;
+
+        max-width: 23rem;
+    }
+    .cards {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .image {
+        width: 20%;
+        height: auto;
+    }
+    .name_wrapper {
+height: clamp(18px, 2.5vw, 30px);
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+}
+
+}
+
+/* Мобильные стили */
+@media (max-width: 1035px) {
+    .container {
+        padding: 15px 8px;
+        border-radius: 1.2rem;
+    }
+
+    .title {
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        margin-bottom: 2rem;
+        padding: 0 10px;
+    }
+
+    /* Скрываем десктопную сетку на мобильных */
+    .cards {
+        display: none;
+    }
+
+    /* Контейнер для свайпера */
+    .galleryWrapper {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
+        -webkit-overflow-scrolling: touch; /* плавный скролл на iOS */
+    }
+    /* Мобильная карточка для свайпера */
+    .card {
+        flex: 0 0 80%; /* карточка занимает 80% ширины → видны соседи */
+        scroll-snap-align: center;
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        transition: none; /* убираем hover-анимацию */
+    }
+
+    .card:hover {
+        transform: none;
+
+    }
+
+    .card:active {
+        cursor: grabbing;
+    }
+
+    .imageWrapper {
+        margin-bottom: 0.8rem;
+    }
+
+    .name {
+        margin-bottom: 0.4rem;
+    }
+
+    .description {
+        line-height: 1.4;
+    }
+
+    .fullWrapper {
+        margin-top: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .fullText {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .toggleBtn {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border-radius: 1.5rem;
+    }
+}

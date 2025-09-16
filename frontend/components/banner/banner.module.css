@@ -1,0 +1,32 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 210px; /* задай нужную высоту */
+    margin-top: 130px;
+
+    background-image: url("/banner/banner_background.png"); /* путь к картинке */
+    background-size: cover; /* растянуть под размер блока */
+    background-position: center; /* центрировать */
+    background-repeat: no-repeat; /* не повторять */
+}
+
+@media (max-width: 1200px) {
+
+    .banner {
+        height: 180px;
+        margin-top: 130px;
+padding: 20px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        text-align: center;
+    }
+}
+
+@media (max-width: 815px) {
+
+    .banner {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,215 @@
+.contacts {
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    position: relative;
+}
+
+.contacts_data_image {
+    width: 15%;
+    height: auto;
+    margin-bottom: 90px;
+    margin-left: -12px;
+
+}
+
+.contacts_data__a{
+    color: var(--white);
+    text-decoration: none;
+
+    font-size: clamp(16px, 2vw, 24px);
+}
+
+.contacts_data__h3 {
+    margin-bottom: 20px;
+}
+
+.contacts_data {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    justify-content: space-between;
+
+    background: linear-gradient(
+            #FFFFFF 0%,
+            #A788DB 50%,
+            #563D82 100%
+    );
+}
+.contacts_data_title {
+    font-size: 70px;
+    margin-bottom: 45px;
+}
+.contacts_data__credentials{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 190px;
+}
+.contacts_form__wrapper {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 150px;
+
+    background: linear-gradient( #FFFFFF 0%, #DDDBEA 100%);
+
+}
+
+
+.contacts_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 24px;
+    min-height: 500px;
+
+}
+
+.contacts_form__input,
+.contacts_form__textarea {
+    padding: 12px 16px;
+    font-size: clamp(16px, 2vw, 24px);
+    color: var(--primary);
+    border: none;
+    border-bottom: 1px solid var(--primary);
+
+background-color: transparent;
+
+    resize: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacts_form__input:focus,
+.contacts_form__textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #7e5bef;
+
+}
+
+.contacts_form__input::placeholder,
+.contacts_form__textarea::placeholder {
+    color: var(--primary);
+}
+
+.contacts_form__title {
+    margin-bottom: 16px;
+}
+
+.contacts_form__input:-webkit-autofill,
+.contacts_form__textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* или ваш цвет фона */
+    -webkit-text-fill-color: var(--primary); /* ваш нужный цвет текста */
+    transition: background-color 9999s ease-in-out 0s;
+
+
+}
+.contacts_form__button {
+    background: var(--primary); /* Цвет фона */
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;/* Чтобы элемент стал "блоковым" (кнопка), но оставался в потоке */
+
+    font-weight: 600; /* Толщина текста */
+    text-align: center; /* Центрируем текст по горизонтали */
+    padding: 20px 30px; /* Внутренние отступы со всех сторон (увеличивают кнопку) */
+    border: none; /* Убираем стандартную границу (если есть) */
+    border-radius: 10px; /* Добавляем скругление углов (по желанию) */
+    cursor: pointer; /* Указываем, что элемент кликабелен */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    max-width: 35vw; /* Максимальная ширина для адаптивности */
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+    font-size: clamp(16px, 1.5vw, 28px);
+}
+
+@media (max-width: 1000px) {
+    .contacts {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .contacts_data,
+    .contacts_form__wrapper {
+        padding: 15px 0;
+    }
+
+
+    .contacts_data {
+        background: linear-gradient(
+                #FFFFFF 0%,
+                #A788DB 50%,
+                #563D82 100%
+        );
+        padding: 30px 15px;
+
+        position: relative;
+    }
+
+    .contacts_data_image {
+        position: absolute;
+        width: 20%;
+right: 15px;
+
+    }
+
+    .contacts_data_title {
+        font-size: clamp(36px, 7vw, 46px);
+        margin-bottom: 30px;
+    }
+
+    .contacts_data__h3 {
+        font-size: clamp(18px, 4vw, 22px);
+        margin-bottom: 10px;
+    }
+
+    .contacts_data__a {
+        font-size: clamp(14px, 4vw, 20px);
+    }
+
+    .contacts_data__credentials {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .contacts_form__wrapper {
+        background: linear-gradient( #DDDBEA 0%, #FFFFFF 100%);
+        padding: 30px 15px;
+        gap: 40px;
+    }
+
+    .contacts_form__title {
+        font-size: clamp(24px, 6vw, 36px);
+        margin-bottom: 20px;
+    }
+
+    .contacts_form {
+        min-height: auto;
+        gap: 12px;
+        margin-top: 0;
+    }
+
+    .contacts_form__input,
+    .contacts_form__textarea {
+        font-size: clamp(14px, 4vw, 20px);
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--primary);
+        width: 100%;
+    }
+
+    .contacts_form__textarea {
+        resize: vertical;
+    }
+
+    .contacts_form__button {
+        max-width: 100%;
+        font-size: clamp(16px, 5vw, 24px);
+        padding: 16px 0;
+        border-radius: 8px;
+    }
+}

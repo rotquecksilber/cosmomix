@@ -1,0 +1,148 @@
+/* File: components/CollapsibleAccordion/accordion.module.css */
+
+.wrapper {
+    width: 100%;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: linear-gradient(145deg, #5A368E, #9574CC);
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.25s ease;
+
+}
+
+.wrapper:hover {
+    transform: translateY(-2px);
+}
+
+/* Кнопка-триггер */
+.trigger {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Jura', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: inherit;
+}
+
+.trigger:focus {
+    outline: none;
+}
+
+.trigger:hover .title {
+    color: #9b8dff;
+    transition: color 0.3s ease;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.75rem;
+}
+
+/* Заголовок */
+.title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 1;
+    transition: color 0.3s ease;
+}
+
+
+
+.trigger:hover {
+    color: #d1cfff;
+}
+
+/* Иконка стрелки */
+.icon {
+    transition: transform 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    color 0.3s ease;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.open {
+    transform: rotate(180deg);
+    color: #9b8dff;
+}
+
+/* Контентная часть */
+.contentOuter {
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: max-height;
+}
+
+.contentInner {
+    padding: 1rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #e6e6e6;
+}
+
+/* Картинка */
+.imageWrap {
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+    max-height: 250px;
+
+
+    transition: transform 0.35s ease;
+}
+
+.imageWrap:hover {
+    transform: scale(1.02);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Текст */
+.text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    animation: fadeIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+[aria-hidden="false"] .text {
+    opacity: 1;
+}
+
+.openWrapper {
+    background: #ffffff; /* белый фон */
+    color: var(--primary); /* текст в фирменном цвете */
+}
+
+.openWrapper .title {
+    color: var(--primary);
+}
+
+.openWrapper .icon {
+    color: var(--primary);
+}
+
+/* Анимация плавного появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
