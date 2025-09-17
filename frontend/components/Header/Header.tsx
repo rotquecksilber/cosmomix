@@ -6,8 +6,9 @@ import styles from './Header.module.css';
 import cs from 'classnames';
 import { usePathname } from 'next/navigation';
 import PopUp from '@/components/PopUp/PopUp';
-import {useState} from 'react';
+import { useState } from 'react';
 import Burger from '@/components/burger/burger';
+
 
 const navLinks = [
   { href: '/about', text: 'О нас' },
@@ -30,20 +31,17 @@ const navLinks = [
       { href: '/catalog/pets', text: 'Косметика для животных' },
     ],
   },
-  { href: '/cases', text: 'Кейсы' },
-  { href: '/blog', text: 'Блог' },
   { href: '/contacts', text: 'Контакты' },
 ];
 
 export default function Header() {
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  // Используем null или индекс для отслеживания открытого подменю
   const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setOpenSubmenu(null); // Закрываем все подменю при закрытии основного меню
+    setOpenSubmenu(null);
   };
 
   const toggleSubmenu = (index: number) => {
@@ -84,7 +82,6 @@ export default function Header() {
                     {link.text}
                   </Link>
 
-                  {/* Мегаменю */}
                   {link.submenu && (
                     <div className={styles.megamenu}>
                       <div className={styles.megamenu__products}>
@@ -155,11 +152,7 @@ export default function Header() {
 
         {menuOpen && (
           <>
-            <button
-              className={styles.mobileOverlay}
-              onClick={closeMenu}
-              aria-label="Закрыть меню"
-            ></button>
+
 
             <nav className={cs(styles.mobileMenu, styles.mobileMenu__open)}>
               <ul className={styles.mobileMenu_menu}>
@@ -172,14 +165,16 @@ export default function Header() {
                       <li key={index}>
                         <button
                           type="button"
-                          className={cs(styles.header_desk__navLinks, {
+                          className={cs(styles.mobileMenu_link, {
                             [styles.active]: isActive,
                           })}
                           onClick={() => toggleSubmenu(index)}
                           aria-expanded={isSubmenuOpen}
                           aria-controls={`submenu-mobile-${index}`}
                         >
-                          {link.text}
+                          <div className={styles.subArrow}>{link.text} <Image className={styles.subArrow_arrow} src={'/arrow.svg'} alt={''} height={10} width={10}/>
+                          </div>
+
                         </button>
 
                         {isSubmenuOpen && (
@@ -188,6 +183,7 @@ export default function Header() {
                             className={styles.submenuMobile}
                           >
                             {link.submenu.map((sub, subIndex) => (
+
                               <li key={subIndex} onClick={closeMenu}>
                                 <Link
                                   href={sub.href}
@@ -195,8 +191,10 @@ export default function Header() {
                                 >
                                   {sub.text}
                                 </Link>
+
                               </li>
                             ))}
+
                           </ul>
                         )}
                       </li>
@@ -207,12 +205,13 @@ export default function Header() {
                     <li key={index} onClick={closeMenu}>
                       <Link
                         href={link.href}
-                        className={cs(styles.header_desk__navLinks, {
+                        className={cs(styles.mobileMenu_link, {
                           [styles.active]: isActive,
                         })}
                       >
                         {link.text}
                       </Link>
+
                     </li>
                   );
                 })}

@@ -55,6 +55,15 @@
     font-weight: 600;
 }
 
+.openButtonMobile {
+    background-color: var(--primary);
+padding: 15px;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -130,4 +139,18 @@
     bottom: 0;
     right: 0;
     z-index: 0;
+}
+
+
+/* --- Media --- */
+@media (max-width: 815px) {
+    .openButton {
+        display: none;
+    }
+}
+
+@media (min-width: 816px) {
+    .openButtonMobile {
+        display: none;
+    }
 }

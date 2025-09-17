@@ -2,6 +2,7 @@
     position: relative;
 }
 
+
 .header_desk__wrapper {
     position: fixed;
     top: 0;
@@ -27,9 +28,9 @@
 .header_desk__navLinks {
     color: var(--primary);
     font-size: clamp(14px, 1.5vw, 24px);
-    font-weight: 600;
     transition: opacity 0.3s ease-in-out;
-
+    border: none;
+    background: none;
 }
 
 .header_desk__navLinks:hover {
@@ -46,7 +47,7 @@
 
 /* --- Мегаменю --- */
 .megamenu {
-    display: none; /* <- скрыто по умолчанию */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -56,13 +57,12 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     padding: 2rem;
     z-index: 2;
-
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
 
 .hasSubmenu:hover .megamenu {
-    display: grid; /* <- показывается только на hover */
+    display: grid;
 }
 
 .megamenu__products {
@@ -110,7 +110,7 @@
 .header_mobile {
     position: fixed;
     bottom: 0;
-    z-index: 9999;
+    z-index: 1000;
     background-color: white;
     width: 100vw;
     height: 80px;
@@ -143,12 +143,12 @@
 /* Overlay + Mobile menu */
 .mobileOverlay {
     position: fixed;
-    bottom: 80px;
+    top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: var(--brand-light-60);
-    z-index: 998;
+    z-index: 998; /* ниже меню */
 }
 
 .mobileMenu {
@@ -157,8 +157,9 @@
     left: 0;
     right: 0;
     background: white;
-    z-index: 999;
-    height: 45vh;
+    z-index: 999; /* выше оверлея */
+    max-height: 70vh;
+    overflow-y: auto;
     opacity: 0;
     transform: translateY(-10px);
     pointer-events: none;
@@ -182,9 +183,34 @@
     list-style: none;
 }
 
+/* Ссылки мобильного меню */
+.mobileMenu_link {
+    font-family: inherit; /* наследует от body (Jura) */
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+    font-size: clamp(14px, 1.5vw, 24px);
+    font-weight: 400;
+    color: var(--primary);
+
+    background: none;
+    border: none;
+    text-align: center;
+    width: 100%;
+}
+.mobileMenu_link:hover {
+    font-weight: 800;
+}
+
+.mobileMenu_link.active {
+    font-weight: 600;
+}
+
 .submenuMobile {
-    padding-left: 1rem;
+
     margin-top: 0.5rem;
+    font-size: clamp(14px, 1.5vw, 24px);
 }
 
 .submenuMobile li {
@@ -192,15 +218,29 @@
 }
 
 .submenuMobile a {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0.5rem 0;
-    color: #222;
+    color: var(--primary);
     text-decoration: none;
 }
 
 .submenuMobile a:hover {
     color: #563d82;
 }
+
+.subArrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.subArrow_arrow {
+    margin-top: 3px;
+}
+
 
 /* --- Media --- */
 @media (max-width: 815px) {

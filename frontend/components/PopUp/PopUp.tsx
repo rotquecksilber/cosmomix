@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
 import { jura } from '@/lib/fonts';
+import Image from 'next/image';
 
 type FormData = {
     name: string;
@@ -27,7 +28,11 @@ export default function PopUp() {
   return (
     <div>
       <button onClick={togglePopup} className={cn(styles.openButton, jura.className)}>
-                Оставить заявку
+              Оставить заявку
+      </button>
+
+      <button onClick={togglePopup} className={cn(styles.openButtonMobile)}>
+        <Image src={'/vector.svg'} alt={'Заявка'} width={25} height={25}></Image>
       </button>
 
       {isOpen && (
@@ -40,7 +45,7 @@ export default function PopUp() {
               <input
                 type="text"
                 placeholder="Имя"
-                {...register('name', { required: 'Введите имя' })}
+                {...register('name', {required: 'Введите имя'})}
               />
               {errors.name && <span className={styles.error}>{errors.name.message}</span>}
 
@@ -63,7 +68,7 @@ export default function PopUp() {
               />
 
               <button type="submit" className={cn(styles.submitButton, jura.className)}>
-                                Отправить
+                              Отправить
               </button>
             </form>
           </div>
