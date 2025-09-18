@@ -8,7 +8,7 @@ export default function ContactsSection() {
     <section>
       <div className={styles.contacts}>
         <div className={styles.contacts_data}>
-          <Image src={'/Logo.svg'} alt={'Cosmomix'} width={128} height={112} className={styles.contacts_data_image} />
+          <Image src={'/Logo1.png'} alt={'Cosmomix'} width={128} height={112} className={styles.contacts_data_image} />
           <Htag tag={'h2'} color={'white'} className={styles.contacts_data_title} uppercase={true}>
               Ваша идея +<br />наша экспертиза
           </Htag>

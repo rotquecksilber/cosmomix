@@ -99,7 +99,7 @@ export default function StagesSection() {
       {/* --- DESKTOP --- */}
       <div className={styles.desktopVersion}>
         <div className={styles.stages_wrapper}>
-          <Htag color={'gradient'} tag={'h2'} uppercase={true}>
+          <Htag color={'gradient'} tag={'h2'} uppercase={true} className={styles.title}>
               Этапы производства
           </Htag>
           <div className={styles.grid}>

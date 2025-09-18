@@ -12,9 +12,9 @@
 
 .banner_image {
     width: 100%;
-    height: 100%; /* Фиксированная высота баннера */
-    max-height: 600px;
-    object-fit: cover; /* Масштабируем изображение */
+    height: auto; /* пусть сам масштабируется */
+    max-height: 600px; /* ограничение только сверху */
+    object-fit: cover;
 }
 
 .banner_textWrapper {
@@ -44,7 +44,7 @@
 
 .text_description,
 .connect_text_description {
-    font-size: clamp(18px, 2.5vw, 32px);
+    font-size: clamp(16px, 2.5vw, 32px);
     font-weight: 800;
     margin-bottom: 40px;
     color: #FFFFFF;
@@ -107,7 +107,7 @@
 @media (max-width: 780px) {
     .banner_image {
         width: auto;
-        min-height: 820px; /* Фиксированная высота баннера */
+        min-height: 800px; /* Фиксированная высота баннера */
 
         object-fit: cover; /* Масштабируем изображение */
     }

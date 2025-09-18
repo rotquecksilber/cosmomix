@@ -21,7 +21,7 @@ export default function TeamSection() {
                 </div>
 
                 <div>
-                  <Htag tag={'h3'} color={'primary'}>{member.name}</Htag>
+                  <Htag tag={'h3'} color={'primary'} className={styles.team_name}>{member.name}</Htag>
                 </div>
 
                 <div className={styles.team_position}>

@@ -7,9 +7,9 @@
 }
 
 .contacts_data_image {
-    width: 15%;
-    height: auto;
-    margin-bottom: 90px;
+    width: 20%;
+height: auto;
+
     margin-left: -12px;
 
 }
@@ -152,9 +152,7 @@ background-color: transparent;
     }
 
     .contacts_data_image {
-        position: absolute;
-        width: 20%;
-right: 15px;
+display: none;
 
     }
 

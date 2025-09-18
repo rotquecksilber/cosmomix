@@ -63,6 +63,7 @@
 .mobileVersion {
     display: none;
 }
+
 @media(max-width: 1266px) {
     .stages_photo {
         position: absolute;

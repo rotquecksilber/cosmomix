@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './capability.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface CapabilityItem {
@@ -19,8 +19,15 @@ interface CapabilityProps {
 
 export default function Capability({ items, bgImage }: CapabilityProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // переключение аккордеона по тапу (мобила)
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const toggleAccordion = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
   };
@@ -37,13 +44,19 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
       <div className={styles.capability}>
         {items.map((item, index) => {
           const isActive = activeIndex === index;
+
+          const eventHandlers = isMobile
+            ? { onClick: () => toggleAccordion(index) }
+            : {
+              onMouseEnter: () => setActiveIndex(index),
+              onMouseLeave: () => setActiveIndex(null),
+            };
+
           return (
             <motion.div
               key={item.id}
               className={styles.capabilityItem}
-              onMouseEnter={() => setActiveIndex(index)} // десктоп
-              onMouseLeave={() => setActiveIndex(null)} // десктоп
-              onClick={() => toggleAccordion(index)} // мобила
+              {...eventHandlers}
               style={{
                 background: isActive ? item.background : '#FFFFFF',
                 transition: 'background 0.4s ease-in-out',
@@ -73,22 +86,19 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
                             {item.description}
                           </p>
                           <motion.button className={styles.button}>
-                                      Заказать звонок
+                                                        Заказать звонок
                           </motion.button>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
-                  <span className={styles.accordionIcon}>
-                    {isActive ? '×' : '+'}
-                  </span>
-                  {/* крестик / плюсик */}
-
+                  {isMobile && (
+                    <span className={styles.accordionIcon}>
+                      {isActive ? '×' : '+'}
+                    </span>
+                  )}
                 </div>
-
               </div>
-
-
             </motion.div>
           );
         })}
@@ -96,4 +106,3 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
     </section>
   );
 }
-

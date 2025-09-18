@@ -92,7 +92,7 @@
     }
 
     .imageWrapper {
-        height: auto;
+        height: 250px;
         aspect-ratio: 4 / 5; /* современный способ задать пропорцию */
         border-radius: 20px;
     }
