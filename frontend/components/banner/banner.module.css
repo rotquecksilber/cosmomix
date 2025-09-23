@@ -5,6 +5,7 @@
     height: 210px; /* задай нужную высоту */
     margin-top: 130px;
 
+
     background-image: url("/banner/banner_background.png"); /* путь к картинке */
     background-size: cover; /* растянуть под размер блока */
     background-position: center; /* центрировать */

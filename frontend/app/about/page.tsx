@@ -116,7 +116,7 @@ export default function AboutPage() {
               </Htag>
               <Image
                 alt="Сотрудничество с MANLYPRO"
-                src="Logo.svg"
+                src="/logo.svg"
                 width={609}
                 height={391}
                 className={styles.accordion_picture}

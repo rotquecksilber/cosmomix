@@ -2,6 +2,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './accordion.module.css';
+import Image from 'next/image';
 
 interface Props {
     title: string | React.ReactNode;
@@ -76,7 +77,7 @@ export default function CollapsibleAccordion({
         <div ref={contentRef} className={styles.contentInner}>
           {imageSrc && (
             <div className={styles.imageWrap}>
-              <img src={imageSrc} alt={imageAlt} className={styles.image} />
+              <Image src={imageSrc} alt={imageAlt} className={styles.image} width={608} height={340}/>
             </div>
           )}
 

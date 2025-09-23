@@ -12,7 +12,7 @@
     height: 130px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 0 95px;
+    padding: 0 25px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;

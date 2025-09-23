@@ -25,10 +25,7 @@ const navLinks = [
     text: 'Продукция',
     submenu: [
       { href: '/product', text: 'Тестовый продукт' },
-      { href: '/catalog/decor', text: 'Декоративная косметика' },
-      { href: '/catalog/care', text: 'Уходовая косметика' },
-      { href: '/catalog/kids', text: 'Натуральная детская косметика' },
-      { href: '/catalog/pets', text: 'Косметика для животных' },
+      { href: '/decorative_cosmetics', text: 'Декоративная косметика' },
     ],
   },
   { href: '/contacts', text: 'Контакты' },

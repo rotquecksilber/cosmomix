@@ -18,7 +18,7 @@ export default function ProductPage() {
     '/product/img5.jpg',
   ];
   const title = 'Maximizer';
-  const advanatges = [
+  const advantages = [
     {advantage: 'Мгновенный объём губ', image: '/product/ad1.png'},
     {advantage: 'Защита губ', image: '/product/ad2.png'},
     {advantage: 'Стимулирует кровообращение', image: '/product/ad3.png'},
@@ -70,7 +70,7 @@ export default function ProductPage() {
 
 
 
-        <Advantages items={advanatges}/>
+        <Advantages items={advantages}/>
         <IngredientsCard ingredients={ingredients}/>
         <Usage items={usage} image="/product/usage/usage.jpg" />
 

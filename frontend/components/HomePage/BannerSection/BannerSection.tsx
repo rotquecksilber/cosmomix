@@ -43,11 +43,11 @@ export default function BannerSection() {
                     Контрактное производство — это не просто услуга, а тонкий процесс, где технологии встречаются с
                     креативом, а качество становится приоритетом.
         </p>
-        <Button href="/" color="soft" uppercase type="standard" className={styles.desktop}>
-                    Наши услуги
+        <Button href="/capability" color="soft" uppercase type="standard" className={styles.desktop}>
+                    Наши возможности
         </Button>
-        <Button href="/" color="soft" uppercase type="standard" className={styles.mobile_button}>
-                    Наши услуги
+        <Button href="/capability" color="soft" uppercase type="standard" className={styles.mobile_button}>
+                    Наши возможности
         </Button>
       </div>
     </section>

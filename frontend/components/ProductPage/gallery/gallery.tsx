@@ -5,6 +5,7 @@ import {motion, AnimatePresence, PanInfo} from 'framer-motion';
 import styles from './gallery.module.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Htag from '@/components/htag/htag';
+import Image from 'next/image';
 
 interface GalleryProps {
   images: string[];
@@ -105,7 +106,7 @@ export default function Gallery({ images, title }: GalleryProps) {
               animate={{ x: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <img
+              <Image width={1024} height={1024}
                 src={visibleImages[0]}
                 alt={`Слайд ${index + 1}`}
                 className={`${styles.slide} ${styles.active}`}
@@ -124,7 +125,7 @@ export default function Gallery({ images, title }: GalleryProps) {
                 className={styles.slideWrapper}
                 onClick={() => setIndex(prev => prev + i)}
               >
-                <img
+                <Image width={1024} height={1024}
                   src={src}
                   alt={`Слайд ${i + 1}`}
                   className={`${styles.slide} ${i === 0 ? styles.active : ''}`}

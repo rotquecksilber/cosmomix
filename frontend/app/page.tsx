@@ -40,7 +40,7 @@ export default function Home() {
       {/*Reasons*/}
       <Reasons2Section/>
 
-      <BlogSection/>
+      {/*<BlogSection/>*/}
 
       <TeamSection/>
       <FAQSection/>
