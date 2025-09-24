@@ -37,8 +37,8 @@
 
 .imageWrapper {
     position: relative;
-    width: 100%;
-    height: 545px;
+    width: auto;
+    height: 350px;
     overflow: hidden;
     border-radius: 30px;
 }
@@ -121,6 +121,11 @@
                 rgba(255, 255, 255, 0.2) 60%,
                 transparent 100%
         ); /* мягкая подложка под текст */
+    }
+
+    @media (max-width: 780px) {
+
+        .overlayContent {justify-content: center}
     }
 
     .overlayContent h3 {

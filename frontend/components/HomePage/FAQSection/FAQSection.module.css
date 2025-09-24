@@ -4,16 +4,26 @@
     flex-direction: column;
     align-items: center;
     max-width: 2000px;
+
     margin: 100px auto;
     padding: 0 95px;
     z-index: 1;
     overflow: visible;
 }
+.item:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.item:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
 
 .logo {
     position: absolute;
     top: -150px;
-    right: -250px; /* сдвигаем за пределы правой границы */
+    right: -250px;
     max-width: 650px;
     height: auto;
     z-index: -1;
@@ -24,10 +34,11 @@
 .title {
     z-index: 1;
     margin-bottom: 55px;
+
 }
 
 .title span {
-    color: var(--primary); /* Например, фиолетовый */
+    color: var(--primary);
     font-weight: 600;
 }
 
@@ -35,48 +46,53 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+
 }
 
 .item {
-    border: 2px solid var(--primary);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+
+
     cursor: pointer;
     background-color: white;
+    padding: 0; /* перенесли padding внутрь вопроса */
 }
 
-.question {
-    padding: 20px;
-    font-weight: 500;
-    color: var(--primary);
-    position: relative;
+.questionWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    min-height: 100px;
+}
+
+.question {
+    padding: 10px;
+    font-weight: 500;
+    color: var(--primary);
+    font-size: clamp(18px, 2vw, 22px);
 }
 
 .icon {
-    transition: transform 0.3s ease;
     font-size: 24px;
+    font-weight: bold;
     color: var(--primary);
-}
-
-.open {
-    transform: rotate(45deg); /* превращает "+" в "×" */
 }
 
 .answerWrapper {
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+    overflow: hidden; /* framer-motion сам будет анимировать height */
 }
 
 .answer {
-    padding: 0 20px 20px 20px;
-    font-size: clamp(16px, 2vw, 24px);
+    padding: 0 30px 20px;
+    font-size: clamp(16px, 2vw, 20px);
     color: var(--primary);
     line-height: 1.6;
+}
+
+@media (max-width: 901px) {
+    .title {
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -97,17 +113,18 @@
         text-align: center;
     }
 
-    .accordion {
-        gap: 12px;
-    }
+
 
     .item {
-        border-width: 1.5px;
+
         border-radius: 10px;
     }
 
-    .question {
+    .questionWrapper {
         padding: 16px 20px;
+    }
+
+    .question {
         font-size: 18px;
         font-weight: 600;
     }
@@ -116,22 +133,9 @@
         font-size: 28px;
     }
 
-    .answerWrapper {
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.4s ease;
-    }
-    .answerWrapper.show {
-        max-height: 500px; /* или больше, чтобы вместить длинный ответ */
-    }
     .answer {
         font-size: 16px;
         padding: 12px 20px 20px;
         line-height: 1.5;
-    }
-
-    /* Увеличиваем кликабельную область для вопросов */
-    .item {
-        touch-action: manipulation;
     }
 }

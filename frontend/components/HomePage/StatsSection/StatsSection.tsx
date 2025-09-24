@@ -34,9 +34,9 @@ export default function StatsSection() {
           ))}
         </ul>
         <Image
-          src="/home_page/numbers_bottom.png"
+          src="/home_page/numbers_top.png"
           alt="Женщина с образцами косметики для производства по контракту"
-          width={1047}
+          width={602}
           height={10}
           className={cn(styles.numbers_picture, styles.numbers_picture_top)}
         />

@@ -48,9 +48,20 @@ export default function PopUp() {
       {isOpen && (
         <div className={styles.overlay} onClick={togglePopup}>
           <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+
+            {/* Декоративный фон */}
+            <Image
+              src="/logo.png"
+              alt="Логотип"
+              className={styles.logo}
+              width={300}
+              height={300}
+            />
+
             <button className={styles.closeButton} onClick={togglePopup}>
                             ×
             </button>
+
             <h2 className={styles.title}>Оставить заявку</h2>
 
             <form

@@ -12,6 +12,7 @@ export default function Htag({tag, color, uppercase, children, className}: HtagP
     [styles['color-white']]: color === 'white',
     [styles['gradient']]: color === 'gradient',
     [styles['color-primary']]: color === 'primary',
+    [styles['color-production']]: color === 'production',
   });
 
   return (

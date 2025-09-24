@@ -3,7 +3,7 @@ import styles from './Reasons2Section.module.css';
 import cn from 'classnames';
 import Htag from '@/components/htag/htag';
 import Image from 'next/image';
-import Button from '@/components/button/button';
+// import Button from '@/components/button/button';
 import { motion } from 'framer-motion';
 
 export default function Reasons2Section() {
@@ -96,9 +96,9 @@ export default function Reasons2Section() {
                 </div>
                 {index === 2 && (
                   <div className={styles.reason_buttonWrapper}>
-                    <Button color="white" type="standard" href="/">
-                            Подробнее
-                    </Button>
+                    {/*<Button color="white" type="standard" href="/">*/}
+                    {/*        Подробнее*/}
+                    {/*</Button>*/}
                   </div>
                 )}
               </motion.div>

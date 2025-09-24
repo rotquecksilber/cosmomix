@@ -28,7 +28,7 @@
     max-width: 50vw;
     max-height: 600px;
     display: grid;
-    grid-template-rows: 3fr 3fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
     padding-top: 3rem; /* Добавляем отступ сверху */
     padding-bottom: 3rem; /* Добавляем отступ снизу */
 }
@@ -44,7 +44,7 @@
 
 .text_description,
 .connect_text_description {
-    font-size: clamp(16px, 2.5vw, 32px);
+    font-size: clamp(16px, 2.2vw, 32px);
     font-weight: 800;
     margin-bottom: 40px;
     color: #FFFFFF;
@@ -77,14 +77,15 @@
 
 .banner_model {
     position: absolute;
-    top: 50%;
-    right: -5%; /* Сдвиг на 5% за правый край */
-    transform: translate(100%, -50%);
+    top: 0;
+    right: -15%; /* Сдвиг на 5% за правый край */
+    transform: scaleX(-1);
     width: auto;
     height: 600px;
     max-height: 100%;
     object-fit: contain;
-    animation: slideInFromRight 1s ease-out forwards;
+
+
 }
 
 .desktop {
@@ -114,11 +115,11 @@
 
 
     .banner_model {
-        top: 20px;
-        bottom: 0;
+        top: 0;
+
         left: 50%;
         right: auto;
-        transform: translateX(-50%);
+        transform: translateX(-50%) scaleX(-1);
         height: 300px;
         animation: none;
     }

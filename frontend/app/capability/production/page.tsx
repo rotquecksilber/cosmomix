@@ -7,17 +7,17 @@ export default function ProductionPage() {
   const capabilitiesData = [
     {
       id: '01',
-      title: 'Продакшн',
+      title: 'Разработка',
       facts: ['Варка', 'Фасовка'],
       description: 'Варка и фасовка любых категорий косметических масс: кремовых, жидких и пенообразующих продуктов.',
-      background: '#DDDBEA',
+      background: '#9574CC',
     },
     {
       id: '02',
       title: 'Упаковка',
       facts: ['Первичная', 'Вторичная'],
       description: 'Фасовка в первичную и вторичную упаковку: саше, монодозы, мини-форматы, пластиковые и алюминиевые тубы, все виды флаконов, банки.',
-      background: '#CCB6EC',
+      background: '#9574CC',
     },
     {
       id: '03',
@@ -31,7 +31,7 @@ export default function ProductionPage() {
       title: 'Сопровождение',
       facts: ['Подбор', 'Заказ'],
       description: 'Помощь в подборе и заказе первичной упаковки в рамках full service.',
-      background: '#5A368E',
+      background: '#9574CC',
     },
   ];
 

@@ -3,6 +3,7 @@
 import styles from './capability.module.css';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Htag from '@/components/htag/htag';
 
 interface CapabilityItem {
     id: string;
@@ -67,12 +68,8 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
 
                 <div className={styles.capabilityIcon}>
                   <div>
-                    <h3 className={styles.capabilityTitle}>{item.title}</h3>
-                    <ul className={styles.capabilityFacts}>
-                      {item.facts.map((fact, i) => (
-                        <li key={i}>{fact}</li>
-                      ))}
-                    </ul>
+                    <Htag tag={'h2'} color={'production'} className={styles.capabilityTitle}>{item.title}</Htag>
+
                     <AnimatePresence>
                       {isActive && (
                         <motion.div
@@ -85,16 +82,14 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
                           <p className={styles.capabilityDescription}>
                             {item.description}
                           </p>
-                          <motion.button className={styles.button}>
-                                                        Заказать звонок
-                          </motion.button>
+
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                   {isMobile && (
                     <span className={styles.accordionIcon}>
-                      {isActive ? '×' : '+'}
+
                     </span>
                   )}
                 </div>

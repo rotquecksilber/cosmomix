@@ -3,9 +3,7 @@
     font-size: clamp(22px, 2.5vw, 36px);
     font-weight: bold;
 }
-.h2 {
-    text-align: center;
-}
+
 @media (max-width: 1280px) {
     .h3 {
         font-size: clamp(18px, 4vw, 28px);
@@ -29,8 +27,13 @@
         }
 }
 
+@media (max-width: 780px) {
+    .h2 {
+text-align: center;
+    }
+}
 .h3 {
-    font-size: clamp(15px, 2.5vw, 30px);
+    font-size: clamp(15px, 2vw, 30px);
     font-weight: bold;
 
 }
@@ -63,13 +66,17 @@
     color: var(--primary);
 }
 
+.color-production {
+    color: var(--production);
+}
+
 
 .gradient {
     background: linear-gradient(
             90deg,
-            #563D82 0%,   /* Фиолетовый */
-            #9678D3 76%,  /* Светло-фиолетовый */
-            #656565 100%  /* Серый */
+            #5A368E 0%,   /* Фиолетовый */
+            #9352FF 60%,  /* Светло-фиолетовый */
+            #515151 100%  /* Серый */
     );
     -webkit-background-clip: text; /* Используем фон внутри текста */
     -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден градиент */

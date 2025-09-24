@@ -13,12 +13,21 @@
 .capabilityItem {
     position: relative; /* нужно для ::before */
     z-index: 1; /* текст выше псевдоэлемента */
-    padding: 20px;
+    padding: 30px;
     width: 100%;
     cursor: pointer;
     overflow: hidden;
     background: transparent; /* фон задаётся через hover */
     transition: background 0.4s ease-in-out;
+}
+.capabilityItem:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.capabilityItem:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 /* Градиент под текстом */
@@ -56,9 +65,11 @@
 .capabilityTitle {
     position: relative;
     z-index: 1; /* текст выше ::before */
-    margin: 0;
-    font-size: 20px;
+
+font-size: 30px;
+    margin-bottom: 20px;
     font-weight: 600;
+    text-align: left;
 }
 
 /* Факты */
@@ -100,7 +111,7 @@
 
 .capabilityDescription {
     margin-top: 12px;
-    font-size: 14px;
+    font-size: clamp(16px, 1.7vw, 22px);
     line-height: 1.5;
 }
 

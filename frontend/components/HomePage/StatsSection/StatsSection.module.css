@@ -24,14 +24,14 @@
     justify-content: flex-start;
     align-items: center;
     padding: 60px 20px 80px;
-    gap: 70px;
+    gap: 40px;
 }
 .numbers_picture {
     max-width: 80%;
 }
 
 .numbers_h2 {
-    margin-top: 40px;
+    margin-top: 0;
 }
 
 .numbers_text {
