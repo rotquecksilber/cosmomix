@@ -8,7 +8,7 @@ import StatsSection from '@/components/HomePage/StatsSection/StatsSection';
 import ReasonsSection from '@/components/HomePage/ReasonsSection/ReasonsSection';
 import StagesSection from '@/components/HomePage/StagesSection/StagesSection';
 import Reasons2Section from '@/components/HomePage/Reasons2Section/Reasons2Section';
-import BlogSection from '@/components/HomePage/BlogSection/BlogSection';
+
 import PartnersSection from '@/components/HomePage/PartnersSection/PartnersSection';
 import TeamSection from '@/components/HomePage/TeamSection/TeamSection';
 import FAQSection from '@/components/HomePage/FAQSection/FAQSection';
@@ -40,7 +40,7 @@ export default function Home() {
       {/*Reasons*/}
       <Reasons2Section/>
 
-      {/*<BlogSection/>*/}
+
 
       <TeamSection/>
       <FAQSection/>

@@ -3,7 +3,7 @@
 import styles from './ReasonsSection.module.css';
 import Htag from '@/components/htag/htag';
 import { montserrat } from '@/lib/fonts';
-import cn from 'classnames';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
