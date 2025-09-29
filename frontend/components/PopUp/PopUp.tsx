@@ -10,19 +10,56 @@ import Image from 'next/image';
 type FormData = {
     name: string;
     phone: string;
+    email: string;
     comment?: string;
 };
 
 export default function PopUp() {
   const [isOpen, setIsOpen] = useState(false);
+  const [status, setStatus] = useState<null | 'success' | 'error'>(null);
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
-  const togglePopup = () => setIsOpen(prev => !prev);
+  const togglePopup = () => {
+    setIsOpen(prev => !prev);
+    setStatus(null); // сбрасываем статус при открытии/закрытии
+  };
 
-  const onSubmit = (data: FormData) => {
-    console.log('Форма отправлена:', data);
-    reset();
-    setIsOpen(false);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const res = await fetch(
+        'https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=5f093c7f-d044-4f52-b15b-8f6c2ea44cf1&sessionID=',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            comment: data.comment,
+          }),
+        }
+      );
+
+      if (!res.ok) throw new Error('Ошибка сети');
+
+      const result = await res.json();
+      console.log('Ответ API:', result);
+
+      setStatus('success');
+      reset();
+
+      // Закрыть окно через 2 сек после успеха
+      setTimeout(() => {
+        setIsOpen(false);
+        setStatus(null);
+      }, 2000);
+    } catch (error) {
+      console.error('Ошибка при отправке формы:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -94,6 +131,21 @@ export default function PopUp() {
                 <span className={styles.error}>{errors.phone.message}</span>
               )}
 
+              <input
+                type="email"
+                placeholder="Email"
+                {...register('email', {
+                  required: 'Введите email',
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: 'Некорректный формат email',
+                  },
+                })}
+              />
+              {errors.email && (
+                <span className={styles.error}>{errors.email.message}</span>
+              )}
+
               <textarea
                 placeholder="Комментарий"
                 {...register('comment')}
@@ -106,6 +158,14 @@ export default function PopUp() {
               >
                                 Отправить
               </button>
+
+              {/* Сообщения пользователю */}
+              {status === 'success' && (
+                <p className={styles.success}>✅ Спасибо, заявка отправлена!</p>
+              )}
+              {status === 'error' && (
+                <p className={styles.error}>❌ Ошибка, попробуйте снова.</p>
+              )}
             </form>
           </div>
         </div>
@@ -113,3 +173,4 @@ export default function PopUp() {
     </div>
   );
 }
+
