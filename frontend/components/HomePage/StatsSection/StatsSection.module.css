@@ -27,7 +27,8 @@
     gap: 40px;
 }
 .numbers_picture {
-    max-width: 80%;
+    width: 80%;
+
 }
 
 .numbers_h2 {

@@ -117,7 +117,7 @@
     .banner_model {
         top: 0;
 
-        left: 50%;
+        left: 55%;
         right: auto;
         transform: translateX(-50%) scaleX(-1);
         height: 300px;

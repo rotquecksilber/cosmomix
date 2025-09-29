@@ -5,7 +5,7 @@ type: 'standard';
 color: 'black' | 'primary' | 'soft' | 'white';
     uppercase?: boolean;
     children: React.ReactNode;
-href: string;
+href?: string;
 className?: string;
 }
 

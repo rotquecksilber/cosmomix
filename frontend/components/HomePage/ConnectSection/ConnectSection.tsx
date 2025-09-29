@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Htag from '@/components/htag/htag';
 import Button from '@/components/button/button';
 import { montserrat } from '@/lib/fonts';
+import PopUpConnect from '@/components/PopUpConnect/PopUpConnect';
 
 export default function ConnectSection() {
   return (
@@ -33,9 +34,12 @@ export default function ConnectSection() {
             height={305}
             className={styles.connect_image_mobile}
           />
-          <Button href="/" color="primary" uppercase type="standard">
+          <PopUpConnect trigger={
+            <Button  color="primary" uppercase type="standard">
                   Свяжитесь с нами
-          </Button>
+            </Button>
+          }></PopUpConnect>
+
         </div>
       </div>
     </section>
