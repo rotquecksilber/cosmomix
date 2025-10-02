@@ -1,4 +1,3 @@
-// components/sections/ReasonsSection.tsx
 
 import styles from './ReasonsSection.module.css';
 import Htag from '@/components/htag/htag';
@@ -12,7 +11,7 @@ export default function ReasonsSection() {
     <section className={styles.reasons}>
       <div className={styles.reasons_wrapper}>
         <Htag tag="h2" color="gradient" uppercase>
-                    Производственные направления
+                    Производственное направление
         </Htag>
 
         <div className={styles.reasons_grid}>

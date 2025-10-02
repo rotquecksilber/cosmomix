@@ -144,3 +144,22 @@ color: var(--primary)
         gap: 0; /* убираем лишние отступы внутри */
     }
 }
+
+.gradientBorder {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+@media (min-width: 781px) {
+    .gradientBorder:hover {
+        transform: translateY(-8px) scale(1.02);
+
+        cursor: pointer;
+    }
+}

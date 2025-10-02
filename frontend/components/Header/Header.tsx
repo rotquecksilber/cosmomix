@@ -15,16 +15,13 @@ const navLinks = [
   {
     href: '/capability',
     text: 'Возможности',
-    submenu: [
-      { href: '/capability/laboratory', text: 'Лаборатория' },
-      { href: '/capability/production', text: 'Производство' },
-    ],
+
   },
   {
     href: '/catalog',
     text: 'Продукция',
     submenu: [
-      { href: '/product', text: 'Тестовый продукт' },
+      { href: '/catalog', text: 'Продукты' },
       { href: '/decorative_cosmetics', text: 'Декоративная косметика' },
     ],
   },
@@ -81,26 +78,26 @@ export default function Header() {
 
                   {link.submenu && (
                     <div className={styles.megamenu}>
-                      <div className={styles.megamenu__products}>
-                        <div className={styles.megamenu__productCard}>
-                          <Image
-                            src="/test1.jpg"
-                            alt="Продукт 1"
-                            width={200}
-                            height={150}
-                          />
-                          <p>Продукт 1</p>
-                        </div>
-                        <div className={styles.megamenu__productCard}>
-                          <Image
-                            src="/test2.jpg"
-                            alt="Продукт 2"
-                            width={200}
-                            height={150}
-                          />
-                          <p>Продукт 2</p>
-                        </div>
-                      </div>
+                      {/*<div className={styles.megamenu__products}>*/}
+                      {/*  <div className={styles.megamenu__productCard}>*/}
+                      {/*    <Image*/}
+                      {/*      src="/test1.jpg"*/}
+                      {/*      alt="Продукт 1"*/}
+                      {/*      width={200}*/}
+                      {/*      height={150}*/}
+                      {/*    />*/}
+                      {/*    <p>Продукт 1</p>*/}
+                      {/*  </div>*/}
+                      {/*  <div className={styles.megamenu__productCard}>*/}
+                      {/*    <Image*/}
+                      {/*      src="/test2.jpg"*/}
+                      {/*      alt="Продукт 2"*/}
+                      {/*      width={200}*/}
+                      {/*      height={150}*/}
+                      {/*    />*/}
+                      {/*    <p>Продукт 2</p>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
 
                       <div className={styles.megamenu__categories}>
                         {link.submenu.map((sub, subIndex) => (

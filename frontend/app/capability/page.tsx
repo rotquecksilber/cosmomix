@@ -1,55 +1,59 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { jura } from '@/lib/fonts';
 import styles from './page.module.css';
 import Banner from '@/components/banner/banner';
+import Htag from '@/components/htag/htag';
 
-export default function CapabilitiesPage() {
+
+export default function ContractProductionPage() {
   return (
-    <div className={`${styles.page} ${jura.className}`}>
-      <section role="navigation" aria-label="Навигация по возможностям">
-        <Banner title="Возможности" />
+    <div className={styles.page}>
+      <Banner title="Контрактное производство" />
 
-        <div className={styles.grid}>
-          <Link
-            href="/capability/production"
-            className={styles.cardLink}
-            aria-label="Перейти в возможности производства"
-          >
-            <article className={styles.card}>
-              <div className={`${styles.cardMedia} ${styles.production}`} />
-              <div className={styles.cardBody}>
-                <h2 className={styles.cardTitle}>Производство</h2>
-                <p className={styles.cardDesc}>
-                                    Современные технологии и оборудование для уникальных проектов.
-                </p>
-                <span className={styles.cardCta}>Перейти →</span>
-              </div>
-            </article>
-          </Link>
+      <div className={styles.grid}>
+        {/* 1. Возможности лаборатории */}
+        <article className={styles.card}>
 
-          <Link
-            href="/capability/laboratory"
-            className={styles.cardLink}
-            aria-label="Перейти в возможности лаборатории"
-          >
-            <article className={styles.card}>
-              <div className={`${styles.cardMedia} ${styles.laboratory}`} />
-              <div className={styles.cardBody}>
-                <h2 className={styles.cardTitle}>Лаборатория</h2>
-                <p className={styles.cardDesc}>
-                                    Исследования, эксперименты и разработка новых материалов.
-                </p>
-                <span className={styles.cardCta}>Перейти →</span>
-              </div>
-            </article>
-          </Link>
-        </div>
-      </section>
+          <Htag tag="h2" color="gradient" className={styles.title}>Возможности лаборатории Cosmomix</Htag>
+          <ul className={styles.cardList}>
+            <li>Разработка всех видов декоративной косметики, а также тестирование на стабильность.</li>
+            <li>Разработка оттенков продукта.</li>
+            <li>Тестирование формулы на совместимость с упаковкой.</li>
+          </ul>
+        </article>
+
+        {/* 2. Возможности контрактного производства */}
+        <article className={styles.card}>
+          <Htag tag="h2" color="gradient" className={styles.title}>Возможности контрактного производства Cosmomix</Htag>
+          <ul className={styles.cardList}>
+            <li>Все этапы производства любой декоративной косметики и ухода за лицом или отдельные операции, в том числе на основе давальческого сырья.</li>
+            <li>Фасовка в первичную и вторичную упаковку: саше, монодозы, мини-форматы, пластиковые и алюминиевые тубы, все виды флаконов, банки, в термоусадочный рукав, упаковка в картонные упаковки и стикеровка.</li>
+          </ul>
+        </article>
+
+        {/* 3. Причины работать с нами */}
+        <article className={styles.card}>
+          <Htag tag="h2" color="gradient" className={styles.title}>Причины работать с нами</Htag>
+          <ul className={styles.cardList}>
+            <li>Собственный импорт сырья из любой страны. Мы не ограничиваемся сырьем, доступным у российских поставщиков. Это помогает получать лучшие цены и сроки, а также постоянно самостоятельно исследовать рынок инновационных ингредиентов и сравнивать качество сырья поставщиков.</li>
+            <li>Современные молодые химики-технологи и колористы, которые с легкостью ориентируются в трендах и разбираются в текстурах. Этому способствует экспертность команды Manlypro. Наши химики регулярно проходят повышение квалификации у отечественных и иностранных специалистов декоративной косметики.</li>
+            <li>Предлагаем как существующие разработки формул из нашей библиотеки, доработку формул по необходимым критериям, а также новые разработки под заказ.</li>
+            <li>Собственное свежее здание завода, сданное в эксплуатацию летом 2025 года с новейшим эффективным высокопроизводительным автоматическим и полуавтоматическим оборудованием, способным производить любые виды декоративной косметики.</li>
+            <li>Реализовываем заказы от 5000 шт единиц на цвет в средние сроки 6–12 месяцев, для отдельных разработок и от 3 до 6 месяцев при выборе формул из нашей библиотеки.</li>
+            <li>Нацеленность на высокий уровень качества продукта и экспертный подход.</li>
+          </ul>
+        </article>
+
+        {/* 4. Сопровождение */}
+        <article className={styles.card}>
+          <Htag tag="h2" color="gradient" className={styles.title}>Сопровождение</Htag>
+          <ul className={styles.cardList}>
+            <li>Подбор и заказ упаковки в рамках Full service.</li>
+            <li>Помощь в сертификации.</li>
+            <li>Услуги дизайнера для запусков молодых брендов.</li>
+          </ul>
+        </article>
+      </div>
     </div>
   );
 }
-
-

@@ -3,7 +3,7 @@ import './globals.css';
 import React from 'react';
 import { seoData } from '@/lib/seo';
 import Header from '@/components/Header/Header';
-import { jura, montserrat } from '@/lib/fonts';
+import { montserrat } from '@/lib/fonts';
 import Footer from '@/components/Footer/Footer';
 
 
@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" >
-      <body className={`${jura.variable} ${montserrat.variable}`}>
+      <body className={` ${montserrat.variable}`}>
         <Header/>
 
         {children}

@@ -306,3 +306,161 @@ width: 100%;
     }
 
 }
+
+/* ==== Общий стиль секции команды ==== */
+.team_section {
+    padding: 100px 95px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    color: var(--primary);
+    max-width: 100vw;
+}
+
+/* Заголовки секции */
+.team_title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ==== Общее фото команды ==== */
+.team_main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.team_main_image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    object-fit: cover;
+}
+
+.team_main_text {
+    max-width: 1200px;
+    text-align: center;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+}
+
+/* ==== Индивидуальные карточки ==== */
+.team_wrapper {
+    display: flex;
+    flex-direction: column; /* строки на десктопе */
+    gap: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.team_member {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team_member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.team_image_wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.team_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.team_name {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.team_position_title {
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 500;
+    color: var(--primary);
+    margin: 5px 0 15px 0;
+}
+
+.team_position {
+    font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: var(--primary);
+}
+
+/* ==== Адаптив ==== */
+@media (max-width: 1200px) {
+    .team_section {
+        padding: 60px 40px;
+        gap: 50px;
+    }
+
+    .team_main_image {
+        max-width: 1000px;
+    }
+
+    .team_wrapper {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .team_wrapper {
+        flex-direction: column; /* вертикально на планшетах и ниже */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .team_member {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .team_position_title {
+        margin: 5px 0 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .team_section {
+        padding: 50px 20px;
+        gap: 40px;
+    }
+
+    .team_main_image {
+        max-width: 100%;
+    }
+
+    .team_main_text {
+        font-size: 16px;
+    }
+
+    .team_name {
+        font-size: 20px;
+    }
+
+    .team_position_title, .team_position {
+        font-size: 16px;
+    }
+}

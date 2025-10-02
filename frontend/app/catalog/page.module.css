@@ -1,0 +1,55 @@
+/* app/catalog/page.module.css */
+.page {
+
+    color: var(--primary, #111);
+    background: var(--background, #fff);
+
+}
+
+.section {
+margin: 40px 95px;
+}
+
+.title {
+    margin-top: 100px !important;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.list li {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #f8f8f8;
+    transition: box-shadow 0.2s ease;
+}
+
+.list li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.itemTitle {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.itemDescription {
+    font-size: 14px;
+    color: var(--text, #555);
+    line-height: 1.5;
+}
+
+.developmentText {
+    margin: 10px 0 12px;
+    font-size: 16px;
+    color: var(--text, #333);
+}

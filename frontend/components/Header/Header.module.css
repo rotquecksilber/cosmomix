@@ -98,7 +98,7 @@
 .megamenu__link {
     font-size: 1rem;
     font-weight: 500;
-    color: #222;
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -185,7 +185,7 @@
 
 /* Ссылки мобильного меню */
 .mobileMenu_link {
-    font-family: inherit; /* наследует от body (Jura) */
+    font-family: inherit;
 
     text-decoration: none;
 

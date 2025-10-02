@@ -17,7 +17,7 @@ export default function DecorativeCosmeticsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Htag tag={'h1'} color={'gradient'} >Декоративная косметика будущего</Htag>
+          <Htag tag={'h1'} color={'gradient'} >Декоративная косметика</Htag>
           <p>
                         Мы создаём продукты, которые задают тренды и соответствуют высоким
                         стандартам качества.
@@ -43,8 +43,8 @@ export default function DecorativeCosmeticsPage() {
         </motion.div>
         <div className={styles.cards}>
           {[
-            { icon: '🌿', text: 'Натуральные ингредиенты' },
-            { icon: '✨', text: 'Актуальные тренды рынка' },
+            { icon: '🌿', text: 'Современные формулы' },
+            { icon: '✨', text: 'Соответствие актуальным трендам' },
             { icon: '🔬', text: 'Научный подход и инновации' },
           ].map((item, i) => (
             <motion.div
@@ -76,9 +76,9 @@ export default function DecorativeCosmeticsPage() {
         <div className={styles.grid}>
           {[
             'R&D лаборатория',
-            'Инновационные ингредиенты',
-            'Собственные технологии',
-            'Международные стандарты качества',
+            'Качественные ингредиенты',
+            'Современные технологии',
+            'Российские стандарты качества',
           ].map((tile, i) => (
             <motion.div
               key={i}
@@ -110,22 +110,22 @@ export default function DecorativeCosmeticsPage() {
             {
               src: '/images/lipstick.jpg',
               alt: 'Помада',
-              text: 'Помады — матовые и глянцевые',
+              text: 'Любые виды помад',
             },
             {
               src: '/images/eyeshadow.jpg',
-              alt: 'Тени',
-              text: 'Тени — пудровые и кремовые',
+              alt: 'Блески',
+              text: 'Блески для губ',
             },
             {
               src: '/images/foundation.jpg',
-              alt: 'Тональное средство',
-              text: 'Тональные средства',
+              alt: 'Рассыпчатые пудры',
+              text: 'Рассыпчатые пудры',
             },
             {
               src: '/images/highlighter.jpg',
-              alt: 'Хайлайтер',
-              text: 'Хайлайтеры',
+              alt: 'тушь',
+              text: 'Тушь',
             },
           ].map((p, i) => (
             <motion.div
@@ -144,70 +144,70 @@ export default function DecorativeCosmeticsPage() {
         </div>
       </section>
 
-      {/* Standards */}
-      <section className={styles.section}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <Htag tag={'h2'} color={'gradient'}> Качество и экологичность </Htag>
-        </motion.div>
-        <motion.div
-          className={styles.standards}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <span>ISO</span>
-          <span>GMP</span>
-          <span>ECOCERT</span>
-          <span>Vegan</span>
-          <span>Cruelty Free</span>
-        </motion.div>
-      </section>
+      {/*/!* Standards *!/*/}
+      {/*<section className={styles.section}>*/}
+      {/*  <motion.div*/}
+      {/*    initial={{ opacity: 0, y: 30 }}*/}
+      {/*    whileInView={{ opacity: 1, y: 0 }}*/}
+      {/*    transition={{ duration: 0.7 }}*/}
+      {/*    viewport={{ once: true }}*/}
+      {/*  >*/}
+      {/*    <Htag tag={'h2'} color={'gradient'}> Качество и экологичность </Htag>*/}
+      {/*  </motion.div>*/}
+      {/*  <motion.div*/}
+      {/*    className={styles.standards}*/}
+      {/*    initial={{ opacity: 0 }}*/}
+      {/*    whileInView={{ opacity: 1 }}*/}
+      {/*    transition={{ duration: 0.8, delay: 0.3 }}*/}
+      {/*    viewport={{ once: true }}*/}
+      {/*  >*/}
+      {/*    <span>ISO</span>*/}
+      {/*    <span>GMP</span>*/}
+      {/*    <span>ECOCERT</span>*/}
+      {/*    <span>Vegan</span>*/}
+      {/*    <span>Cruelty Free</span>*/}
+      {/*  </motion.div>*/}
+      {/*</section>*/}
 
-      {/* Blog / Insights */}
-      <section className={styles.section}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <Htag tag={'h2'} color={'gradient'}>  Мы знаем рынок </Htag>
-        </motion.div>
-        <div className={styles.blog}>
-          {[
-            {
-              title: 'Тренды декоративной косметики в 2025 году',
-              text: 'Актуальные направления в индустрии, которые формируют спрос.',
-            },
-            {
-              title: 'Как создать успешный продукт в категории помад',
-              text: 'Ключевые аспекты разработки и позиционирования.',
-            },
-            {
-              title: 'Будущее гибридных формул',
-              text: 'Слияние ухода и макияжа в одном продукте.',
-            },
-          ].map((post, i) => (
-            <motion.article
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Htag tag={'h3'} color={'primary'}>{post.title}</Htag>
-              <p>{post.text}</p>
-            </motion.article>
-          ))}
-        </div>
-      </section>
+      {/*/!* Blog / Insights *!/*/}
+      {/*<section className={styles.section}>*/}
+      {/*  <motion.div*/}
+      {/*    initial={{ opacity: 0, y: 30 }}*/}
+      {/*    whileInView={{ opacity: 1, y: 0 }}*/}
+      {/*    transition={{ duration: 0.7 }}*/}
+      {/*    viewport={{ once: true }}*/}
+      {/*  >*/}
+      {/*    <Htag tag={'h2'} color={'gradient'}>  Мы знаем рынок </Htag>*/}
+      {/*  </motion.div>*/}
+      {/*  <div className={styles.blog}>*/}
+      {/*    {[*/}
+      {/*      {*/}
+      {/*        title: 'Тренды декоративной косметики в 2025 году',*/}
+      {/*        text: 'Актуальные направления в индустрии, которые формируют спрос.',*/}
+      {/*      },*/}
+      {/*      {*/}
+      {/*        title: 'Как создать успешный продукт в категории помад',*/}
+      {/*        text: 'Ключевые аспекты разработки и позиционирования.',*/}
+      {/*      },*/}
+      {/*      {*/}
+      {/*        title: 'Будущее гибридных формул',*/}
+      {/*        text: 'Слияние ухода и макияжа в одном продукте.',*/}
+      {/*      },*/}
+      {/*    ].map((post, i) => (*/}
+      {/*      <motion.article*/}
+      {/*        key={i}*/}
+      {/*        initial={{ opacity: 0, y: 40 }}*/}
+      {/*        whileInView={{ opacity: 1, y: 0 }}*/}
+      {/*        transition={{ duration: 0.6, delay: i * 0.2 }}*/}
+      {/*        viewport={{ once: true }}*/}
+      {/*        whileHover={{ scale: 1.02 }}*/}
+      {/*      >*/}
+      {/*        <Htag tag={'h3'} color={'primary'}>{post.title}</Htag>*/}
+      {/*        <p>{post.text}</p>*/}
+      {/*      </motion.article>*/}
+      {/*    ))}*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* Final CTA */}
       <section className={styles.finalCta}>
@@ -217,7 +217,7 @@ export default function DecorativeCosmeticsPage() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <Htag tag={'h2'} color={'gradient'}>Хотите разработать уникальную линейку?</Htag>
+          <Htag tag={'h2'} color={'gradient'}>Хотите разработать и выпустить собственный продукт?</Htag>
           <p>
                         Расскажите нам о своём проекте — мы подготовим предложение под ваши
                         задачи.

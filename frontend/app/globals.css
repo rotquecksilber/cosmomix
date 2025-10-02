@@ -11,7 +11,7 @@
   --production: #8356DF;
 
 
-  --font-jura: 'Jura', sans-serif;
+
   --font-montserrat: 'Montserrat', sans-serif;
 
   --radius-xl: 16px;
@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  font-family: var(--font-jura), sans-serif;;
+  font-family: var(--font-montserrat), sans-serif;;
 }
 
 * {

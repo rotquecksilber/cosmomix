@@ -1,6 +1,5 @@
 'use client';
 
-
 import { useState } from 'react';
 import styles from './Footer.module.css';
 import Link from 'next/link';
@@ -17,20 +16,16 @@ export default function Footer() {
     {
       title: 'Производство',
       links: [
-        'Производство декоративной косметики',
-        'Производство уходовой косметики',
-        'Собственная торговая марка',
-        'Производственные направления',
+        { text: 'Контрактное производство', href: '/capability' },
+        { text: 'Продукты', href: '/catalog' },
+        { text: 'Декоративная косметика', href: '/decorative_cosmetics' },
       ],
     },
     {
-      title: 'Сотрудничество',
+      title: 'Информация',
       links: [
-        'Варианты сотрудничества',
-        'Партнерство',
-        'Вакансии',
-        'Пресса',
-        'Правовая информация',
+        { text: 'Вакансии', href: '/job' },
+        { text: 'Правовая информация', href: '/legal' },
       ],
     },
   ];
@@ -53,8 +48,8 @@ export default function Footer() {
               }`}
             >
               {section.links.map((link, idx) => (
-                <Link href="#" key={idx}>
-                  {link}
+                <Link href={link.href} key={idx}>
+                  {link.text}
                 </Link>
               ))}
             </div>
@@ -71,18 +66,15 @@ export default function Footer() {
 
         <div className={styles.column}>
           <div className={styles.emailGroup}>
+
+            <strong>Для связи с нами</strong>
             <div>
-              <strong>Партнерство</strong>
-              <Link href="mailto:info@yourcosmeticfactory.com">info@yourcosmeticfactory.com</Link>
+              <Link href="mailto:info@cosmo-mix.ru">info@cosmo-mix.ru</Link>
             </div>
             <div>
-              <strong>Вакансии</strong>
-              <Link href="mailto:info@yourcosmeticfactory.com">info@yourcosmeticfactory.com</Link>
+              <Link href="tel:+74951200596">+7 (495) 120-05-96</Link>
             </div>
-            <div>
-              <strong>Пресса</strong>
-              <Link href="mailto:info@yourcosmeticfactory.com">info@yourcosmeticfactory.com</Link>
-            </div>
+
           </div>
         </div>
       </div>
@@ -91,7 +83,7 @@ export default function Footer() {
         <div className={styles.bottomRow}>
           <span>COSMOMIX</span>
           <span>{new Date().getFullYear()}</span>
-          <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+          <Image src="/logo.svg" alt="Logo" width={32} height={32}/>
         </div>
       </div>
     </footer>

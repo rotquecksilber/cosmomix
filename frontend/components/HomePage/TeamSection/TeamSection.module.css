@@ -1,35 +1,26 @@
 .team {
     margin: 0 95px;
-    max-width: 2000px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 55px;
+    padding: 60px 0;
 }
-
-/* Карточка участника */
-.team_wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-}
-.team_name {
+.team_title {
+    margin-bottom: 40px;
     text-align: center;
 }
 
-.team_position {
-    margin-top: 15px;
-    color: var(--primary);
-    font-size: clamp(16px, 2vw, 24px);
+.team_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .image_wrapper {
     padding: 20px;
     border: 3px solid #9574CC;
     border-radius: 20px;
-    margin-bottom: 20px;
-    /*filter: drop-shadow(0 0 20px #563d82);*/
     background: white;
     box-shadow: 0 4px 10px rgba(149, 116, 204, 0.2);
     transition: box-shadow 0.3s ease;
@@ -49,45 +40,20 @@
 @media (max-width: 1050px) {
     .team {
         margin: 0 20px;
-        gap: 40px;
-    }
-
-    .team_wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px 20px;
-    }
-
-    .team_wrapper > div:last-child:nth-child(odd) {
-        grid-column: 1 / 3; /* занимает обе колонки */
-        justify-self: center; /* центрирует */
+        padding: 40px 0;
     }
 
     .image_wrapper {
         padding: 15px;
         border-width: 2px;
         border-radius: 15px;
-        margin-bottom: 10px;
         box-shadow: 0 3px 8px rgba(149, 116, 204, 0.15);
     }
 
     .team_image {
         width: 100%;
-        max-width: 320px;
+
         margin: 0 auto;
         border-radius: 12px;
-    }
-
-    .team_position {
-        font-size: 16px;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    /* Центрируем имя и позицию */
-    .team_wrapper > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 }

@@ -4,7 +4,7 @@ import { useState, ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from '../PopUp/PopUp.module.css';
 import cn from 'classnames';
-import { jura } from '@/lib/fonts';
+
 import Image from 'next/image';
 
 type FormData = {
@@ -96,7 +96,7 @@ export default function PopUp({ trigger, onSubmitCallback }: PopUpProps) {
 
               <button
                 type="submit"
-                className={cn(styles.submitButton, jura.className)}
+                className={cn(styles.submitButton)}
                 suppressHydrationWarning
               >
                                 Отправить

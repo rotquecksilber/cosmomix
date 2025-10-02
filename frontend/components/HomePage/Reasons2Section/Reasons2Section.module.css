@@ -12,9 +12,29 @@
 
 .reasons_grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1fr 1fr; /* две колонки сверху */
+    grid-template-rows: auto auto; /* две строки */
     gap: 20px;
+}
+
+/* Верхние две карточки */
+.first {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.second {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Нижняя растянутая справа */
+.third {
+    grid-column: 1 / span 2; /* растягиваем на две колонки */
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .reasons_reason {
@@ -40,24 +60,7 @@
 }
 
 
-.first {
-    grid-column: 1;
-    grid-row: 1;
-}
 
-.second {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.third {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between !important;
-
-}
 
 .fourth {
     grid-column: 1 / span 2;

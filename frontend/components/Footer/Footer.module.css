@@ -42,7 +42,7 @@
 .socials {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px;
+
 }
 
 .emailGroup > div {
@@ -51,7 +51,7 @@
 
 .emailGroup strong {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
 }
 
 .bottom {

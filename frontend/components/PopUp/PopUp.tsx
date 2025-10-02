@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
-import { jura } from '@/lib/fonts';
+
 import Image from 'next/image';
 
 type FormData = {
@@ -67,7 +67,7 @@ export default function PopUp() {
       {/* Кнопка для десктопа */}
       <button
         onClick={togglePopup}
-        className={cn(styles.openButton, jura.className)}
+        className={cn(styles.openButton)}
         suppressHydrationWarning
       >
                 Оставить заявку
@@ -153,7 +153,7 @@ export default function PopUp() {
 
               <button
                 type="submit"
-                className={cn(styles.submitButton, jura.className)}
+                className={cn(styles.submitButton)}
                 suppressHydrationWarning
               >
                                 Отправить

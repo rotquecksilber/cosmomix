@@ -4,11 +4,13 @@ import Image from 'next/image';
 import Htag from '@/components/htag/htag';
 import { montserrat } from '@/lib/fonts';
 import cn from 'classnames';
+import React from 'react';
 
 const numbers = [
   { number: '20+', text: 'Партнеров по всей России' },
-  { number: '30+', text: 'Экспертов в команде' },
-  { number: '200 кт', text: 'Производится ежемесячно' }
+
+  { number: '500000+', text: 'единиц в месяц производственные возможности' },
+  { number: '30+', text: 'Экспертов\nв команде' }
 ];
 
 export default function StatsSection() {
@@ -23,13 +25,20 @@ export default function StatsSection() {
           className={styles.numbers_picture}
         />
         <Htag color="gradient" uppercase tag="h2" className={styles.numbers_h2}>
-                    COSMOMIX В ЦИФРАХ
+          COSMOMIX В ЦИФРАХ
         </Htag>
         <ul className={styles.numbers_text}>
-          {numbers.map(({ number, text }, index) => (
+          {numbers.map(({number, text}, index) => (
             <li key={`${number}-${index}`} className={styles.numbers_text__position}>
               <span className={cn(montserrat.className, styles.numbers_1line)}>{number}</span>
-              <span className={styles.numbers_2line}>{text}</span>
+              <span className={styles.numbers_2line}>
+                {text.split('\n').map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < text.split('\n').length - 1 && <br/>}
+                  </React.Fragment>
+                ))}
+              </span>
             </li>
           ))}
         </ul>
