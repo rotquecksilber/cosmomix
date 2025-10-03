@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import styles from './page.module.css';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Htag from '@/components/htag/htag';
 import Button from '@/components/button/button';
