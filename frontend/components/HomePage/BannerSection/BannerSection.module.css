@@ -48,6 +48,7 @@
     font-weight: 200;
     margin-bottom: 40px;
     color: #FFFFFF;
+    margin-top: 10px;
 }
 
 .text_button,
@@ -77,14 +78,14 @@
 
 .banner_model {
     position: absolute;
-    top: 0;
-    right: -15%; /* Сдвиг на 5% за правый край */
+    top: -0.5px;
+    right: -10%; /* Сдвиг на 5% за правый край */
     transform: scaleX(-1);
     width: auto;
     height: 600px;
     max-height: 100%;
     object-fit: contain;
-
+margin-right: 95px;
 
 }
 

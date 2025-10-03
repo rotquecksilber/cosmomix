@@ -5,6 +5,8 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Htag from '@/components/htag/htag';
+import Button from '@/components/button/button';
+import PopUpConnect from '@/components/PopUpConnect/PopUpConnect';
 
 export default function DecorativeCosmeticsPage() {
   return (
@@ -22,11 +24,13 @@ export default function DecorativeCosmeticsPage() {
                         Мы создаём продукты, которые задают тренды и соответствуют высоким
                         стандартам качества.
           </p>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link href="/contacts" className={styles.ctaButton}>
-                            Связаться с нами
-            </Link>
-          </motion.div>
+
+
+          <PopUpConnect trigger={        <Button color={'primary'} type={'small'}>
+                  Связаться с нами
+          </Button>}></PopUpConnect>
+
+
         </motion.div>
       </section>
 
@@ -222,11 +226,11 @@ export default function DecorativeCosmeticsPage() {
                         Расскажите нам о своём проекте — мы подготовим предложение под ваши
                         задачи.
           </p>
-          <motion.div whileHover={{ scale: 1.05 }}>
-            <Link href="/contacts" className={styles.ctaButton}>
-                            Оставить заявку
-            </Link>
-          </motion.div>
+          <PopUpConnect trigger={          <Button color={'primary'} type={'small'}  className={styles.ctaButton}>
+    Оставить заявку
+          </Button>}></PopUpConnect>
+
+
         </motion.div>
       </section>
     </main>

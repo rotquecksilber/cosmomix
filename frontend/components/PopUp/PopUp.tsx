@@ -88,7 +88,7 @@ export default function PopUp() {
 
             {/* Декоративный фон */}
             <Image
-              src="/logo.png"
+              src="/Logo.png"
               alt="Логотип"
               className={styles.logo}
               width={300}

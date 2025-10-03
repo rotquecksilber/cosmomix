@@ -4,43 +4,71 @@ import { useState, ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from '../PopUp/PopUp.module.css';
 import cn from 'classnames';
-
 import Image from 'next/image';
 
 type FormData = {
     name: string;
     phone: string;
+    email: string;
     comment?: string;
 };
 
-type PopUpProps = {
-    trigger: ReactNode; // любая кнопка/элемент, который открывает попап
-    onSubmitCallback?: (data: FormData) => void; // дополнительный callback при отправке
+type PopUpConnectProps = {
+    trigger: ReactNode; // элемент для открытия попапа
 };
 
-export default function PopUp({ trigger, onSubmitCallback }: PopUpProps) {
+export default function PopUpConnect({ trigger }: PopUpConnectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const [status, setStatus] = useState<null | 'success' | 'error'>(null);
 
-  const togglePopup = () => setIsOpen(prev => !prev);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log('Форма отправлена:', data);
-    if (onSubmitCallback) onSubmitCallback(data);
-    reset();
-    setIsOpen(false);
+  const togglePopup = () => {
+    setIsOpen((prev) => !prev);
+    setStatus(null); // сбрасываем статус при каждом открытии/закрытии
+  };
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      const res = await fetch(
+        'https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=5f093c7f-d044-4f52-b15b-8f6c2ea44cf1&sessionID=',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!res.ok) throw new Error('Ошибка сети');
+
+      const result = await res.json();
+      console.log('Ответ API:', result);
+
+      setStatus('success');
+      reset();
+
+      // Закрыть окно через 2 сек после успеха
+      setTimeout(() => {
+        setIsOpen(false);
+        setStatus(null);
+      }, 2000);
+    } catch (error) {
+      console.error('Ошибка при отправке формы:', error);
+      setStatus('error');
+    }
   };
 
   return (
     <div>
-      {/* Триггер попапа */}
-      <div
-        onClick={(e) => {
-          e.preventDefault(); // предотвращаем возможный submit
-          togglePopup();
-        }}
-        style={{ display: 'inline-block', cursor: 'pointer' }}
-      >
+      {/* Триггер */}
+      <div onClick={togglePopup} style={{ display: 'inline-block', cursor: 'pointer' }}>
         {trigger}
       </div>
 
@@ -49,18 +77,14 @@ export default function PopUp({ trigger, onSubmitCallback }: PopUpProps) {
           <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
             {/* Декоративный фон */}
             <Image
-              src="/logo.png"
+              src="/Logo.png"
               alt="Логотип"
               className={styles.logo}
               width={300}
               height={300}
             />
 
-            <button
-              type="button" // обязательно, чтобы не было submit
-              className={styles.closeButton}
-              onClick={togglePopup}
-            >
+            <button className={styles.closeButton} onClick={togglePopup}>
                             ×
             </button>
 
@@ -92,15 +116,32 @@ export default function PopUp({ trigger, onSubmitCallback }: PopUpProps) {
               />
               {errors.phone && <span className={styles.error}>{errors.phone.message}</span>}
 
+              <input
+                type="email"
+                placeholder="Email"
+                {...register('email', {
+                  required: 'Введите email',
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: 'Некорректный формат email',
+                  },
+                })}
+              />
+              {errors.email && <span className={styles.error}>{errors.email.message}</span>}
+
               <textarea placeholder="Комментарий" {...register('comment')} />
 
-              <button
-                type="submit"
-                className={cn(styles.submitButton)}
-                suppressHydrationWarning
-              >
+              <button type="submit" className={cn(styles.submitButton)} suppressHydrationWarning>
                                 Отправить
               </button>
+
+              {/* Сообщения пользователю */}
+              {status === 'success' && (
+                <p className={styles.success}>✅ Спасибо, заявка отправлена!</p>
+              )}
+              {status === 'error' && (
+                <p className={styles.error}>❌ Ошибка, попробуйте снова.</p>
+              )}
             </form>
           </div>
         </div>

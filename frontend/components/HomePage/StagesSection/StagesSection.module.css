@@ -41,7 +41,8 @@
 }
 
 .step_description {
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(16px, 1.8vw, 24px);
+    font-weight: 200;
     color: var(--primary);
 }
 

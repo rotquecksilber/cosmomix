@@ -75,7 +75,7 @@ export default function AboutPage() {
               onClick={() => setOpen(open === 'manlypro' ? null : 'manlypro')}
             >
               <Htag tag={'h2'} color={'white'} uppercase={true} className={styles.accordion_title}>
-                              О сотрудничестве с MANLYPRO
+                              MANLYPRO
               </Htag>
               <Image
                 alt="Работа в COSMOMIX"
@@ -139,9 +139,7 @@ export default function AboutPage() {
                                   На данный момент производство располагается на арендуемых площадях в Москве. А летом
                                   2025
                                   года
-                                  планируется запустить собственную площадку COSMOMIX в Солнечногорске. Строительство
-                                  первого
-                                  здания площадью 1500 кв.метров сейчас находится на этапе сдачи в эксплуатацию.
+                                  планируется запустить собственную площадку COSMOMIX в Солнечногорске.
                 </p>
               </div>
             )}

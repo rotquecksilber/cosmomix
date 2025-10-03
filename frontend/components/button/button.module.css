@@ -12,8 +12,30 @@
     cursor: pointer; /* Указываем, что элемент кликабелен */
     text-decoration: none; /* Убираем подчеркивание текста */
     max-width: 35vw; /* Максимальная ширина для адаптивности */
-    transition: box-shadow 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
     font-size: clamp(16px, 1.5vw, 28px);
+}
+.small:hover,
+.standard:hover {
+    transform: scale(1.05);
+}
+
+.small {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 400; /* Толщина текста */
+    text-align: center; /* Центрируем текст по горизонтали */
+    padding: 15px 25px; /* Внутренние отступы со всех сторон (увеличивают кнопку) */
+    border: none; /* Убираем стандартную границу (если есть) */
+    border-radius: 10px; /* Добавляем скругление углов (по желанию) */
+    cursor: pointer; /* Указываем, что элемент кликабелен */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    max-width: 35vw; /* Максимальная ширина для адаптивности */
+    transition: transform 0.3s ease, background 0.3s ease;
+    font-size: clamp(14px, 1.5vw, 22px);
 }
 
 
