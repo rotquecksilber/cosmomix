@@ -12,7 +12,7 @@
     padding: 6rem 2rem 4rem;
     text-align: center;
 }
-.heroContent{
+.heroContent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,12 +22,10 @@
 .heroContent h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-
 }
 
 .heroContent p {
     font-size: clamp(16px, 2vw, 24px);
-;
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
@@ -35,11 +33,8 @@
 }
 
 .ctaButton {
-
-
+    /* можно добавить padding/margin если нужно */
 }
-
-
 
 /* ---------- Generic Section ---------- */
 .section {
@@ -50,9 +45,7 @@
 }
 
 .section h2 {
-
     margin-bottom: 2rem;
-
 }
 
 /* ---------- Cards ---------- */
@@ -78,7 +71,6 @@
 
 .card span {
     font-size: clamp(16px, 2vw, 24px);
-;
     display: block;
     margin-bottom: 1rem;
 }
@@ -134,8 +126,7 @@
     justify-content: center;
     flex-wrap: wrap;
     font-weight: 600;
-    font-size:clamp(16px, 2vw, 24px);
-;
+    font-size: clamp(16px, 2vw, 24px);
     color: #6a4ff7;
 }
 
@@ -168,8 +159,6 @@
 
 .blog h3 {
     margin-bottom: 1rem;
-
-
 }
 
 /* ---------- Final CTA ---------- */
@@ -181,29 +170,27 @@
 }
 
 .finalCta h2 {
-
     margin-bottom: 1rem;
 }
 
 .finalCta p {
     font-size: clamp(16px, 2vw, 24px);
-;
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* ---------- Animations ---------- */
+/* ---------- Animations (0.3s) ---------- */
 .fadeIn {
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
+    animation: fadeIn 0.3s ease forwards;
 }
 
 .fadeUp {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 1s ease forwards;
+    animation: fadeUp 0.3s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -221,16 +208,23 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-
     .wrapper {
         margin-top: 0;
     }
 
-
-
     .ctaButton {
         padding: 0.8rem 1.5rem;
+    }
 
+    .cards {
+        gap: 1rem;
+    }
+
+    .products {
+        gap: 1rem;
+    }
+
+    .grid {
+        gap: 1rem;
     }
 }
-

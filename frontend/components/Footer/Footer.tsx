@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import styles from './Footer.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,6 +10,13 @@ export default function Footer() {
 
   const toggleSection = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleKey = (e: KeyboardEvent<HTMLDivElement>, index: number) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleSection(index);
+    }
   };
 
   const sections = [
@@ -37,15 +44,19 @@ export default function Footer() {
           <div className={styles.column} key={i}>
             <div
               className={styles.columnTitle}
+              role="button"
+              tabIndex={0}
+              aria-expanded={openIndex === i}
+              aria-controls={`section-links-${i}`}
               onClick={() => toggleSection(i)}
+              onKeyDown={(e) => handleKey(e, i)}
             >
               {section.title}
-              <span>{openIndex === i ? '−' : '+'}</span>
+              <span aria-hidden="true">{openIndex === i ? '−' : '+'}</span>
             </div>
             <div
-              className={`${styles.columnLinks} ${
-                openIndex === i ? styles.show : ''
-              }`}
+              id={`section-links-${i}`}
+              className={`${styles.columnLinks} ${openIndex === i ? styles.show : ''}`}
             >
               {section.links.map((link, idx) => (
                 <Link href={link.href} key={idx}>
@@ -57,16 +68,21 @@ export default function Footer() {
         ))}
 
         <div className={styles.column}>
-          <div className={styles.socials}>
-            <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
-            <Image src="/socials/vk.svg" alt="VK" width={24} height={24} />
-            <Image src="/socials/youtube.svg" alt="YouTube" width={24} height={24} />
+          <div className={styles.socials} aria-label="Социальные сети">
+            <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+              <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
+            </a>
+            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
+              <Image src="/socials/vk.svg" alt="VK" width={24} height={24} />
+            </a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
+              <Image src="/socials/youtube.svg" alt="YouTube" width={24} height={24} />
+            </a>
           </div>
         </div>
 
         <div className={styles.column}>
           <div className={styles.emailGroup}>
-
             <strong>Для связи с нами</strong>
             <div>
               <Link href="mailto:info@cosmo-mix.ru">info@cosmo-mix.ru</Link>
@@ -74,7 +90,6 @@ export default function Footer() {
             <div>
               <Link href="tel:+74951200596">+7 (495) 120-05-96</Link>
             </div>
-
           </div>
         </div>
       </div>
@@ -83,7 +98,7 @@ export default function Footer() {
         <div className={styles.bottomRow}>
           <span>COSMOMIX</span>
           <span>{new Date().getFullYear()}</span>
-          <Image src="/logo.svg" alt="Logo" width={32} height={32}/>
+          <Image src="/logo.svg" alt="Logo" width={32} height={32} />
         </div>
       </div>
     </footer>

@@ -34,6 +34,7 @@ export default function ContactsSection() {
             phone: data.phone,
             email: data.email,
             comment: data.message,
+            chat_key: 'CosmomixRequests_-1002783575555',
           }),
         }
       );
@@ -43,7 +44,6 @@ export default function ContactsSection() {
       await res.json();
       setStatus('success');
       reset();
-
       setTimeout(() => setStatus(null), 2000);
     } catch (err) {
       console.error('Ошибка при отправке формы:', err);
@@ -52,104 +52,112 @@ export default function ContactsSection() {
   };
 
   return (
-    <section>
-      <div className={styles.contacts}>
-        <div className={styles.contacts_data}>
-          <Htag tag="h2" color="white" className={styles.contacts_data_title} uppercase>
-              Ваша идея +<br />наша экспертиза
-          </Htag>
+    <section className={styles.contacts} aria-labelledby="contact-title">
+      <div className={styles.contacts_data}>
+        <Htag tag="h2" color="white" className={styles.contacts_data_title} uppercase>
+            Ваша идея +<br />наша экспертиза
+        </Htag>
 
-          <div className={styles.contacts_data__credentials}>
-            <div>
-              <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
-                  Телефон
-              </Htag>
-              <a href="tel:+74951200596" className={styles.contacts_data__a}>
-                  +7 (495) 120-05-96
-              </a>
-            </div>
-            <div>
-              <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
-                  Электронная почта
-              </Htag>
-              <a href="mailto:odm@cosmo-mix.ru" className={styles.contacts_data__a}>
-                  odm@cosmo-mix.ru
-              </a>
-            </div>
-            <div>
-              <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
-                  Адрес
-              </Htag>
-              <div className={styles.contacts_data__a}>
-                  г. Москва, 2-я Мытищинская ул., 2C1
-              </div>
-            </div>
+        <div className={styles.contacts_data__credentials}>
+          <div>
+            <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
+                Телефон
+            </Htag>
+            <a href="tel:+74951200596" className={styles.contacts_data__a}>
+                +7 (495) 120-05-96
+            </a>
+          </div>
+          <div>
+            <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
+                Электронная почта
+            </Htag>
+            <a href="mailto:info@cosmo-mix.ru" className={styles.contacts_data__a}>
+                info@cosmo-mix.ru
+            </a>
+          </div>
+          <div>
+            <Htag tag="h3" color="white" className={styles.contacts_data__h3}>
+                Адрес
+            </Htag>
+            <p className={styles.contacts_data__a}>
+                г. Москва, 2-я Мытищинская ул., 2C1
+            </p>
           </div>
         </div>
+      </div>
 
-        <div className={styles.contacts_form__wrapper}>
-          <Htag tag="h2" color="gradient" uppercase className={styles.contacts_form__title}>
-            <span>Как</span>
-            <br />мы можем вам помочь?
-          </Htag>
+      <div className={styles.contacts_form__wrapper}>
+        <Htag tag="h2" color="gradient" uppercase className={styles.contacts_form__title}>
+          <span>Как</span>
+          <br />мы можем вам помочь?
+        </Htag>
 
-          <form
-            className={styles.contacts_form}
-            onSubmit={handleSubmit(onSubmit)}
-            noValidate
-          >
-            <input
-              type="text"
-              placeholder="Ваше имя"
-              className={styles.contacts_form__input}
-              {...register('name', { required: 'Введите имя' })}
-            />
-            {errors.name && <span className={styles.error}>{errors.name.message}</span>}
+        <form
+          className={styles.contacts_form}
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          aria-describedby="form-status"
+        >
 
-            <input
-              type="email"
-              placeholder="Электронная почта"
-              className={styles.contacts_form__input}
-              {...register('email', {
-                required: 'Введите email',
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Некорректный формат email',
-                },
-              })}
-            />
-            {errors.email && <span className={styles.error}>{errors.email.message}</span>}
+          <input
+            id="name"
+            type="text"
+            placeholder="Ваше имя"
+            className={styles.contacts_form__input}
+            {...register('name', { required: 'Введите имя' })}
+            aria-invalid={!!errors.name}
+          />
+          {errors.name && <span className={styles.error}>{errors.name.message}</span>}
 
-            <input
-              type="tel"
-              placeholder="Телефон"
-              className={styles.contacts_form__input}
-              {...register('phone')}
-            />
 
-            <textarea
-              placeholder="Сообщение"
-              className={styles.contacts_form__textarea}
-              rows={5}
-              {...register('message', { required: 'Введите сообщение' })}
-            />
-            {errors.message && (
-              <span className={styles.error}>{errors.message.message}</span>
-            )}
+          <input
+            id="email"
+            type="email"
+            placeholder="Электронная почта"
+            className={styles.contacts_form__input}
+            {...register('email', {
+              required: 'Введите email',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Некорректный формат email',
+              },
+            })}
+            aria-invalid={!!errors.email}
+          />
+          {errors.email && <span className={styles.error}>{errors.email.message}</span>}
 
-            <button type="submit" className={styles.contacts_form__button}>
-                Отправить
-            </button>
 
-            {/* Статусы */}
-            {status === 'success' && (
-              <p className={styles.success}>✅ Спасибо, сообщение отправлено!</p>
-            )}
-            {status === 'error' && (
-              <p className={styles.error}>❌ Ошибка, попробуйте снова.</p>
-            )}
-          </form>
-        </div>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Телефон"
+            className={styles.contacts_form__input}
+            {...register('phone')}
+          />
+
+
+          <textarea
+            id="message"
+            placeholder="Сообщение"
+            className={styles.contacts_form__textarea}
+            rows={5}
+            {...register('message', { required: 'Введите сообщение' })}
+            aria-invalid={!!errors.message}
+          />
+          {errors.message && <span className={styles.error}>{errors.message.message}</span>}
+
+          <button type="submit" className={styles.contacts_form__button}>
+              Отправить
+          </button>
+
+          {/* Статусы */}
+          {status === 'success' && (
+            <p id="form-status" className={styles.success} role="status">✅ Спасибо, сообщение отправлено!</p>
+          )}
+          {status === 'error' && (
+            <p id="form-status" className={styles.error} role="alert">❌ Ошибка, попробуйте снова.</p>
+          )}
+        </form>
       </div>
     </section>
   );

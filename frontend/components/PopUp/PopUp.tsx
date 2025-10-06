@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
-
 import Image from 'next/image';
 
 type FormData = {
@@ -17,6 +16,7 @@ type FormData = {
 export default function PopUp() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<null | 'success' | 'error'>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
@@ -24,6 +24,13 @@ export default function PopUp() {
     setIsOpen(prev => !prev);
     setStatus(null); // сбрасываем статус при открытии/закрытии
   };
+
+  // --- Управление фокусом при открытии/закрытии ---
+  useEffect(() => {
+    if (isOpen && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [isOpen]);
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -39,6 +46,7 @@ export default function PopUp() {
             phone: data.phone,
             email: data.email,
             comment: data.comment,
+            chat_key: 'CosmomixRequests_-1002783575555',
           }),
         }
       );
@@ -62,6 +70,7 @@ export default function PopUp() {
     }
   };
 
+
   return (
     <div>
       {/* Кнопка для десктопа */}
@@ -69,6 +78,9 @@ export default function PopUp() {
         onClick={togglePopup}
         className={cn(styles.openButton)}
         suppressHydrationWarning
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls="popup-dialog"
       >
                 Оставить заявку
       </button>
@@ -78,45 +90,83 @@ export default function PopUp() {
         onClick={togglePopup}
         className={cn(styles.openButtonMobile)}
         suppressHydrationWarning
+        aria-label="Открыть форму заявки"
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls="popup-dialog"
       >
-        <Image src="/Vector.svg" alt="Заявка" width={25} height={25} />
+        <Image src="/Vector.svg" alt="" width={25} height={25} role="presentation"  />
       </button>
 
       {isOpen && (
-        <div className={styles.overlay} onClick={togglePopup}>
-          <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+        <div
+          className={styles.overlay}
+          onClick={togglePopup}
+          role="presentation"
+          aria-hidden={!isOpen}
+        >
+          <div
+            className={styles.popup}
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            id="popup-dialog"
+            aria-labelledby="popup-title"
+            aria-describedby="popup-description"
+          >
 
             {/* Декоративный фон */}
             <Image
               src="/Logo.png"
-              alt="Логотип"
+              alt=""
               className={styles.logo}
               width={300}
               height={300}
+              role="presentation"
             />
 
-            <button className={styles.closeButton} onClick={togglePopup}>
+            <button
+              className={styles.closeButton}
+              onClick={togglePopup}
+              aria-label="Закрыть форму"
+              ref={closeButtonRef}
+            >
                             ×
             </button>
 
-            <h2 className={styles.title}>Оставить заявку</h2>
+            <h2 className={styles.title} id="popup-title">
+                            Оставить заявку
+            </h2>
+
+
 
             <form
               onSubmit={handleSubmit(onSubmit)}
               className={cn(styles.form, styles.inputBox)}
               noValidate
               suppressHydrationWarning
+              aria-live="polite"
             >
+              {/* Имя */}
+
               <input
+                id="name"
                 type="text"
                 placeholder="Имя"
                 {...register('name', { required: 'Введите имя' })}
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name && (
-                <span className={styles.error}>{errors.name.message}</span>
+                <span id="name-error" className={styles.error} role="alert">
+                  {errors.name.message}
+                </span>
               )}
 
+              {/* Телефон */}
+
               <input
+                id="phone"
                 type="tel"
                 placeholder="Телефон"
                 {...register('phone', {
@@ -126,12 +176,19 @@ export default function PopUp() {
                     message: 'Некорректный формат телефона',
                   },
                 })}
+                aria-invalid={!!errors.phone}
+                aria-describedby={errors.phone ? 'phone-error' : undefined}
               />
               {errors.phone && (
-                <span className={styles.error}>{errors.phone.message}</span>
+                <span id="phone-error" className={styles.error} role="alert">
+                  {errors.phone.message}
+                </span>
               )}
 
+              {/* Email */}
+
               <input
+                id="email"
                 type="email"
                 placeholder="Email"
                 {...register('email', {
@@ -141,16 +198,24 @@ export default function PopUp() {
                     message: 'Некорректный формат email',
                   },
                 })}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email && (
-                <span className={styles.error}>{errors.email.message}</span>
+                <span id="email-error" className={styles.error} role="alert">
+                  {errors.email.message}
+                </span>
               )}
 
+              {/* Комментарий */}
+
               <textarea
+                id="comment"
                 placeholder="Комментарий"
                 {...register('comment')}
               />
 
+              {/* Кнопка отправки */}
               <button
                 type="submit"
                 className={cn(styles.submitButton)}
@@ -161,10 +226,14 @@ export default function PopUp() {
 
               {/* Сообщения пользователю */}
               {status === 'success' && (
-                <p className={styles.success}>✅ Спасибо, заявка отправлена!</p>
+                <p className={styles.success} role="status" aria-live="assertive">
+                                    ✅ Спасибо, заявка отправлена!
+                </p>
               )}
               {status === 'error' && (
-                <p className={styles.error}>❌ Ошибка, попробуйте снова.</p>
+                <p className={styles.error} role="alert" aria-live="assertive">
+                                    ❌ Ошибка, попробуйте снова.
+                </p>
               )}
             </form>
           </div>

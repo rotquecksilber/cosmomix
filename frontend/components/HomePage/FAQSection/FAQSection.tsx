@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './FAQSection.module.css';
 import Htag from '@/components/htag/htag';
 import Image from 'next/image';
+import Script from 'next/script';
 
 interface FAQItem {
-  question: string;
-  answer: string;
+    question: string;
+    answer: string;
 }
 
 export default function FAQSection() {
@@ -25,7 +26,6 @@ export default function FAQSection() {
       question: 'Какие услуги входят в контрактное производство и какие дополнительные возможности доступны?',
       answer: 'Мы предоставляем полный цикл услуг: от разработки формулы до серийного производства.'
     },
-
   ];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -44,6 +44,26 @@ export default function FAQSection() {
 
   return (
     <section className={styles.faq}>
+      {/* Schema.org JSON-LD */}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            'mainEntity': questionsData.map(item => ({
+              '@type': 'Question',
+              'name': item.question,
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': item.answer
+              }
+            }))
+          })
+        }}
+      />
+
       <Image
         src={'/home_page/questions/logo.png'}
         alt={'контрактное производство косметики'}
@@ -57,7 +77,7 @@ export default function FAQSection() {
         className={styles.title}
         uppercase={true}
       >
-          Ответы на самые <span>частые вопросы</span>
+                Ответы на самые <span>частые вопросы</span>
       </Htag>
 
       <div className={styles.accordion}>
@@ -82,7 +102,7 @@ export default function FAQSection() {
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className={styles.questionWrapper}>
+              <div className={styles.questionWrapper} role="button" aria-expanded={isActive} tabIndex={0}>
                 <Htag
                   tag={'h3'}
                   color={'primary'}
@@ -95,7 +115,7 @@ export default function FAQSection() {
                   animate={{ rotate: isActive ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                      +
+                                    +
                 </motion.span>
               </div>
 

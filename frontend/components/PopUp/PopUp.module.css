@@ -1,3 +1,4 @@
+/* --- Overlay & Popup --- */
 .overlay {
     position: fixed;
     top: 0;
@@ -12,29 +13,31 @@
 }
 
 .popup {
-    padding: 32px;
-    border-radius: 16px;
+    position: relative;
     width: 100%;
     max-width: 600px;
-    position: relative; /* важно для абсолютного позиционирования картинки */
+    padding: 32px;
+    border-radius: 16px;
+    background-color: var(--white);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--white);
     overflow: hidden;
 }
 
+/* --- Decorative background --- */
 .logo {
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: 0;
-    opacity: 0.2; /* декоративный фон */
-    pointer-events: none; /* не мешает кликам */
+    opacity: 0.2;
+    pointer-events: none;
 }
 
+/* --- Titles & Buttons --- */
 .title {
     font-size: clamp(14px, 1.7vw, 26px);
     margin-bottom: 20px;
@@ -71,21 +74,12 @@
     cursor: pointer;
 }
 
+/* --- Form --- */
 .form {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 16px;
-}
-
-.submitButton {
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: clamp(14px, 1.5vw, 18px);
 }
 
 .inputBox {
@@ -105,8 +99,8 @@
     font-size: 16px;
     font-family: inherit;
     background-color: #fff;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     color: var(--primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .inputBox input:focus,
@@ -127,26 +121,18 @@
     opacity: 1;
 }
 
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: -6px;
-    margin-bottom: 10px;
+/* --- Submit button --- */
+.submitButton {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: clamp(14px, 1.5vw, 18px);
 }
 
-/* --- Media --- */
-@media (max-width: 815px) {
-    .openButton {
-        display: none;
-    }
-}
-
-@media (min-width: 816px) {
-    .openButtonMobile {
-        display: none;
-    }
-}
-
+/* --- Messages --- */
 .success {
     color: green;
     margin-top: 10px;
@@ -157,4 +143,18 @@
     color: red;
     margin-top: 10px;
     font-size: 14px;
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 815px) {
+    .openButton {
+        display: none;
+    }
+}
+
+@media (min-width: 816px) {
+    .openButtonMobile {
+        display: none;
+    }
 }

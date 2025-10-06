@@ -1,22 +1,39 @@
-
-
-/* ------------------------------
-   BANNER SECTION (Hero Section)
------------------------------- */
-
+/* ==========================
+   BANNER WRAPPER
+========================== */
 .banner_wrapper {
     margin-top: 130px;
     position: relative;
-
 }
 
+/* ==========================
+   BACKGROUND IMAGE
+========================== */
 .banner_image {
     width: 100%;
-    height: auto; /* пусть сам масштабируется */
-    max-height: 600px; /* ограничение только сверху */
+    height: auto;
+    max-height: 600px;
     object-fit: cover;
 }
 
+/* ==========================
+   BANNER MODEL
+========================== */
+.banner_model {
+    position: absolute;
+    top: -0.5px;
+    right: -10%;
+    transform: scaleX(-1);
+    width: auto;
+    height: 600px;
+    max-height: 100%;
+    object-fit: contain;
+    margin-right: 95px;
+}
+
+/* ==========================
+   TEXT WRAPPER
+========================== */
 .banner_textWrapper {
     position: absolute;
     top: 50%;
@@ -29,34 +46,47 @@
     max-height: 600px;
     display: grid;
     grid-template-rows: 2fr 1fr 1fr 1fr;
-    padding-top: 3rem; /* Добавляем отступ сверху */
-    padding-bottom: 3rem; /* Добавляем отступ снизу */
+    padding: 3rem 0;
+    gap: 10px;
 }
 
-
-
+/* ==========================
+   LOGO AND HEADER
+========================== */
 .text_upper {
     width: 70%;
     height: auto;
     margin-bottom: 10px;
 }
 
+.desktop {
+    display: block;
+}
 
+.mobile {
+    display: none;
+}
+
+/* ==========================
+   TEXT DESCRIPTION
+========================== */
 .text_description,
 .connect_text_description {
     font-size: clamp(16px, 2.2vw, 32px);
     font-weight: 200;
-    margin-bottom: 40px;
-    color: #FFFFFF;
-    margin-top: 10px;
+    color: #fff;
+    margin: 10px 0 40px 0;
 }
 
+/* ==========================
+   BUTTONS
+========================== */
 .text_button,
 .connect_button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Центрируем содержимое */
+    align-items: center;
     background: var(--black);
     color: var(--white);
     font-weight: 600;
@@ -68,38 +98,21 @@
     cursor: pointer;
     text-decoration: none;
     max-width: 30vw;
-    transition: box-shadow 0.3s ease, background 0.3s ease;
     font-size: clamp(22px, 2vw, 28px);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .text_button:hover {
     box-shadow: 0 4px 30px var(--primary);
 }
 
-.banner_model {
-    position: absolute;
-    top: -0.5px;
-    right: -10%; /* Сдвиг на 5% за правый край */
-    transform: scaleX(-1);
-    width: auto;
-    height: 600px;
-    max-height: 100%;
-    object-fit: contain;
-margin-right: 95px;
-
-}
-
-.desktop {
-    display: block;
-}
 .mobile_button {
     display: none !important;
 }
 
-.mobile {
-    display: none;
-}
-
+/* ==========================
+   MEDIA QUERIES
+========================== */
 @media (max-width: 816px) {
     .banner_wrapper {
         margin-top: 0;
@@ -109,23 +122,20 @@ margin-right: 95px;
 @media (max-width: 780px) {
     .banner_image {
         width: auto;
-        min-height: 800px; /* Фиксированная высота баннера */
-
-        object-fit: cover; /* Масштабируем изображение */
+        min-height: 800px;
+        object-fit: cover;
     }
-
 
     .banner_model {
         top: 0;
-
         left: 55%;
         right: auto;
         transform: translateX(-50%) scaleX(-1);
         height: 300px;
         animation: none;
     }
-    .banner_textWrapper {
 
+    .banner_textWrapper {
         transform: none;
         top: 310px;
         left: 0;
@@ -141,25 +151,27 @@ margin-right: 95px;
 
     .text_upper {
         margin: 20px 0;
-order: 2;
+        order: 2;
     }
 
     .desktop {
         display: none !important;
     }
+
     .mobile_button {
         display: block !important;
         text-align: center;
         order: 4;
     }
+
     .mobile {
-display: block;
+        display: block;
         order: 1;
     }
+
     .text_description {
         order: 3;
     }
-
 }
 
 @media (max-width: 380px) {
@@ -168,8 +180,9 @@ display: block;
     }
 }
 
-
-/* Анимация появления модели */
+/* ==========================
+   ANIMATIONS
+========================== */
 @keyframes slideInFromRight {
     from {
         transform: translate(100%, -50%);

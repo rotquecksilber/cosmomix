@@ -1,8 +1,13 @@
+/* ==============================
+   1. Общие стили хедера
+============================== */
 .header_desk {
     position: relative;
 }
 
-
+/* ==============================
+   2. Desktop Header
+============================== */
 .header_desk__wrapper {
     position: fixed;
     top: 0;
@@ -45,7 +50,9 @@
     position: relative;
 }
 
-/* --- Мегаменю --- */
+/* ==============================
+   3. Мегаменю
+============================== */
 .megamenu {
     display: none;
     position: absolute;
@@ -54,7 +61,7 @@
     right: 0;
     width: 50vw;
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     padding: 2rem;
     z-index: 2;
     grid-template-columns: 1fr 1fr;
@@ -65,6 +72,7 @@
     display: grid;
 }
 
+/* Продукты внутри мегаменю */
 .megamenu__products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -89,6 +97,7 @@
     height: auto;
 }
 
+/* Категории */
 .megamenu__categories {
     display: flex;
     flex-direction: column;
@@ -106,7 +115,9 @@
     color: var(--primary-hover);
 }
 
-/* --- Mobile --- */
+/* ==============================
+   4. Mobile Header
+============================== */
 .header_mobile {
     position: fixed;
     bottom: 0;
@@ -140,24 +151,16 @@
     right: 16px;
 }
 
-/* Overlay + Mobile menu */
-.mobileOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--brand-light-60);
-    z-index: 998; /* ниже меню */
-}
-
+/* ==============================
+   5. Mobile Menu
+============================== */
 .mobileMenu {
     position: fixed;
     bottom: 80px;
     left: 0;
     right: 0;
     background: white;
-    z-index: 999; /* выше оверлея */
+    z-index: 999;
     max-height: 70vh;
     overflow-y: auto;
     opacity: 0;
@@ -183,22 +186,19 @@
     list-style: none;
 }
 
-/* Ссылки мобильного меню */
 .mobileMenu_link {
     font-family: inherit;
-
     text-decoration: none;
-
     transition: color 0.2s ease;
     font-size: clamp(14px, 1.5vw, 24px);
     font-weight: 400;
     color: var(--primary);
-
     background: none;
     border: none;
     text-align: center;
     width: 100%;
 }
+
 .mobileMenu_link:hover {
     font-weight: 800;
 }
@@ -207,8 +207,8 @@
     font-weight: 500;
 }
 
+/* Подменю внутри мобильного меню */
 .submenuMobile {
-
     margin-top: 0.5rem;
     font-size: clamp(14px, 1.5vw, 24px);
 }
@@ -230,6 +230,9 @@
     color: #563d82;
 }
 
+/* ==============================
+   6. Дополнительные элементы
+============================== */
 .subArrow {
     display: flex;
     flex-direction: row;
@@ -237,12 +240,14 @@
     justify-content: center;
     gap: 0.3rem;
 }
+
 .subArrow_arrow {
     margin-top: 3px;
 }
 
-
-/* --- Media --- */
+/* ==============================
+   7. Медиа-запросы
+============================== */
 @media (max-width: 815px) {
     .header_desk__wrapper {
         display: none;

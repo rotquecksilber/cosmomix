@@ -1,23 +1,18 @@
 .contacts {
-
     display: grid;
     grid-template-columns: 2fr 1fr;
-
     position: relative;
 }
 
 .contacts_data_image {
     width: 20%;
-height: auto;
-
+    height: auto;
     margin-left: -12px;
-
 }
 
-.contacts_data__a{
+.contacts_data__a {
     color: var(--white);
     text-decoration: none;
-
     font-size: clamp(16px, 2vw, 24px);
 }
 
@@ -30,34 +25,29 @@ height: auto;
     flex-direction: column;
     padding: 60px;
     justify-content: space-between;
-
-    background: linear-gradient(
-            #FFFFFF 0%,
-            #A788DB 50%,
-            #563D82 100%
-    );
+    background: linear-gradient(#FFFFFF 0%, #A788DB 50%, #563D82 100%);
 }
+
 .contacts_data_title {
     font-size: 70px;
     margin-bottom: 45px;
 }
-.contacts_data__credentials{
+
+.contacts_data__credentials {
     display: flex;
     flex-direction: column;
     gap: 25px;
     margin-bottom: 190px;
 }
+
 .contacts_form__wrapper {
     padding: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 150px;
-
-    background: linear-gradient( #FFFFFF 0%, #DDDBEA 100%);
-
+    background: linear-gradient(#FFFFFF 0%, #DDDBEA 100%);
 }
-
 
 .contacts_form {
     display: flex;
@@ -66,7 +56,6 @@ height: auto;
     gap: 16px;
     margin-top: 24px;
     min-height: 500px;
-
 }
 
 .contacts_form__input,
@@ -76,9 +65,7 @@ height: auto;
     color: var(--primary);
     border: none;
     border-bottom: 1px solid var(--primary);
-
-background-color: transparent;
-
+    background-color: transparent;
     resize: none;
     transition: border 0.2s ease, box-shadow 0.2s ease;
 }
@@ -87,7 +74,6 @@ background-color: transparent;
 .contacts_form__textarea:focus {
     outline: none;
     border-bottom: 1px solid #7e5bef;
-
 }
 
 .contacts_form__input::placeholder,
@@ -101,28 +87,26 @@ background-color: transparent;
 
 .contacts_form__input:-webkit-autofill,
 .contacts_form__textarea:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* или ваш цвет фона */
-    -webkit-text-fill-color: var(--primary); /* ваш нужный цвет текста */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    -webkit-text-fill-color: var(--primary);
     transition: background-color 9999s ease-in-out 0s;
-
-
 }
+
 .contacts_form__button {
-    background: var(--primary); /* Цвет фона */
+    background: var(--primary);
     color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;/* Чтобы элемент стал "блоковым" (кнопка), но оставался в потоке */
-
-    font-weight: 600; /* Толщина текста */
-    text-align: center; /* Центрируем текст по горизонтали */
-    padding: 20px 30px; /* Внутренние отступы со всех сторон (увеличивают кнопку) */
-    border: none; /* Убираем стандартную границу (если есть) */
-    border-radius: 10px; /* Добавляем скругление углов (по желанию) */
-    cursor: pointer; /* Указываем, что элемент кликабелен */
-    text-decoration: none; /* Убираем подчеркивание текста */
-    max-width: 35vw; /* Максимальная ширина для адаптивности */
+    align-items: center;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    max-width: 35vw;
     transition: box-shadow 0.3s ease, background 0.3s ease;
     font-size: clamp(16px, 1.5vw, 28px);
 }
@@ -131,7 +115,6 @@ background-color: transparent;
     .contacts {
         display: flex;
         flex-direction: column;
-
     }
 
     .contacts_data,
@@ -139,21 +122,14 @@ background-color: transparent;
         padding: 15px 0;
     }
 
-
     .contacts_data {
-        background: linear-gradient(
-                #FFFFFF 0%,
-                #A788DB 50%,
-                #563D82 100%
-        );
+        background: linear-gradient(#FFFFFF 0%, #A788DB 50%, #563D82 100%);
         padding: 30px 15px;
-
         position: relative;
     }
 
     .contacts_data_image {
-display: none;
-
+        display: none;
     }
 
     .contacts_data_title {
@@ -176,7 +152,7 @@ display: none;
     }
 
     .contacts_form__wrapper {
-        background: linear-gradient( #DDDBEA 0%, #FFFFFF 100%);
+        background: linear-gradient(#DDDBEA 0%, #FFFFFF 100%);
         padding: 30px 15px;
         gap: 40px;
     }

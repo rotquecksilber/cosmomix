@@ -22,7 +22,7 @@
 .partners_image {
     width: 20vw;
     height: auto;
-border-radius: 30px;
+    border-radius: 30px;
     transition: transform 0.3s ease;
 }
 .partners_image:hover {

@@ -1,9 +1,9 @@
 'use client';
+
 import styles from './Reasons2Section.module.css';
 import cn from 'classnames';
 import Htag from '@/components/htag/htag';
 import Image from 'next/image';
-// import Button from '@/components/button/button';
 import { motion } from 'framer-motion';
 
 export default function Reasons2Section() {
@@ -35,7 +35,7 @@ export default function Reasons2Section() {
   };
 
   return (
-    <section className={styles.reasons}>
+    <section className={styles.reasons} aria-labelledby="reasons-title">
       <div className={styles.reasons_wrapper}>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -48,17 +48,16 @@ export default function Reasons2Section() {
           </Htag>
         </motion.div>
 
-        <div className={styles.reasons_grid}>
+        <ul className={styles.reasons_grid}>
           {reasons.map((reason, index) => {
             const positionClass = [
               styles.first,
               styles.second,
               styles.third,
-              styles.fourth,
             ][index];
 
             return (
-              <motion.div
+              <motion.li
                 key={index}
                 className={cn(styles.reasons_reason, positionClass)}
                 variants={fadeUp}
@@ -66,9 +65,11 @@ export default function Reasons2Section() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={index}
+                tabIndex={0}
+                aria-label={`${reason.title}: ${reason.description}`}
               >
                 <Image
-                  alt="Иконка"
+                  alt={`${reason.title} иконка`}
                   src="/home_page/reasons/reasons.svg"
                   width={105}
                   height={105}
@@ -85,21 +86,12 @@ export default function Reasons2Section() {
                       {reason.title}
                     </Htag>
                   </div>
-                  <p className={styles.reasons_description}>
-                    {reason.description}
-                  </p>
+                  <p className={styles.reasons_description}>{reason.description}</p>
                 </div>
-                {index === 2 && (
-                  <div className={styles.reason_buttonWrapper}>
-                    {/*<Button color="white" type="standard" href="/">*/}
-                    {/*        Подробнее*/}
-                    {/*</Button>*/}
-                  </div>
-                )}
-              </motion.div>
+              </motion.li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

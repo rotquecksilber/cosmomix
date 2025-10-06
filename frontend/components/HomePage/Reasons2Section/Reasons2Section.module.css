@@ -1,5 +1,4 @@
 .reasons {
-
 }
 
 .reasons_wrapper {
@@ -12,8 +11,8 @@
 
 .reasons_grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* две колонки сверху */
-    grid-template-rows: auto auto; /* две строки */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 20px;
 }
 
@@ -30,7 +29,7 @@
 
 /* Нижняя растянутая справа */
 .third {
-    grid-column: 1 / span 2; /* растягиваем на две колонки */
+    grid-column: 1 / span 2;
     grid-row: 2;
     display: flex;
     flex-direction: column;
@@ -52,15 +51,11 @@
 .second,
 .fourth {
     background-color: #9574CC;
-
 }
 
 .third {
-    background-color: #9574CC;;
+    background-color: #9574CC;
 }
-
-
-
 
 .fourth {
     grid-column: 1 / span 2;
@@ -96,26 +91,20 @@
         gap: 20px;
     }
     .third {
-        order: 5; /* ставим последней */
+        order: 5;
     }
 }
 
-/* ==== АДАПТИВ ==== */
 @media (max-width: 768px) {
     .reasons_wrapper {
         padding: 60px 20px;
         gap: 40px;
     }
 
-
-
     .reasons_reason {
         padding: 16px;
         gap: 18px;
     }
-
-    /* Переносим карточку с кнопкой вниз */
-
 
     .reasons_icon {
         width: 80px;
@@ -126,7 +115,6 @@
     .reason_titleWrapper {
         min-height: auto;
     }
-
 
     .reasons_description {
         font-size: 16px;

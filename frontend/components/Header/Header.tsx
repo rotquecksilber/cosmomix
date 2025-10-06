@@ -9,14 +9,9 @@ import PopUp from '@/components/PopUp/PopUp';
 import { useState } from 'react';
 import Burger from '@/components/burger/burger';
 
-
 const navLinks = [
   { href: '/about', text: 'О нас' },
-  {
-    href: '/capability',
-    text: 'Возможности',
-
-  },
+  { href: '/capability', text: 'Возможности' },
   {
     href: '/catalog',
     text: 'Продукция',
@@ -43,21 +38,21 @@ export default function Header() {
   };
 
   return (
-    <header className={styles.header_desk}>
+    <header className={styles.header_desk} role="banner">
       {/* --- Desktop --- */}
       <div className={styles.header_desk__wrapper}>
-        <Link href="/">
+        <Link href="/" aria-label="Перейти на главную страницу COSMOMIX">
           <Image
             src="/logo.svg"
-            alt="COSMOMIX производство косметики"
+            alt="Логотип COSMOMIX — производство косметики"
             height={128}
             width={112}
             priority
           />
         </Link>
 
-        <nav>
-          <ul className={styles.header_desk__nav}>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul className={styles.header_desk__nav} role="menubar">
             {navLinks.map((link, index) => {
               const isActive = pathName === link.href;
               return (
@@ -66,18 +61,26 @@ export default function Header() {
                   className={cs(styles.navItem, {
                     [styles.hasSubmenu]: Boolean(link.submenu),
                   })}
+                  role="none"
                 >
                   <Link
                     href={link.href}
                     className={cs(styles.header_desk__navLinks, {
                       [styles.active]: isActive,
                     })}
+                    role="menuitem"
+                    aria-current={isActive ? 'page' : undefined}
                   >
                     {link.text}
                   </Link>
 
                   {link.submenu && (
-                    <div className={styles.megamenu}>
+                    <div
+                      className={styles.megamenu}
+                      role="menu"
+                      aria-label={`Подменю раздела ${link.text}`}
+                    >
+                      {/* --- примеры карточек продуктов --- */}
                       {/*<div className={styles.megamenu__products}>*/}
                       {/*  <div className={styles.megamenu__productCard}>*/}
                       {/*    <Image*/}
@@ -105,6 +108,7 @@ export default function Header() {
                             key={subIndex}
                             href={sub.href}
                             className={styles.megamenu__link}
+                            role="menuitem"
                           >
                             {sub.text}
                           </Link>
@@ -122,17 +126,20 @@ export default function Header() {
       </div>
 
       {/* --- Mobile --- */}
-      <div className={styles.header_mobile}>
+      <div className={styles.header_mobile} role="navigation" aria-label="Мобильное меню">
         <div className={styles.header_mobile__wrapper}>
           <div className={styles.header_mobile__logo}>
-            <Link href="/">
+            <Link
+              href="/"
+              aria-label="Перейти на главную страницу COSMOMIX"
+              onClick={closeMenu}
+            >
               <Image
                 src="/logo.svg"
-                alt="COSMOMIX производство косметики"
+                alt="Логотип COSMOMIX — производство косметики"
                 height={100}
                 width={70}
                 priority
-                onClick={closeMenu}
               />
             </Link>
           </div>
@@ -141,14 +148,20 @@ export default function Header() {
             <PopUp />
           </div>
 
-          <Burger isOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} />
+          <Burger
+            isOpen={menuOpen}
+            onToggle={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          />
         </div>
 
         {menuOpen && (
           <>
-
-
-            <nav className={cs(styles.mobileMenu, styles.mobileMenu__open)}>
+            <nav
+              className={cs(styles.mobileMenu, styles.mobileMenu__open)}
+              role="menu"
+              aria-label="Мобильная навигация"
+            >
               <ul className={styles.mobileMenu_menu}>
                 {navLinks.map((link, index) => {
                   const isActive = pathName === link.href;
@@ -156,7 +169,7 @@ export default function Header() {
 
                   if (link.submenu) {
                     return (
-                      <li key={index}>
+                      <li key={index} role="none">
                         <button
                           type="button"
                           className={cs(styles.mobileMenu_link, {
@@ -165,30 +178,39 @@ export default function Header() {
                           onClick={() => toggleSubmenu(index)}
                           aria-expanded={isSubmenuOpen}
                           aria-controls={`submenu-mobile-${index}`}
+                          aria-label={`Открыть подменю ${link.text}`}
                         >
-                          <div className={styles.subArrow}>{link.text} <Image className={styles.subArrow_arrow} src={'/arrow.svg'} alt={''} height={10} width={10}/>
+                          <div className={styles.subArrow}>
+                            {link.text}
+                            <Image
+                              className={styles.subArrow_arrow}
+                              src="/arrow.svg"
+                              alt=""
+                              height={10}
+                              width={10}
+                              aria-hidden="true"
+                            />
                           </div>
-
                         </button>
 
                         {isSubmenuOpen && (
                           <ul
                             id={`submenu-mobile-${index}`}
                             className={styles.submenuMobile}
+                            role="menu"
+                            aria-label={`Подменю раздела ${link.text}`}
                           >
                             {link.submenu.map((sub, subIndex) => (
-
-                              <li key={subIndex} onClick={closeMenu}>
+                              <li key={subIndex} onClick={closeMenu} role="none">
                                 <Link
                                   href={sub.href}
                                   className={styles.submenuLink}
+                                  role="menuitem"
                                 >
                                   {sub.text}
                                 </Link>
-
                               </li>
                             ))}
-
                           </ul>
                         )}
                       </li>
@@ -196,16 +218,17 @@ export default function Header() {
                   }
 
                   return (
-                    <li key={index} onClick={closeMenu}>
+                    <li key={index} onClick={closeMenu} role="none">
                       <Link
                         href={link.href}
                         className={cs(styles.mobileMenu_link, {
                           [styles.active]: isActive,
                         })}
+                        role="menuitem"
+                        aria-current={isActive ? 'page' : undefined}
                       >
                         {link.text}
                       </Link>
-
                     </li>
                   );
                 })}
