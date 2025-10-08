@@ -25,16 +25,18 @@ export default function ContactsSection() {
   const onSubmit = async (data: FormData) => {
     try {
       const res = await fetch(
-        'https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=5f093c7f-d044-4f52-b15b-8f6c2ea44cf1&sessionID=',
+        `https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=${process.env.NEXT_PUBLIC_DIRECTUAL_APP_ID}&sessionID=`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({
             name: data.name,
             phone: data.phone,
             email: data.email,
             comment: data.message,
-            chat_key: 'CosmomixRequests_-1002783575555',
+            chat_key: process.env.NEXT_PUBLIC_DIRECTUAL_CHAT_KEY,
           }),
         }
       );
