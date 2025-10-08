@@ -72,7 +72,7 @@ export default function Footer() {
             <Link href="https://t.me/cosmomix1" target="_blank" rel="noopener noreferrer">
               <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
             </Link>
-
+            {/*добавить вотс*/}
           </div>
         </div>
 
