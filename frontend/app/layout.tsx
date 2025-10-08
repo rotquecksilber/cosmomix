@@ -1,10 +1,13 @@
-import type { Metadata } from 'next';
+
 import './globals.css';
 import React from 'react';
-import { seoData } from '@/lib/seo';
+
 import Header from '@/components/Header/Header';
 import { montserrat } from '@/lib/fonts';
 import Footer from '@/components/Footer/Footer';
+import type {Metadata} from 'next';
+import {seoData} from '@/lib/seo';
+
 
 
 
