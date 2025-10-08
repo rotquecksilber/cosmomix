@@ -69,15 +69,10 @@ export default function Footer() {
 
         <div className={styles.column}>
           <div className={styles.socials} aria-label="Социальные сети">
-            <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://t.me/cosmomix1" target="_blank" rel="noopener noreferrer">
               <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
-            </a>
-            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials/vk.svg" alt="VK" width={24} height={24} />
-            </a>
-            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials/youtube.svg" alt="YouTube" width={24} height={24} />
-            </a>
+            </Link>
+
           </div>
         </div>
 
