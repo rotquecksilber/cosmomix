@@ -1,10 +1,11 @@
 'use client';
 
 import styles from './Reasons2Section.module.css';
-import cn from 'classnames';
 import Htag from '@/components/htag/htag';
+import { montserrat } from '@/lib/fonts';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Reasons2Section() {
   const reasons = [
@@ -12,86 +13,65 @@ export default function Reasons2Section() {
       title: 'Индивидуальный подход',
       description:
           'Мы готовы к работе с различными потребностями и запросами наших клиентов. COSMOMIX предлагает гибкие условия сотрудничества и возможность разработки индивидуальных решений под конкретные требования заказчика.',
+      image: '/home_page/reasons/1.png',
+      link: '/individual_approach',
     },
     {
       title: 'Инновационные решения',
       description:
           'COSMOMIX постоянно инвестирует в исследования и разработки, чтобы быть на передовой в индустрии косметики. Мы внедряем новые технологии и инновационные рецептуры, чтобы создавать продукцию, которая соответствует последним тенденциям и требованиям рынка.',
+      image: '/home_page/reasons/2.png',
+      link: '/innovations',
     },
     {
       title: 'Долгосрочные отношения',
       description:
           'Мы стремимся к установлению долгосрочных партнерских отношений с нашими клиентами, основанных на взаимном доверии и взаимной выгоде. Наша команда профессионалов всегда готова поддержать и помочь нашим клиентам на каждом этапе сотрудничества.',
+      image: '/home_page/reasons/3.png',
+      link: '/relations',
     },
   ];
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.5 },
-    }),
-  };
-
   return (
-    <section className={styles.reasons} aria-labelledby="reasons-title">
+    <section className={styles.reasons} aria-labelledby="reasons-heading">
       <div className={styles.reasons_wrapper}>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Htag tag="h2" color="gradient" uppercase>
-              Причины выбрать нас
-          </Htag>
-        </motion.div>
+        <Htag tag="h2" color="gradient" uppercase>
+            Причины выбрать нас
+        </Htag>
 
-        <ul className={styles.reasons_grid}>
-          {reasons.map((reason, index) => {
-            const positionClass = [
-              styles.first,
-              styles.second,
-              styles.third,
-            ][index];
-
-            return (
-              <motion.li
-                key={index}
-                className={cn(styles.reasons_reason, positionClass)}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={index}
-                tabIndex={0}
-                aria-label={`${reason.title}: ${reason.description}`}
-              >
+        <div className={styles.reasons_grid}>
+          {reasons.map((reason, index) => (
+            <Link
+              key={index}
+              href={reason.link}
+              className={
+                index % 2 === 0
+                  ? styles.gradientBorder
+                  : styles.gradientBorder_reverse
+              }
+              aria-label={`Подробнее о разделе ${reason.title}`}
+            >
+              <div className={styles.imageWrapper}>
                 <Image
-                  alt={`${reason.title} иконка`}
-                  src="/home_page/reasons/reasons.svg"
-                  width={105}
-                  height={105}
-                  className={styles.reasons_icon}
+                  className={styles.reasons_photo}
+                  src={reason.image}
+                  alt={reason.title}
+                  fill
+                  priority
                 />
-                <div>
-                  <div className={styles.reason_titleWrapper}>
-                    <Htag
-                      tag="h3"
-                      color="white"
-                      uppercase
-                      className={styles.reasons_title}
-                    >
-                      {reason.title}
-                    </Htag>
-                  </div>
-                  <p className={styles.reasons_description}>{reason.description}</p>
+                <div className={styles.overlayContent}>
+                  <Htag tag="h3" color="primary" uppercase>
+                    {reason.title}
+                  </Htag>
+                  <p className={styles.reasons_text}>
+                    <span className={montserrat.className}>COSMOMIX</span>{' '}
+                    {reason.description}
+                  </p>
                 </div>
-              </motion.li>
-            );
-          })}
-        </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

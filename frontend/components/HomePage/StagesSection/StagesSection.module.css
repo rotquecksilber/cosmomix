@@ -37,12 +37,13 @@
 }
 
 .step_number {
+    border-radius: 20px;
     z-index: 0;
 }
 
 .step_description {
     font-size: clamp(16px, 1.8vw, 24px);
-    font-weight: 200;
+    font-weight: 400;
     color: var(--primary);
 }
 

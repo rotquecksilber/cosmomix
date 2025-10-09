@@ -18,10 +18,21 @@
     /*);*/
 
 }
+.partners_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: var(--primary);
+    font-size: max(16px, min(1.8vw, 24px));
+    font-weight: 400 ;
+
+}
 
 .partners_image {
     width: 20vw;
     height: auto;
+
     border-radius: 30px;
     transition: transform 0.3s ease;
 }
@@ -53,11 +64,10 @@
     }
 
     .partners_image {
-        width: 70%;
-        max-width: 150px; /* чтобы не растягивалось на больших телефонах */
-        height: auto;
-        border-radius: 25px; /* современный маленький скруглённый угол */
-        filter: none;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 25px;
 
     }
 

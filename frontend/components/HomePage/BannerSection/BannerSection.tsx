@@ -31,8 +31,8 @@ export default function BannerSection() {
         {/* Логотип */}
         <Image
           src="/banner/banner_logo.png"
-          width={530}
-          height={68}
+          width={1060}
+          height={136}
           alt="Логотип COSMOMIX"
           priority
           className={styles.text_upper}
