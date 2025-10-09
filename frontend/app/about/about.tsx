@@ -68,7 +68,7 @@ export default function AboutPage() {
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Работа лаборатории и производства COSMOMIX"
-                src="/about/work.jpg"
+                src="/about/work.JPG"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -97,7 +97,7 @@ export default function AboutPage() {
               </Htag>
               <Image
                 alt="MANLYPRO сотрудничает с COSMOMIX"
-                src="/about/manlypro.png"
+                src="/about/manlypro.jpg"
                 width={291}
                 height={368}
                 className={styles.accordion_picture}
@@ -135,7 +135,7 @@ export default function AboutPage() {
               </Htag>
               <Image
                 alt="Производственные мощности COSMOMIX"
-                src="/logo.svg"
+                src="/about/cosmomix.jpg"
                 width={609}
                 height={391}
                 className={styles.accordion_picture}
@@ -179,7 +179,7 @@ export default function AboutPage() {
 
         {/* Индивидуальные карточки */}
         <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
-                    Главный технолог и основатель
+                    Главный технолог
         </Htag>
         <div className={styles.team_wrapper}>
 
@@ -203,6 +203,7 @@ export default function AboutPage() {
             </p>
           </section>
 
+
           <section className={styles.team_member} aria-labelledby="member-daria">
             <figure className={styles.team_image_wrapper}>
               <Image
@@ -218,7 +219,7 @@ export default function AboutPage() {
             </Htag>
             <p className={styles.team_position_title}>Основатель COSMOMIX</p>
             <p className={styles.team_position}>
-                            Уже 15 лет наша компания Manly pro занимается работой с контрактными производствами и в начале 2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных нужд и реализации контрактных заказов.
+                            Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами и в начале 2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных нужд и реализации контрактных заказов.
               <br /><br />
                             Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
             </p>

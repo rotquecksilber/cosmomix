@@ -2,9 +2,9 @@
 
 import styles from './Reasons2Section.module.css';
 import Htag from '@/components/htag/htag';
-import { montserrat } from '@/lib/fonts';
+
 import Image from 'next/image';
-import Link from 'next/link';
+
 import React from 'react';
 
 export default function Reasons2Section() {
@@ -13,21 +13,21 @@ export default function Reasons2Section() {
       title: 'Индивидуальный подход',
       description:
           'Мы готовы к работе с различными потребностями и запросами наших клиентов. COSMOMIX предлагает гибкие условия сотрудничества и возможность разработки индивидуальных решений под конкретные требования заказчика.',
-      image: '/home_page/reasons/1.png',
+      image: '/home_page/reasons/1.PNG',
       link: '/individual_approach',
     },
     {
       title: 'Инновационные решения',
       description:
           'COSMOMIX постоянно инвестирует в исследования и разработки, чтобы быть на передовой в индустрии косметики. Мы внедряем новые технологии и инновационные рецептуры, чтобы создавать продукцию, которая соответствует последним тенденциям и требованиям рынка.',
-      image: '/home_page/reasons/2.png',
+      image: '/home_page/reasons/2.PNG',
       link: '/innovations',
     },
     {
       title: 'Долгосрочные отношения',
       description:
           'Мы стремимся к установлению долгосрочных партнерских отношений с нашими клиентами, основанных на взаимном доверии и взаимной выгоде. Наша команда профессионалов всегда готова поддержать и помочь нашим клиентам на каждом этапе сотрудничества.',
-      image: '/home_page/reasons/3.png',
+      image: '/home_page/reasons/3.PNG',
       link: '/relations',
     },
   ];
@@ -41,35 +41,26 @@ export default function Reasons2Section() {
 
         <div className={styles.reasons_grid}>
           {reasons.map((reason, index) => (
-            <Link
-              key={index}
-              href={reason.link}
-              className={
-                index % 2 === 0
-                  ? styles.gradientBorder
-                  : styles.gradientBorder_reverse
-              }
-              aria-label={`Подробнее о разделе ${reason.title}`}
-            >
-              <div className={styles.imageWrapper}>
-                <Image
-                  className={styles.reasons_photo}
-                  src={reason.image}
-                  alt={reason.title}
-                  fill
-                  priority
-                />
-                <div className={styles.overlayContent}>
-                  <Htag tag="h3" color="primary" uppercase>
-                    {reason.title}
-                  </Htag>
-                  <p className={styles.reasons_text}>
-                    <span className={montserrat.className}>COSMOMIX</span>{' '}
-                    {reason.description}
-                  </p>
-                </div>
+
+            <div key={index} className={styles.imageWrapper}>
+              <Image
+                className={styles.reasons_photo}
+                src={reason.image}
+                alt={reason.title}
+                fill
+                priority
+              />
+              <div className={styles.overlayContent}>
+                <Htag tag="h3" color="primary" uppercase>
+                  {reason.title}
+                </Htag>
+                <p className={styles.reasons_text}>
+
+                  {reason.description}
+                </p>
               </div>
-            </Link>
+            </div>
+
           ))}
         </div>
       </div>

@@ -44,7 +44,7 @@
 .step_description {
     font-size: clamp(16px, 1.8vw, 24px);
     font-weight: 400;
-    color: var(--primary);
+    color: var(--black);
 }
 
 .stages_photo {

@@ -37,7 +37,7 @@ export default function DecorativeCosmeticsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Htag tag={'h1'} color={'gradient'}>Декоративная косметика</Htag>
+            <Htag tag={'h1'} color={'gradient'} className={styles.h1}>Декоративная косметика</Htag>
             <p>
                             Мы создаём продукты, которые задают тренды и соответствуют высоким
                             стандартам качества.
@@ -49,6 +49,7 @@ export default function DecorativeCosmeticsPage() {
                   color={'primary'}
                   type={'small'}
                   aria-label="Открыть форму для связи с нами"
+                  className={styles.button}
                 >
                                     Связаться с нами
                 </Button>

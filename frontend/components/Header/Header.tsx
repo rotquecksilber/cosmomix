@@ -45,8 +45,8 @@ export default function Header() {
           <Image
             src="/logo.svg"
             alt="Логотип COSMOMIX — производство косметики"
-            height={90}
-            width={90}
+            height={80}
+            width={80}
             priority
           />
         </Link>
@@ -137,8 +137,8 @@ export default function Header() {
               <Image
                 src="/logo.svg"
                 alt="Логотип COSMOMIX — производство косметики"
-                height={60}
-                width={60}
+                height={58}
+                width={58}
                 priority
               />
             </Link>
