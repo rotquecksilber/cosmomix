@@ -11,22 +11,7 @@ export default function PartnersSection() {
                 Партнеры
       </Htag>
       <div className={styles.partners_image__wrapper} role="list">
-        <div className={styles.partners_wrapper}>
-          <Image
-            role="listitem"
-            alt="Bloomy – партнер COSMOMIX"
-            src={'/home_page/partners/bloomy.jpeg'}
-            width={100}
-            height={100}
-            className={styles.partners_image}
-          />
-          <Htag color={'primary'} tag={'h3'} uppercase>
-                    BLOOMY
-          </Htag>
-          <p>
-                @bloomymakeupru
-          </p>
-        </div>
+
         <div className={styles.partners_wrapper}>
           <Image
             role="listitem"
@@ -37,10 +22,26 @@ export default function PartnersSection() {
             className={styles.partners_image}
           />
           <Htag color={'primary'} tag={'h3'} uppercase>
-                  MANLYPRO
+                    MANLYPRO
           </Htag>
           <p>
-                  @manlyprocosmetics
+                    @manlyprocosmetics
+          </p>
+        </div>
+        <div className={styles.partners_wrapper}>
+          <Image
+            role="listitem"
+            alt="Bloomy – партнер COSMOMIX"
+            src={'/home_page/partners/bloomy.jpg'}
+            width={100}
+            height={100}
+            className={styles.partners_image}
+          />
+          <Htag color={'primary'} tag={'h3'} uppercase>
+                    BLOOMY
+          </Htag>
+          <p>
+                    @bloomymakeupru
           </p>
         </div>
       </div>

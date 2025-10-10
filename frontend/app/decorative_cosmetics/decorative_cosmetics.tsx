@@ -66,14 +66,13 @@ export default function DecorativeCosmeticsPage() {
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
-            <Htag tag={'h2'} color={'gradient'}>Что такое декоративная косметика сегодня</Htag>
           </motion.div>
 
           <div className={styles.cards}>
             {[
-              { icon: '🌿', text: 'Современные формулы' },
-              { icon: '✨', text: 'Соответствие актуальным трендам' },
-              { icon: '🔬', text: 'Научный подход и инновации' },
+              { icon: '/decor/1.png', text: 'Современные формулы' },
+              { icon: '/decor/2.png', text: 'Соответствие актуальным трендам' },
+              { icon: '/decor/3.png', text: 'Научный подход и инновации' },
             ].map((item, i) => (
               <motion.article
                 key={i}
@@ -84,8 +83,10 @@ export default function DecorativeCosmeticsPage() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <span aria-hidden="true">{item.icon}</span>
-                <p>{item.text}</p>
+                <div className={styles.card_wrapper}>
+                  <Image src={item.icon} alt={item.text} width={1184} height={864} aria-hidden="true" className={styles.cards_image}/>
+                  <p>{item.text}</p>
+                </div>
               </motion.article>
             ))}
           </div>
@@ -137,10 +138,10 @@ export default function DecorativeCosmeticsPage() {
 
           <div className={styles.products}>
             {[
-              { src: '/images/lipstick.jpg', alt: 'Помада', text: 'Любые виды помад' },
-              { src: '/images/eyeshadow.jpg', alt: 'Блески', text: 'Блески для губ' },
-              { src: '/images/foundation.jpg', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры' },
-              { src: '/images/highlighter.jpg', alt: 'Тушь', text: 'Тушь' },
+              { src: '/images/lipstick.PNG', alt: 'Помада', text: 'Любые виды помад' },
+              { src: '/images/eyeshadow.PNG', alt: 'Блески', text: 'Блески для губ' },
+              { src: '/images/foundation.PNG', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры' },
+              { src: '/images/highlighter.PNG', alt: 'Тушь', text: 'Тушь' },
             ].map((p, i) => (
               <motion.article
                 key={i}

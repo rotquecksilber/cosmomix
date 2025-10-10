@@ -29,7 +29,7 @@
     gap: clamp(20px, 3vw, 100px);
     height: auto;
     max-width: 630px;
-    color: var(--primary);
+    color: var(--black);
 }
 
 .connect_title {

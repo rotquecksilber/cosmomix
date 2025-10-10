@@ -16,8 +16,9 @@ const navLinks = [
     href: '/catalog',
     text: 'Продукция',
     submenu: [
-      { href: '/catalog', text: 'Продукты' },
-      { href: '/decorative_cosmetics', text: 'Декоративная косметика' },
+      { href: '/decorative_cosmetics', text: 'О производстве косметики' },
+      { href: '/catalog', text: 'Каталог продукции' },
+
     ],
   },
   { href: '/contacts', text: 'Контакты' },

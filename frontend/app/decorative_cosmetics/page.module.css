@@ -1,5 +1,5 @@
 .wrapper {
-    font-family: "Montserrat", sans-serif;
+
     color: var(--primary);
     background: #fff;
     overflow-x: hidden;
@@ -25,7 +25,7 @@
 }
 
 .heroContent p {
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(16px, 2vw, 18px);
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
@@ -38,6 +38,7 @@
 }
 .button {
     min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
 }
 
 /* ---------- Generic Section ---------- */
@@ -75,11 +76,21 @@
 }
 
 .card span {
-    font-size: clamp(16px, 2.5vw, 24px);
+
     display: block;
     margin-bottom: 1rem;
 }
+.card p {
+    font-size: clamp(16px, 2vw, 18px);
+}
 
+.card_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 /* ---------- Expertise Grid ---------- */
 .grid {
     display: grid;
@@ -91,6 +102,7 @@
     background: #ece9f9;
     padding: 2rem;
     border-radius: 1rem;
+    font-size: clamp(16px, 2vw, 18px);
     font-weight: 500;
     transition: transform 0.3s ease;
 }
@@ -121,7 +133,15 @@
 .product p {
     padding: 1rem;
     font-weight: 500;
-    color: #444;
+    color: var(--primary);
+    font-size: clamp(16px, 2vw, 18px);
+
+}
+
+.cards_image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
 }
 
 /* ---------- Standards ---------- */

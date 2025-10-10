@@ -57,15 +57,15 @@
     }
 
     .partners_image__wrapper {
-        flex-direction: row; /* партнёры в один столбец */
-        gap: 20px;
+        flex-direction: column; /* партнёры в один столбец */
+        gap: 40px;
         width: 100%;
         flex-wrap: wrap;
     }
 
     .partners_image {
-        width: 150px;
-        height: 150px;
+        width: 60vw;
+        height: auto;
         object-fit: cover;
         border-radius: 25px;
 

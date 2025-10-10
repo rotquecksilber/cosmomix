@@ -6,10 +6,8 @@ import Image from 'next/image';
 import Banner from '@/components/banner/banner';
 import Script from 'next/script';
 
-
-
 export default function AboutPage() {
-  const [open, setOpen] = useState<'manlypro' | 'production' | null>('manlypro');
+  const [open, setOpen] = useState<'manlypro' | 'production' | null>(null);
 
   return (
     <>
@@ -40,7 +38,6 @@ export default function AboutPage() {
       <Banner title={'О COSMOMIX'} />
 
       <main className={styles.about}>
-
         {/* Левая колонка */}
         <section className={styles.about_left}>
           <p className={styles.about_text}>
@@ -61,20 +58,21 @@ export default function AboutPage() {
                 className={styles.about_image}
               />
               <figcaption className={styles.about_description}>
-                                В COSMOMIX есть отдел собственного импорта ингредиентов, чтобы не ограничиваться сырьем, доступным у российских поставщиков.
+                                В COSMOMIX есть отдел собственного импорта ингредиентов, чтобы не ограничиваться сырьем,
+                                доступным у российских поставщиков.
               </figcaption>
             </figure>
-
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Работа лаборатории и производства COSMOMIX"
-                src="/about/work.JPG"
+                src="/about/work.PNG"
                 width={609}
                 height={391}
                 className={styles.about_image}
               />
               <figcaption className={styles.about_description}>
-                                Всего за два года COSMOMIX проделала значительную работу, результат которой — качественные формулы, которыми мы гордимся и готовы делиться с вами.
+                                Всего за два года COSMOMIX проделала значительную работу, результат которой — качественные
+                                формулы, которыми мы гордимся и готовы делиться с вами.
               </figcaption>
             </figure>
           </div>
@@ -83,7 +81,6 @@ export default function AboutPage() {
         {/* Правая колонка с аккордеонами */}
         <section className={styles.about_right}>
           <div className={`${styles.about_right_wrapper} ${open ? styles.opened : ''}`}>
-
             {/* Аккордеон MANLYPRO */}
             <button
               className={`${styles.accordion} ${open === 'manlypro' ? styles.active : open === null ? '' : styles.close}`}
@@ -92,7 +89,7 @@ export default function AboutPage() {
               id="accordion-manlypro"
               onClick={() => setOpen(open === 'manlypro' ? null : 'manlypro')}
             >
-              <Htag tag="h2" color="white" uppercase className={styles.accordion_title}>
+              <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
                                 MANLYPRO
               </Htag>
               <Image
@@ -130,7 +127,7 @@ export default function AboutPage() {
               id="accordion-production"
               onClick={() => setOpen(open === 'production' ? null : 'production')}
             >
-              <Htag tag="h2" color="white" uppercase className={styles.accordion_title}>
+              <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
                                 Производство
               </Htag>
               <Image
@@ -178,32 +175,11 @@ export default function AboutPage() {
         </figure>
 
         {/* Индивидуальные карточки */}
-        <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
-                    Главный технолог
-        </Htag>
         <div className={styles.team_wrapper}>
-
-          <section className={styles.team_member} aria-labelledby="member-lyubov">
-            <figure className={styles.team_image_wrapper}>
-              <Image
-                src="/team/technologist.jpg"
-                alt="Богданова Любовь — Старший технолог"
-                width={400}
-                height={500}
-                className={styles.team_image}
-              />
-            </figure>
-            <Htag tag="h3" color="primary" className={styles.team_name}>
-                            Богданова Любовь
-            </Htag>
-            <p className={styles.team_position_title}>Старший технолог</p>
-            <p className={styles.team_position}>
-                            С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать что-то новое и прекрасное. Сейчас это увлечение превратилось в профессию, полную вызовов и открытий.
-                            Моя страсть — создавать формулы с характером и доказанной эффективностью. Я погружаюсь в процесс полностью: от анализа рынка и поиска инновационных компонентов до тестирования готового продукта. Разрабатываю продукты, которые будут не просто на полке, а в ежедневной бьюти-рутине довольных потребителей.
-            </p>
-          </section>
-
-
+          {/* Основатель */}
+          <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
+                        Основатель COSMOMIX
+          </Htag>
           <section className={styles.team_member} aria-labelledby="member-daria">
             <figure className={styles.team_image_wrapper}>
               <Image
@@ -214,19 +190,53 @@ export default function AboutPage() {
                 className={styles.team_image}
               />
             </figure>
-            <Htag tag="h3" color="primary" className={styles.team_name}>
-                            Семёнова Дарья
-            </Htag>
-            <p className={styles.team_position_title}>Основатель COSMOMIX</p>
-            <p className={styles.team_position}>
-                            Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами и в начале 2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных нужд и реализации контрактных заказов.
-              <br /><br />
-                            Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
-            </p>
+            <div>
+              <Htag tag="h3" color="primary" className={styles.team_name}>
+                                Семёнова Дарья
+              </Htag>
+              <p className={styles.team_position_title}>Основатель COSMOMIX</p>
+              <p className={styles.team_position}>
+                                Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами и в начале
+                                2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных
+                                нужд и реализации контрактных заказов.
+                <br /><br />
+                                Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
+              </p>
+            </div>
           </section>
 
+          {/* Старший технолог */}
+          <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
+                        Старший технолог COSMOMIX
+          </Htag>
+          <section className={styles.team_member} aria-labelledby="member-lyubov">
+            <figure className={styles.team_image_wrapper}>
+              <Image
+                src="/team/technologist.jpg"
+                alt="Богданова Любовь — Старший технолог"
+                width={400}
+                height={500}
+                className={styles.team_image}
+              />
+            </figure>
+            <div>
+              <Htag tag="h3" color="primary" className={styles.team_name}>
+                                Богданова Любовь
+              </Htag>
+              <p className={styles.team_position_title}>Старший технолог</p>
+              <p className={styles.team_position}>
+                                С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать что-то новое
+                                и прекрасное. Сейчас это увлечение превратилось в профессию, полную вызовов и открытий.
+                                Моя страсть — создавать формулы с характером и доказанной эффективностью. Я погружаюсь в процесс
+                                полностью: от анализа рынка и поиска инновационных компонентов до тестирования готового продукта.
+                                Разрабатываю продукты, которые будут не просто на полке, а в ежедневной бьюти-рутине довольных
+                                потребителей.
+              </p>
+            </div>
+          </section>
         </div>
       </section>
     </>
   );
 }
+
