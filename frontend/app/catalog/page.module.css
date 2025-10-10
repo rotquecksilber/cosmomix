@@ -87,3 +87,10 @@ margin: 40px 95px;
     font-size: 16px;
     color: var(--text, #333);
 }
+
+@media (max-width: 768px) {
+    .section {
+        margin: 40px 20px;
+    }
+
+}

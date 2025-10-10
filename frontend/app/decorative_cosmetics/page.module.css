@@ -35,7 +35,8 @@
 }
 
 .ctaButton {
-    /* можно добавить padding/margin если нужно */
+    min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
 
 }
 .button {
