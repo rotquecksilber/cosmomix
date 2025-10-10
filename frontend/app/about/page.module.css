@@ -62,7 +62,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));
-    border-radius: 12px;
+    border-radius: 16px;
     pointer-events: none;
 }
 
@@ -143,6 +143,8 @@
 .accordion::after {
     content: "";
     position: absolute;
+
+    height: 101%;
     inset: 0;
     border-radius: 16px;
     background: linear-gradient(
@@ -170,7 +172,7 @@
 .accordion_title {
     position: relative;
     z-index: 1;
-    font-size: clamp(22px, 2vw, 32px);
+    font-size: clamp(22px, 2vw, 32px) !important;
     font-weight: 700;
     text-align: left;
 }
@@ -185,7 +187,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 16px;
     background: rgba(255,255,255,0.95);
     font-size: clamp(16px, 1.8vw, 24px);
     font-weight: 400;
@@ -239,7 +241,7 @@
     width: 100%;
     max-width: 1200px;
     height: auto;
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     object-fit: cover;
 }
@@ -315,6 +317,7 @@
     font-weight: 400;
     line-height: 1.6;
     color: var(--primary);
+    margin-top: 15px;
 }
 
 @media (max-width: 1050px) {
@@ -412,5 +415,24 @@
     .team_position_title,
     .team_position {
         font-size: 16px;
+    }
+}
+/* Иконка для аккордеона */
+.accordion_icon {
+    display: none;
+    margin-top: 10px;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    color: var(--primary);
+}
+
+/* Показываем только на мобильной версии */
+@media (max-width: 768px) {
+    .accordion_icon {
+        display: block;
+    }
+    .activeIcon {
+        transform: rotate(180deg);
     }
 }

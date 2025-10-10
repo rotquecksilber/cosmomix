@@ -67,7 +67,7 @@
 
 .card {
     flex: 1 1 250px;
-    background: #f7f6fb;
+    background: #eceafa;
     padding: 2rem;
     border-radius: 1rem;
     transition: transform 0.3s ease;
@@ -247,11 +247,11 @@
     }
 
     .cards {
-        gap: 1rem;
+        gap: 3rem;
     }
 
     .products {
-        gap: 1rem;
+        gap: 3rem;
     }
 
     .grid {
