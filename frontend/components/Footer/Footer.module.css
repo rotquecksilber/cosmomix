@@ -4,6 +4,7 @@
     color: #3d2e7c;
     font-size: 14px;
     border-top: 1px solid #3d2e7c;
+    z-index: 1;
 
 }
 
@@ -16,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
+
 }
 
 .column {
@@ -85,6 +87,7 @@
         padding: 20px;
         flex-direction: column;
         gap: 0;
+
     }
 
     .column {
@@ -149,5 +152,6 @@
 @media (max-width: 815px) {
     .footer {
         margin-bottom: 80px;
+
     }
 }

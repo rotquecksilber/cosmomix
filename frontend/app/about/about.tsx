@@ -1,10 +1,11 @@
 'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Htag from '@/components/htag/htag';
 import styles from './page.module.css';
 import Image from 'next/image';
 import Banner from '@/components/banner/banner';
 import Script from 'next/script';
+
 
 export default function AboutPage() {
   const [open, setOpen] = useState<'manlypro' | 'production' | null>(null);
@@ -35,17 +36,18 @@ export default function AboutPage() {
       </Script>
 
       {/* Баннер */}
-      <Banner title={'О COSMOMIX'} />
+      <Banner title={'О COSMOMIX'}/>
 
       <main className={styles.about}>
+
         {/* Левая колонка */}
         <section className={styles.about_left}>
           <p className={styles.about_text}>
-                        COSMOMIX — дочерняя компания бренда MANLYPRO. Собственные лаборатория
-                        и производство начали работу в начале 2024 года для обеспечения потребностей
-                        компании в условиях импортозамещения, ускорения оборачиваемости,
-                        наилучшего контроля качества и запуска новых брендов. Летом 2025 года было построено и введено в
-                        эксплуатацию новое помещение площадью 1500 м².
+                    COSMOMIX — дочерняя компания бренда MANLYPRO. Собственные лаборатория
+                    и производство начали работу в начале 2024 года для обеспечения потребностей
+                    компании в условиях импортозамещения, ускорения оборачиваемости,
+                    наилучшего контроля качества и запуска новых брендов. Летом 2025 года было построено и введено в
+                    эксплуатацию новое помещение площадью 1500 м².
           </p>
 
           <div className={styles.about_images}>
@@ -58,8 +60,8 @@ export default function AboutPage() {
                 className={styles.about_image}
               />
               <figcaption className={styles.about_description}>
-                                В COSMOMIX есть отдел собственного импорта ингредиентов, чтобы не ограничиваться сырьем,
-                                доступным у российских поставщиков.
+                            В COSMOMIX есть отдел собственного импорта ингредиентов, чтобы не ограничиваться сырьем,
+                            доступным у российских поставщиков.
               </figcaption>
             </figure>
             <figure className={styles.about_wrapper}>
@@ -71,8 +73,8 @@ export default function AboutPage() {
                 className={styles.about_image}
               />
               <figcaption className={styles.about_description}>
-                                Всего за два года COSMOMIX проделала значительную работу, результат которой — качественные
-                                формулы, которыми мы гордимся и готовы делиться с вами.
+                            Всего за два года COSMOMIX проделала значительную работу, результат которой — качественные
+                            формулы, которыми мы гордимся и готовы делиться с вами.
               </figcaption>
             </figure>
           </div>
@@ -90,7 +92,7 @@ export default function AboutPage() {
               onClick={() => setOpen(open === 'manlypro' ? null : 'manlypro')}
             >
               <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
-                                MANLYPRO
+                            MANLYPRO
               </Htag>
               <Image
                 alt="MANLYPRO сотрудничает с COSMOMIX"
@@ -108,14 +110,20 @@ export default function AboutPage() {
               className={styles.panel}
             >
               <p>
-                                COSMOMIX тесно сотрудничает с командой MANLYPRO, обмениваясь богатым опытом. В штате лаборатории и
-                                производства работают опытные визажисты и колористы, которые следят за последними трендами.
-                                Технологи компании непрерывно обучаются у российских и иностранных технологов и совершенствуют
-                                формулы продуктов.
-                <br /><br />
-                                Российский бренд MANLYPRO лидирует в миддл-сегменте декоративной косметики и кистей и известен
-                                строгими критериями качества косметических продуктов. Такие же высокие стандарты бренд задал и для
-                                собственных лаборатории и производства.
+                            COSMOMIX тесно сотрудничает с командой MANLYPRO, обмениваясь богатым опытом. В штате
+                            лаборатории и
+                            производства работают опытные визажисты и колористы, которые следят за последними
+                            трендами.
+                            Технологи компании непрерывно обучаются у российских и иностранных технологов и
+                            совершенствуют
+                            формулы продуктов.
+                <br/><br/>
+                            Российский бренд MANLYPRO лидирует в миддл-сегменте декоративной косметики и кистей и
+                            известен
+                            строгими критериями качества косметических продуктов. Такие же высокие стандарты бренд
+                            задал
+                            и для
+                            собственных лаборатории и производства.
               </p>
             </div>
 
@@ -128,7 +136,7 @@ export default function AboutPage() {
               onClick={() => setOpen(open === 'production' ? null : 'production')}
             >
               <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
-                                Производство
+                            Производство
               </Htag>
               <Image
                 alt="Производственные мощности COSMOMIX"
@@ -146,9 +154,12 @@ export default function AboutPage() {
               className={styles.panel}
             >
               <p>
-                                Цехи на производстве оборудованы современными высокопроизводительными автоматическими и полуавтоматическими станками, благодаря которым Cosmomix может обеспечить потребности в больших количествах крупных заказчиков.
-                <br /><br />
-                                На данный момент производство располагается на арендуемых площадях в Москве. А летом 2025 года планируется запустить собственную площадку COSMOMIX в Солнечногорске.
+                            Цехи на производстве оборудованы современными высокопроизводительными автоматическими и
+                            полуавтоматическими станками, благодаря которым Cosmomix может обеспечить потребности в
+                            больших количествах крупных заказчиков.
+                <br/><br/>
+                            На данный момент производство располагается на арендуемых площадях в Москве. А летом 2025
+                            года планируется запустить собственную площадку COSMOMIX в Солнечногорске.
               </p>
             </div>
           </div>
@@ -158,7 +169,7 @@ export default function AboutPage() {
       {/* Секция команды */}
       <section className={styles.team_section}>
         <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
-                    Наша команда
+                  Наша команда
         </Htag>
 
         <figure className={styles.team_main}>
@@ -170,7 +181,9 @@ export default function AboutPage() {
             className={styles.team_main_image}
           />
           <figcaption className={styles.team_main_text}>
-                        Наша команда - это талантливые жаждущие энтузиасты, которые непрерывно совершенствуются. Новые формулы и цвета всегда возникают и утверждаются нами в творческом потоке неподдельного стремления к высокому результату.
+                      Наша команда - это талантливые жаждущие энтузиасты, которые непрерывно совершенствуются. Новые
+                      формулы и цвета всегда возникают и утверждаются нами в творческом потоке неподдельного стремления
+                      к высокому результату.
           </figcaption>
         </figure>
 
@@ -178,7 +191,7 @@ export default function AboutPage() {
         <div className={styles.team_wrapper}>
           {/* Основатель */}
           <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
-                        Основатель COSMOMIX
+                      Основатель COSMOMIX
           </Htag>
           <section className={styles.team_member} aria-labelledby="member-daria">
             <figure className={styles.team_image_wrapper}>
@@ -192,22 +205,24 @@ export default function AboutPage() {
             </figure>
             <div>
               <Htag tag="h3" color="primary" className={styles.team_name}>
-                                Семёнова Дарья
+                              Семёнова Дарья
               </Htag>
               <p className={styles.team_position_title}>Основатель COSMOMIX</p>
               <p className={styles.team_position}>
-                                Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами и в начале
-                                2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных
-                                нужд и реализации контрактных заказов.
-                <br /><br />
-                                Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
+                              Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами и в
+                              начале
+                              2024 года мы открыли новую веху — собственные лаборатория и завод, для наших
+                              производственных
+                              нужд и реализации контрактных заказов.
+                <br/><br/>
+                              Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
               </p>
             </div>
           </section>
 
           {/* Старший технолог */}
           <Htag tag="h2" color="gradient" uppercase className={styles.team_title}>
-                        Старший технолог COSMOMIX
+                      Старший технолог COSMOMIX
           </Htag>
           <section className={styles.team_member} aria-labelledby="member-lyubov">
             <figure className={styles.team_image_wrapper}>
@@ -221,16 +236,20 @@ export default function AboutPage() {
             </figure>
             <div>
               <Htag tag="h3" color="primary" className={styles.team_name}>
-                                Богданова Любовь
+                              Богданова Любовь
               </Htag>
               <p className={styles.team_position_title}>Старший технолог</p>
               <p className={styles.team_position}>
-                                С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать что-то новое
-                                и прекрасное. Сейчас это увлечение превратилось в профессию, полную вызовов и открытий.
-                                Моя страсть — создавать формулы с характером и доказанной эффективностью. Я погружаюсь в процесс
-                                полностью: от анализа рынка и поиска инновационных компонентов до тестирования готового продукта.
-                                Разрабатываю продукты, которые будут не просто на полке, а в ежедневной бьюти-рутине довольных
-                                потребителей.
+                              С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать
+                              что-то новое
+                              и прекрасное. Сейчас это увлечение превратилось в профессию, полную вызовов и открытий.
+                              Моя страсть — создавать формулы с характером и доказанной эффективностью. Я погружаюсь в
+                              процесс
+                              полностью: от анализа рынка и поиска инновационных компонентов до тестирования готового
+                              продукта.
+                              Разрабатываю продукты, которые будут не просто на полке, а в ежедневной бьюти-рутине
+                              довольных
+                              потребителей.
               </p>
             </div>
           </section>

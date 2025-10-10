@@ -1,5 +1,24 @@
 /* ==== БАЗОВЫЕ СТИЛИ (для 1200px и выше) ==== */
 
+
+
+.liquidGlass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* прозрачное стекло */
+    background: rgba(255, 255, 255, 0.08);
+
+    /* размытие и насыщение */
+
+    backdrop-filter: blur(18px) saturate(160%);
+
+
+    overflow: hidden;
+}
 .about {
     display: flex;
     flex-direction: column;
@@ -191,6 +210,8 @@
 }
 
 /* ==== Секция команды ==== */
+
+
 .team_section {
     padding: 0 95px;
     display: flex;

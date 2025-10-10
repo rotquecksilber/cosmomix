@@ -1,7 +1,9 @@
+
+
 .wrapper {
 
     color: var(--primary);
-    background: #fff;
+
     overflow-x: hidden;
     margin-top: 130px;
 }
@@ -125,6 +127,8 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
+
+
 
 .product:hover {
     transform: translateY(-6px);

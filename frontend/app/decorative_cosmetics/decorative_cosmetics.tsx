@@ -8,7 +8,11 @@ import Button from '@/components/button/button';
 import PopUpConnect from '@/components/PopUpConnect/PopUpConnect';
 import Script from 'next/script';
 
+import React from 'react';
+
+
 export default function DecorativeCosmeticsPage() {
+
   return (
     <>
       {/* Schema для страницы */}
@@ -29,18 +33,20 @@ export default function DecorativeCosmeticsPage() {
       </Script>
 
       <main className={styles.wrapper}>
+
+
         {/* Hero */}
         <section className={styles.hero} aria-label="Главный раздел о декоративной косметике">
           <motion.div
             className={styles.heroContent}
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{opacity: 0, y: -40}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.3}}
           >
             <Htag tag={'h1'} color={'gradient'} className={styles.h1}>Декоративная косметика</Htag>
             <p>
-                            Мы создаём продукты, которые задают тренды и соответствуют высоким
-                            стандартам качества.
+                        Мы создаём продукты, которые задают тренды и соответствуют высоким
+                        стандартам качества.
             </p>
 
             <PopUpConnect
@@ -51,7 +57,7 @@ export default function DecorativeCosmeticsPage() {
                   aria-label="Открыть форму для связи с нами"
                   className={styles.button}
                 >
-                                    Связаться с нами
+                                Связаться с нами
                 </Button>
               }
             />
@@ -61,30 +67,31 @@ export default function DecorativeCosmeticsPage() {
         {/* About */}
         <section className={styles.section} aria-labelledby="about-decorative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.3}}
+            viewport={{once: true}}
           >
           </motion.div>
 
           <div className={styles.cards}>
             {[
-              { icon: '/decor/1.png', text: 'Современные формулы' },
-              { icon: '/decor/2.png', text: 'Соответствие актуальным трендам' },
-              { icon: '/decor/3.png', text: 'Научный подход и инновации' },
+              {icon: '/decor/1.png', text: 'Современные формулы'},
+              {icon: '/decor/2.png', text: 'Соответствие актуальным трендам'},
+              {icon: '/decor/3.png', text: 'Научный подход и инновации'},
             ].map((item, i) => (
               <motion.article
                 key={i}
                 className={styles.card}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                initial={{opacity: 0, y: 40}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.3}}
+                viewport={{once: true}}
+                whileHover={{scale: 1.05}}
               >
                 <div className={styles.card_wrapper}>
-                  <Image src={item.icon} alt={item.text} width={1184} height={864} aria-hidden="true" className={styles.cards_image}/>
+                  <Image src={item.icon} alt={item.text} width={1184} height={864} aria-hidden="true"
+                    className={styles.cards_image}/>
                   <p>{item.text}</p>
                 </div>
               </motion.article>
@@ -95,10 +102,10 @@ export default function DecorativeCosmeticsPage() {
         {/* Expertise */}
         <section className={styles.section} aria-labelledby="expertise">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.3}}
+            viewport={{once: true}}
           >
             <Htag tag={'h2'} color={'gradient'}>Наши компетенции</Htag>
           </motion.div>
@@ -113,11 +120,11 @@ export default function DecorativeCosmeticsPage() {
               <motion.article
                 key={i}
                 className={styles.tile}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                initial={{opacity: 0, scale: 0.9}}
+                whileInView={{opacity: 1, scale: 1}}
+                transition={{duration: 0.3}}
+                viewport={{once: true}}
+                whileHover={{scale: 1.05}}
               >
                 {tile}
               </motion.article>
@@ -128,31 +135,31 @@ export default function DecorativeCosmeticsPage() {
         {/* Products */}
         <section className={styles.section} aria-labelledby="products">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.3}}
+            viewport={{once: true}}
           >
-            <Htag tag={'h2'} color={'gradient'} >Примеры продукции</Htag>
+            <Htag tag={'h2'} color={'gradient'}>Примеры продукции</Htag>
           </motion.div>
 
           <div className={styles.products}>
             {[
-              { src: '/images/lipstick.PNG', alt: 'Помада', text: 'Любые виды помад' },
-              { src: '/images/eyeshadow.PNG', alt: 'Блески', text: 'Блески для губ' },
-              { src: '/images/foundation.PNG', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры' },
-              { src: '/images/highlighter.PNG', alt: 'Тушь', text: 'Тушь' },
+              {src: '/images/lipstick.PNG', alt: 'Помада', text: 'Любые виды помад'},
+              {src: '/images/eyeshadow.PNG', alt: 'Блески', text: 'Блески для губ'},
+              {src: '/images/foundation.PNG', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры'},
+              {src: '/images/highlighter.PNG', alt: 'Тушь', text: 'Тушь'},
             ].map((p, i) => (
               <motion.article
                 key={i}
                 className={styles.product}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3}}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                initial={{opacity: 0, y: 40}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.3}}
+                viewport={{once: true}}
+                whileHover={{scale: 1.05}}
               >
-                <Image src={p.src} alt={p.alt} width={300} height={200} />
+                <Image src={p.src} alt={p.alt} width={300} height={200}/>
                 <p>{p.text}</p>
               </motion.article>
             ))}
@@ -162,12 +169,12 @@ export default function DecorativeCosmeticsPage() {
         {/* Final CTA */}
         <section className={styles.finalCta} aria-labelledby="cta">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, scale: 0.95}}
+            whileInView={{opacity: 1, scale: 1}}
+            transition={{duration: 0.3}}
+            viewport={{once: true}}
           >
-            <Htag tag={'h2'} color={'gradient'} >Хотите разработать и выпустить собственный продукт?</Htag>
+            <Htag tag={'h2'} color={'gradient'}>Хотите разработать и выпустить собственный продукт?</Htag>
             <p>Расскажите нам о своём проекте — мы подготовим предложение под ваши задачи.</p>
             <PopUpConnect
               trigger={
@@ -177,7 +184,7 @@ export default function DecorativeCosmeticsPage() {
                   className={styles.ctaButton}
                   aria-label="Оставить заявку на разработку продукта"
                 >
-                                    Оставить заявку
+                                Оставить заявку
                 </Button>
               }
             />

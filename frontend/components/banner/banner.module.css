@@ -10,6 +10,7 @@
     background-size: cover; /* растянуть под размер блока */
     background-position: center; /* центрировать */
     background-repeat: no-repeat; /* не повторять */
+    z-index: 1;
 }
 
 @media (max-width: 1200px) {
