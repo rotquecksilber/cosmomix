@@ -140,12 +140,20 @@
         padding: 16px;
         margin-top: 20px;
         text-align: center;
+
     }
 
     .bottomRow {
         flex-direction: row;
-        gap: 6px;
+padding: 0;
+        justify-content: space-between;
     }
+.date {
+    display: flex;
+    align-items: center;
+
+    width: 84px;
+}
 
 
 }

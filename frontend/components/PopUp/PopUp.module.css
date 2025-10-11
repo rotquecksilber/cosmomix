@@ -10,6 +10,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 20px;
+}
+
+.privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--primary);
+}
+.privacy_link {
+font-weight: 600;
 }
 
 .popup {

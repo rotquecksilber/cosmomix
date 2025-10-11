@@ -33,6 +33,7 @@ export default function Footer() {
       links: [
         { text: 'Вакансии', href: '/job' },
         { text: 'Правовая информация', href: '/legal' },
+        { text: 'Политика конфиденциальности', href: '/privacy' },
       ],
     },
   ];
@@ -92,7 +93,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className={styles.bottomRow}>
           <span>COSMOMIX</span>
-          <span>{new Date().getFullYear()}</span>
+          <span className={styles.date}>{new Date().getFullYear()}</span>
           <Image src="/logo.svg" alt="Logo" width={32} height={32} />
         </div>
       </div>
