@@ -23,9 +23,9 @@ export default function Footer() {
     {
       title: 'Производство',
       links: [
-        { text: 'Контрактное производство', href: '/capability' },
-        { text: 'Продукты', href: '/catalog' },
-        { text: 'Декоративная косметика', href: '/decorative_cosmetics' },
+        { text: 'Возможности COSMOMIX', href: '/capability' },
+        { text: 'Каталог продукции', href: '/catalog' },
+        { text: 'О производстве косметики', href: '/decorative_cosmetics' },
       ],
     },
     {

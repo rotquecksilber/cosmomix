@@ -37,7 +37,7 @@ export default function ContractProductionPage() {
       </Script>
 
       <main className={styles.page}>
-        <Banner title="Контрактное производство" />
+        <Banner title="Возможности COSMOMIX" />
 
         <div className={styles.grid}>
           <div className={styles.background}>
@@ -47,7 +47,7 @@ export default function ContractProductionPage() {
           {/* 1. Возможности лаборатории */}
           <article className={styles.card}>
             <Htag tag="h2" color="gradient" className={styles.title}>
-              Возможности лаборатории Cosmomix
+              Возможности лаборатории COSMOMIX
             </Htag>
             <ul className={styles.cardList}>
               <li>Разработка всех видов декоративной косметики, а также тестирование на стабильность.</li>
@@ -59,7 +59,7 @@ export default function ContractProductionPage() {
           {/* 2. Возможности контрактного производства */}
           <article className={styles.card}>
             <Htag tag="h2" color="gradient" className={styles.title}>
-              Возможности контрактного производства Cosmomix
+              Возможности контрактного производства COSMOMIX
             </Htag>
             <ul className={styles.cardList}>
               <li>Все этапы производства любой декоративной косметики и ухода за лицом или отдельные операции, в том
