@@ -7,6 +7,7 @@ import Script from 'next/script';
 import LavaLampScene from '@/components/LavaScene/LavaScene';
 
 import {usePathname} from 'next/navigation';
+import {BackgroundVideo} from '@/components/HomePage/Video/Video';
 
 export default function ContractProductionPage() {
   const pathname = usePathname();
@@ -38,7 +39,8 @@ export default function ContractProductionPage() {
 
       <main className={styles.page}>
         <Banner title="Возможности COSMOMIX" />
-
+        <BackgroundVideo src={'/capability/1.mp4'} className={styles.capabilityVideo} />
+        <BackgroundVideo src={'/capability/2.mp4'} className={styles.capabilityVideo_mobile} />
         <div className={styles.grid}>
           <div className={styles.background}>
             <LavaLampScene remountKey={pathname} />

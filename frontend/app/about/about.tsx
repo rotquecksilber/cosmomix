@@ -50,10 +50,11 @@ export default function AboutPage() {
           </p>
 
           <div className={styles.about_images}>
+
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Отдел собственного импорта ингредиентов COSMOMIX"
-                src="/about/import.jpg"
+                src="/about/import.png"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -90,20 +91,23 @@ export default function AboutPage() {
               id="accordion-manlypro"
               onClick={() => setOpen(open === 'manlypro' ? null : 'manlypro')}
             >
-              <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
-                                MANLYPRO
-              </Htag>
+              <div className={styles.chevron}>
+                <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
+                          MANLYPRO
+                </Htag>
 
-              {/* Иконка стрелки для мобильной версии */}
-              <ChevronDown className={`${styles.accordion_icon} ${open === 'manlypro' ? styles.activeIcon : ''}`} />
+                {/* Иконка стрелки для мобильной версии */}
+                <ChevronDown
+                  className={`${styles.accordion_icon} ${open === 'manlypro' ? styles.activeIcon : ''}`}/>
 
-
+              </div>
               <Image
                 alt="MANLYPRO сотрудничает с COSMOMIX"
                 src="/about/manlypro.jpg"
-                width={291}
-                height={368}
+                width={5963}
+                height={3491}
                 className={styles.accordion_picture}
+                priority={true}
               />
             </button>
             <div
@@ -132,6 +136,7 @@ export default function AboutPage() {
             </div>
 
             {/* Аккордеон Производство */}
+
             <button
               className={`${styles.accordion} ${open === 'production' ? styles.active : open === null ? '' : styles.close}`}
               aria-expanded={open === 'production'}
@@ -139,13 +144,14 @@ export default function AboutPage() {
               id="accordion-production"
               onClick={() => setOpen(open === 'production' ? null : 'production')}
             >
-              <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
+              <div className={styles.chevron}>
+                <Htag tag="h2" color="primary" uppercase className={styles.accordion_title}>
                                 Производство
-              </Htag>
+                </Htag>
 
-              {/* Иконка стрелки для мобильной версии */}
-              <ChevronDown className={`${styles.accordion_icon} ${open === 'production' ? styles.activeIcon : ''}`} />
-
+                {/* Иконка стрелки для мобильной версии */}
+                <ChevronDown className={`${styles.accordion_icon} ${open === 'production' ? styles.activeIcon : ''}`} />
+              </div>
 
               <Image
                 alt="Производственные мощности COSMOMIX"
@@ -190,7 +196,7 @@ export default function AboutPage() {
             className={styles.team_main_image}
           />
           <figcaption className={styles.team_main_text}>
-                        Наша команда - это талантливые жаждущие энтузиасты, которые непрерывно совершенствуются...
+              Наша команда - это талантливые жаждущие энтузиасты, которые непрерывно совершенствуются. Новые формулы и цвета всегда возникают и утверждаются нами в творческом потоке неподдельного стремления к высокому результату.
           </figcaption>
         </figure>
 
@@ -202,19 +208,27 @@ export default function AboutPage() {
           <section className={styles.team_member} aria-labelledby="member-daria">
             <figure className={styles.team_image_wrapper}>
               <Image
-                src="/team/founder.jpg"
+                src="/team/CEO.PNG"
                 alt="Семёнова Дарья — Основатель COSMOMIX"
                 width={400}
                 height={500}
                 className={styles.team_image}
               />
             </figure>
-            <div>
-              <Htag tag="h3" color="primary" className={styles.team_name}>
-                                Семёнова Дарья
+            <div className={styles.team_member_card}>
+              <Htag tag="h3" color="primary" className={styles.team_name}>Дарья Семёнова
               </Htag>
               <p className={styles.team_position}>
-                                Уже 15 лет наша компания MANLYPRO занимается работой с контрактными производствами...
+                        Уже 15 лет наша компания Manly pro занимается работой с контрактными производствами и в начале
+                        2024 года мы открыли новую веху — собственные лаборатория и завод, для наших производственных
+                        нужд и реализации контрактных заказов.
+                        Мы пропустили через себя боли заказчиков, такие как: соблюдения сроков производствами,
+                        стабильность формул, потенциальных возможностей заводов в разработке именно того качества,
+                        цветов и формул, что нужно бренду и, наконец, отказы ряда стран работать с Россией из-за
+                        санкций. Мы создали завод, чтобы держать высокую планку и держать важнейшие процессы в своих
+                        руках. Чтобы стать лучше.
+                <br/>
+                        Если другие говорят «невозможно» — в Cosmomix мы берем испытание и шанс!
               </p>
             </div>
           </section>
@@ -233,12 +247,14 @@ export default function AboutPage() {
                 className={styles.team_image}
               />
             </figure>
-            <div>
+            <div className={styles.team_member_card}>
               <Htag tag="h3" color="primary" className={styles.team_name}>
-                                Богданова Любовь
+                  Любовь Богданова
               </Htag>
               <p className={styles.team_position}>
-                                С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать...
+                  С детства меня завораживала химия, как простые компоненты, соединяясь, могут создавать что-то новое и прекрасное.  Сейчас это увлечение превратилось в профессию, полную вызовов и открытий. Моя страсть — создавать формулы с характером и доказанной эффективностью.
+                  Я погружаюсь в процесс полностью: от анализа рынка и поиска инновационных компонентов до тестирования готового продукта.
+                  Разрабатываю продукты, которые будут не просто на полке, а в ежедневной бьюти-рутине довольных потребителей.
               </p>
             </div>
           </section>

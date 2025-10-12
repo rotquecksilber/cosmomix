@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 210px; /* задай нужную высоту */
+    height: 105px; /* задай нужную высоту */
     margin-top: 130px;
 
 
@@ -16,7 +16,7 @@
 @media (max-width: 1200px) {
 
     .banner {
-        height: 180px;
+        height: 90px;
         margin-top: 130px;
 padding: 20px;
         background-size: cover;

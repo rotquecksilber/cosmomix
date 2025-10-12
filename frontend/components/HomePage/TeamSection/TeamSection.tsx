@@ -15,9 +15,9 @@ export default function TeamSection() {
           <div className={styles.image_wrapper}>
             <Image
               alt="Наша команда"
-              src="/team/team.jpg"
-              width={1200}
-              height={800}
+              src="/team/team_group.jpg"
+              width={5691}
+              height={3794}
               className={styles.team_image}
             />
           </div>

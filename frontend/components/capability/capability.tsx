@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Htag from '@/components/htag/htag';
 
+
 interface CapabilityItem {
     id: string;
     title: string;
@@ -42,6 +43,9 @@ export default function Capability({ items, bgImage }: CapabilityProps) {
         backgroundRepeat: 'no-repeat',
       }}
     >
+
+
+
       <div className={styles.capability}>
         {items.map((item, index) => {
           const isActive = activeIndex === index;
