@@ -41,7 +41,7 @@
 }
 
 .section {
-margin: 40px 95px;
+margin: 0 95px;
 }
 
 .title {
@@ -90,7 +90,7 @@ margin: 40px 95px;
 
 @media (max-width: 768px) {
     .section {
-        margin: 40px 20px;
+        margin: 0 20px;
     }
 
 }
