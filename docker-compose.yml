@@ -6,6 +6,11 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: frontend
+    # Внутренний порт контейнера — 3000
     ports:
-      - "8080:3000"
+      - "3000"           # не указываем внешний порт
+    environment:
+      NODE_ENV: production
+      HOSTNAME: "0.0.0.0"
+      PORT: 3000
     restart: unless-stopped
