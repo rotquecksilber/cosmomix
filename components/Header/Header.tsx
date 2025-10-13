@@ -42,7 +42,7 @@ export default function Header() {
     <header className={styles.header_desk} role="banner">
       {/* --- Desktop --- */}
       <div className={styles.header_desk__wrapper}>
-        <Link href="/" aria-label="Перейти на главную страницу COSMOMIX">
+        <Link href="/public" aria-label="Перейти на главную страницу COSMOMIX">
           <Image
             src="/logo.svg"
             alt="Логотип COSMOMIX — производство косметики"
@@ -131,7 +131,7 @@ export default function Header() {
         <div className={styles.header_mobile__wrapper}>
           <div className={styles.header_mobile__logo}>
             <Link
-              href="/"
+              href="/public"
               aria-label="Перейти на главную страницу COSMOMIX"
               onClick={closeMenu}
             >

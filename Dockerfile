@@ -16,8 +16,6 @@ WORKDIR /app
 # Копируем собранное приложение
 COPY --from=builder /app ./
 
-# Опционально — если используешь переменные окружения в runtime
-ENV NODE_ENV=production
 EXPOSE 3000
 
 CMD ["npm", "run", "start"]
