@@ -3,13 +3,14 @@
 # -----------------------------
 FROM node:20-alpine AS builder
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
+# Копируем только package.json и package-lock.json для кэширования зависимостей
 COPY package*.json ./
 
 # Устанавливаем зависимости
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Копируем весь проект
 COPY . .
@@ -24,16 +25,13 @@ FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Копируем все из билдера
+# Копируем только необходимые файлы из билдера
 COPY --from=builder /app ./
 
-# Открываем порт внутри контейнера
-EXPOSE 3000
+# Указываем порт, который будет слушать контейнер
+EXPOSE 3478
 
-# Переменные окружения для Timeweb
-ENV NODE_ENV=production
-ENV HOSTNAME=0.0.0.0
-ENV PORT=3000
 
-# Запуск приложения
+
+# Устанавливаем CMD для запуска приложения
 CMD ["npm", "run", "start"]
