@@ -2,11 +2,12 @@ import styles from './BannerSection.module.css';
 import Image from 'next/image';
 import Htag from '@/components/htag/htag';
 import Button from '@/components/button/button';
+import { BackgroundVideo } from '@/components/HomePage/Video/Video';
 
 export default function BannerSection() {
   return (
     <section className={styles.banner_wrapper} aria-label="Hero section баннера COSMOMIX">
-      {/* Фоновое изображение */}
+      {/* Фоновое изображение (fallback, если видео не загрузится) */}
       <Image
         src="/banner/banner_background.png"
         width={1513}
@@ -16,29 +17,32 @@ export default function BannerSection() {
         className={styles.banner_image}
       />
 
-      {/* Модель на баннере */}
-      <Image
-        src="/banner/banner_model.png"
-        width={821}
-        height={886}
-        alt="Модель рядом с косметической продукцией COSMOMIX"
-        priority
+      {/* Видео на фоне */}
+      <BackgroundVideo
+        src="/home_page/video/banner_video.mp4"
         className={styles.banner_model}
       />
+      <BackgroundVideo
+        src="/home_page/video/banner_video_mobile.mp4"
+        className={styles.banner_model_mobile}
+      />
+
+
+
+      {/* Тёмный градиент поверх видео */}
+      <div className={styles.banner_overlay}></div>
 
       {/* Текстовая обёртка */}
       <div className={styles.banner_textWrapper}>
-        {/* Логотип */}
         <Image
-          src="/banner/banner_logo.png"
-          width={530}
-          height={68}
+          src="/banner/cosmomix2023.png"
+          width={1060}
+          height={136}
           alt="Логотип COSMOMIX"
           priority
           className={styles.text_upper}
         />
 
-        {/* Заголовок */}
         <Htag className={styles.desktop} color="white" tag="h1" uppercase>
                     Контрактное производство косметики
         </Htag>
@@ -46,13 +50,11 @@ export default function BannerSection() {
                     Контрактное производство косметики
         </Htag>
 
-        {/* Описание */}
         <p className={styles.text_description}>
                     Контрактное производство — это не просто услуга, а тонкий процесс, где технологии встречаются с
-                    креативом, а качество становится приоритетом.
+                    креативом, а качество является приоритетом.
         </p>
 
-        {/* Кнопки */}
         <Button href="/capability" color="soft" uppercase type="standard" className={styles.desktop}>
                     Наши возможности
         </Button>

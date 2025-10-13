@@ -1,164 +1,238 @@
-.banner {
+/* ==== БАЗОВЫЕ СТИЛИ (для 1200px и выше) ==== */
+
+
+.team_member_card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 210px; /* задай нужную высоту */
-    margin-top: 130px;
-
-    background-image: url("/banner/banner_background.png"); /* путь к картинке */
-    background-size: cover; /* растянуть под размер блока */
-    background-position: center; /* центрировать */
-    background-repeat: no-repeat; /* не повторять */
+    padding: 20px;
 }
+.liquidGlass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
+    /* прозрачное стекло */
+    background: rgba(255, 255, 255, 0.08);
+
+    /* размытие и насыщение */
+
+    backdrop-filter: blur(18px) saturate(160%);
+
+
+    overflow: hidden;
+}
 .about {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     color: var(--primary);
     font-size: clamp(16px, 2vw, 20px);
     font-weight: 400;
-
-    display: grid;
-    grid-template-columns: 1.8fr 2fr;
-
-    max-width: 100vw;
-
-}
-
-
-
-
-.about_left {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    padding: 105px 95px 0;
-    justify-content: center;
-}
-.about_wrapper{
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    position: relative;
-}
-.about_image {
-
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-
+    max-width: 1200px;
+    margin: auto;
 }
 
 .about_text {
-    max-width: 609px;
-}
-.about_description {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    line-height: 1.6;
+    max-width: 1200px;
 
     text-align: center;
-    max-width: 609px;
+}
+
+.about_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease
+}
+
+.about_wrapper:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.about_wrapper::after {
+    content: "";
     position: absolute;
-    bottom: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 10%,
+            rgba(255, 255, 255, 0) 65%
+
+    );
+    border-radius: 16px;
+    pointer-events: none;
+}
+.about_images {
+    margin: 0 95px;
+    max-width: 1200px;
+}
+.about_image {
+    width: 90vw;
+   height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+
+    max-width: 1200px;
+}
+
+.about_description {
+    color: var(--black);
+    padding: 16px;
+    width: 40vw;
+    height: 250px;
+    text-align: left;
+    max-width: 1000px;
+    position: absolute;
+    top: 5vw;
+    left: 2%;
     z-index: 1;
 }
 
-.about_right {
+.about_left {
+    width: 100%;
 
+    max-width: 1200px;
     display: flex;
-    background: linear-gradient(
-            to bottom,
-            #dddbea00 0%,
-            #decdfd 20%,
-            #a788db 33%,
-            #9b7cce 50%,
-            #8e64d3 65%,
-            #ccb6ec 84%,
-            #decdfd 90%,
-            #ffffff 100%
-    );
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    padding: 105px 95px 0;
 
 }
+
+.about_right {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 95px 0;
+}
+
 .about_right_wrapper {
-flex: 1;
+    flex: 1;
     padding: 105px 95px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 80px;
 }
 
+/* ==== Аккордеоны ==== */
 .accordion {
     position: relative;
-    width: 100%;
-    max-width: 800px;/* например, ограничение ширины */
-    height: 200px;
-    background: #ccb6ec;
-    border: none;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    text-align: left;
-    font-size: clamp(16px, 1.8vw, 24px);
-    font-weight: 400;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    min-width: 80vw;
 
+    min-height: 250px;
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
 
+.accordion:hover {
+    transform: scale(1.05);
+}
 
-    overflow: hidden; /* обрезаем картинку */
+.accordion::after {
+    content: "";
+    position: absolute;
+
+    height: 101%;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 35%,
+            rgba(255, 255, 255, 0.5) 40%,
+            rgb(53, 13, 87, 0) 55%
+    );
+    pointer-events: none;
+    z-index: 0;
 }
 
 .accordion_picture {
     position: absolute;
     inset: 0;
-    width: 70% ;
+    width: 70%;
     height: auto;
     object-fit: cover;
     z-index: 0;
-
-    top: -35%;
-    left: 30%;
+    top: -10%;
+    left: 35%;
 }
 
 .accordion_title {
+    height: 150px;
+    width: 23vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     position: relative;
     z-index: 1;
-    font-size: clamp(16px, 1.8vw, 24px);
-    font-weight: 400; /* адаптивный размер шрифта */
+    font-size: clamp(22px, 2vw, 32px) !important;
+    font-weight: 700;
     text-align: left;
-}
-
-.accordion:hover {
-    background: #9574CC;
-}
-
-.active {
-    background: #CCB6EC;
 
 }
 
-
+.active:hover {
+    transform: none;
+}
 
 .panel {
+    max-width: 1200px;
     width: 100%;
-    max-width: 800px;
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 20px;
-    padding: 15px 20px;
-    border-radius: 2px 2px 12px 12px;
-    background: rgba(255, 255, 255, 0.9);
-
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.95);
     font-size: clamp(16px, 1.8vw, 24px);
     font-weight: 400;
     color: var(--primary);
     line-height: 1.5;
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .close {
-    height: 100px;
+    height: 200px;
 }
-
+.activeIcon {
+    transform: rotate(180deg);
+}
 
 @keyframes fadeIn {
     from {
@@ -171,162 +245,24 @@ flex: 1;
     }
 }
 
-@media (max-width: 1200px) {
-
-    .banner {
-        height: 180px;
-        margin-top: 130px;
-
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    }
+/* ==== Секция команды ==== */
 
 
-.about_right {
-    background: linear-gradient(
-            to bottom,
-            #ffffff 0%,
-            #decdfd 20%,
-            #a788db 33%,
-            #9b7cce 50%,
-            #8e64d3 65%,
-            #ccb6ec 84%,
-            #decdfd 90%,
-            #ffffff 100%
-    );
-}
-
-
-    .about {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-
-    }
-
-    .about_text {
-        background: white;
-        padding: 20px;
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-
-        line-height: 1.6;
-
-        max-width: 1200px;
-        text-align: center;
-    }
-
-    .about_wrapper {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        margin-bottom: 20px;
-    }
-
-    .about_image {
-
-        width: 100%;
-        height: auto;
-    }
-
-    .about_description {
-        padding: 16px;
-width: 100%;
-        text-align: center;
-    }
-
-    .accordion {
-        width: 100%;
-        min-height: auto;
-        border-radius: 16px;
-        padding: 20px;
-        background: rgba(255,255,255,0.2);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255,255,255,0.3);
-        margin-bottom: 20px;
-        transition: all 0.4s ease;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        position: relative;
-
-    }
-
-
-
-.about_right_wrapper {
-    margin-bottom: 80px;
-}
-
-    .accordion.active::after {
-        transform: rotate(180deg);
-    }
-
-    .panel {
-        margin-top: 10px;
-        padding: 16px;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.95);
-
-        animation: fadeIn 0.4s ease-in-out;
-    }
-}
-@media (max-width: 768px) {
-    .about_left {
-
-        padding: 100px 20px 0;
-
-    }
-
-    .banner {
-        margin-top: 0;
-    }
-
-    .about_right_wrapper {
-
-        padding: 100px 20px 0;
-
-    }
-
-    .about_description {
-
-        bottom: 20px;
-
-    }
-    .accordion_picture {
-
-
-        top: 0;
-        left: 25%;
-    }
-
-    .accordion {
-        width: 100%;
-        max-height: 150px;
-
-
-
-    }
-
-}
-
-/* ==== Общий стиль секции команды ==== */
 .team_section {
-    padding: 100px 95px;
+    padding: 0 95px;
     display: flex;
     flex-direction: column;
     gap: 60px;
     color: var(--primary);
     max-width: 100vw;
+    margin-bottom: 100px;
 }
 
-/* Заголовки секции */
 .team_title {
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
-/* ==== Общее фото команды ==== */
 .team_main {
     position: relative;
     display: flex;
@@ -336,10 +272,10 @@ width: 100%;
 }
 
 .team_main_image {
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     height: auto;
-    border-radius: 16px;
+    border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     object-fit: cover;
 }
@@ -352,21 +288,20 @@ width: 100%;
     line-height: 1.6;
 }
 
-/* ==== Индивидуальные карточки ==== */
 .team_wrapper {
     display: flex;
-    flex-direction: column; /* строки на десктопе */
+    flex-direction: column;
     gap: 40px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-wrap: nowrap;
     width: 100%;
 }
 
 .team_member {
     display: flex;
-    flex-direction: column;
-
+    flex-direction: row;
+    gap: 20px;
     text-align: left;
     background: #fff;
     padding: 20px;
@@ -380,11 +315,15 @@ width: 100%;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+.team_member > div {
+    flex: 1;
+}
+
 .team_image_wrapper {
-    width: 100%;
+    width: 400px;
+    flex-shrink: 0;
     overflow: hidden;
     border-radius: 16px;
-    margin-bottom: 20px;
 }
 
 .team_image {
@@ -412,48 +351,112 @@ width: 100%;
     font-weight: 400;
     line-height: 1.6;
     color: var(--primary);
-}
-
-/* ==== Адаптив ==== */
-@media (max-width: 1200px) {
-    .team_section {
-        padding: 60px 40px;
-        gap: 50px;
-    }
-
-    .team_main_image {
-        max-width: 1000px;
-    }
-
-    .team_wrapper {
-        gap: 30px;
-    }
+    margin-top: 15px;
 }
 
 @media (max-width: 1050px) {
-    .team_wrapper {
-        flex-direction: column; /* вертикально на планшетах и ниже */
-        align-items: center;
-        gap: 30px;
-    }
-
     .team_member {
-        max-width: 100%;
+        display: flex; /* отменяем grid */
+        flex-direction: column-reverse;
+        align-items: center;
         text-align: center;
+        max-width: 100%;
     }
 
-    .team_position_title {
-        margin: 5px 0 10px 0;
+    /* Блок с текстом */
+    .team_member > div {
+        order: 1; /* текст сверху */
+        width: 100%;
+    }
+
+    /* Блок с изображением */
+    .team_member .team_image_wrapper {
+        order: 2; /* картинка снизу */
+        width: 80%;
+        max-width: 400px;
+        margin: 20px 0;
     }
 }
 
+
+
 @media (max-width: 768px) {
+    .accordion_title {
+        display: block;
+        width: auto;
+        height: auto;
+    }
+    .accordion:hover {
+        transform: none;
+    }
+
+    .about_left {
+        padding: 100px 20px 0;
+    }
+
+    .banner {
+        margin-top: 0;
+    }
+
+    .about_right_wrapper {
+        padding: 100px 20px 0;
+    }
+    .about_wrapper::after {
+
+        background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 1) 10%,
+                rgba(255, 255, 255, 0) 70%
+
+        );
+
+    }
+
+    .about_description {
+
+        left: 5%;
+        top: 23vw;
+        width: 80vw;
+        text-align: center;
+    }
+
+    .accordion_picture {
+        position: absolute;
+
+        left: 0;
+        width: 100%;
+        height: 130%;
+        object-fit: cover;
+    }
+
+    .accordion {
+        width: 100%;
+        max-width: 100%;
+        min-width: 94vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .accordion::after {
+        background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.8) 35%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgb(53, 13, 87, 0.1) 70%
+        );
+    }
+
     .team_section {
         padding: 50px 20px;
         gap: 40px;
     }
 
     .team_main_image {
+        width: 100%;
         max-width: 100%;
     }
 
@@ -465,7 +468,31 @@ width: 100%;
         font-size: 20px;
     }
 
-    .team_position_title, .team_position {
+    .team_position_title,
+    .team_position {
         font-size: 16px;
     }
 }
+/* Иконка для аккордеона */
+.accordion_icon {
+    display: block;
+    margin-top: 10px;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    color: var(--primary);
+}
+.chevron {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Показываем только на мобильной версии */
+@media (max-width: 768px) {
+    .accordion_icon {
+        display: block;
+    }
+
+}
+

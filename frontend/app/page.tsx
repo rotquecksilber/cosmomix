@@ -10,7 +10,7 @@ import StagesSection from '@/components/HomePage/StagesSection/StagesSection';
 import Reasons2Section from '@/components/HomePage/Reasons2Section/Reasons2Section';
 
 import PartnersSection from '@/components/HomePage/PartnersSection/PartnersSection';
-import TeamSection from '@/components/HomePage/TeamSection/TeamSection';
+
 import FAQSection from '@/components/HomePage/FAQSection/FAQSection';
 import ContactsSection from '@/components/HomePage/ContactsSection/ContactsSection';
 
@@ -42,7 +42,7 @@ export default function Home() {
 
 
 
-      <TeamSection/>
+
       <FAQSection/>
       <ContactsSection/>
 

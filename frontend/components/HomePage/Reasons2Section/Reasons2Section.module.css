@@ -1,122 +1,175 @@
+/* ------------------------------
+   REASONS SECTION ("Производственное направление")
+------------------------------ */
+
 .reasons {
+margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .reasons_wrapper {
+    width: 100%;
+    max-width: 1400px; /* ограничивает ширину, чтобы карточки не расползались */
     display: flex;
     flex-direction: column;
+    gap: 40px;
     align-items: center;
-    gap: 55px;
-    padding: 100px 95px;
+    margin: 0 auto;
+    padding: 0 95px; /* заменил margin на padding для стабильного отступа внутри */
+    box-sizing: border-box;
 }
 
 .reasons_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 20px;
-}
-
-/* Верхние две карточки */
-.first {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.second {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-/* Нижняя растянутая справа */
-.third {
-    grid-column: 1 / span 2;
-    grid-row: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
-.reasons_reason {
-    background-color: white;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+.gradientBorder {
+    position: relative;
+    z-index: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 25px;
+    gap: 70px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
-.first,
-.second,
-.fourth {
-    background-color: #9574CC;
+.gradientBorder_reverse {
+    /* если нужно — альтернативный стиль */
 }
 
-.third {
-    background-color: #9574CC;
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 4 / 5;
 }
 
-.fourth {
-    grid-column: 1 / span 2;
-    grid-row: 2;
+.imageWrapper:hover {
+    transform: scale(1.02);
 }
 
-.reason_titleWrapper {
-    margin-bottom: 20px;
+.reasons_photo {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.overlayContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
+    gap: 45px;
+    padding: 40px;
+    max-width: 70%;
+    box-sizing: border-box;
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.6) 80%,
+            transparent 100%
+    );
 }
 
-.reasons_icon {
-    margin-top: 20px;
-    filter: drop-shadow(0px 0px 60px rgba(86, 61, 130, 0.6));
-}
-
-.reasons_description {
-    color: var(--white);
+.reasons_text {
     font-size: clamp(16px, 1.8vw, 24px);
-    font-weight: 200;
+    font-weight: 500;
     line-height: 1.5;
+    color: var(--black);
 }
 
-.reason_buttonWrapper {
-    padding-top: 20px;
-}
+/* ------------------------------
+   MEDIA QUERIES
+------------------------------ */
 
-@media (max-width: 1200px) {
-    .reasons_grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+@media (max-width: 780px) {
+    .reasons {
+margin-top: 0;
     }
-    .third {
-        order: 5;
-    }
-}
 
-@media (max-width: 768px) {
     .reasons_wrapper {
-        padding: 60px 20px;
-        gap: 40px;
+        padding: 40px 15px; /* вернули внутренние отступы вместо margin */
+        gap: 32px;
+        text-align: center;
     }
 
-    .reasons_reason {
-        padding: 16px;
-        gap: 18px;
+    .reasons_grid {
+        gap: 32px;
     }
 
-    .reasons_icon {
-        width: 80px;
-        height: 80px;
-        margin-top: 10px;
+    .gradientBorder {
+        gap: 0;
+        transition: none !important;
+        transform: none !important;
     }
 
-    .reason_titleWrapper {
-        min-height: auto;
+    .imageWrapper {
+        height: 350px;
+        aspect-ratio: 4 / 5;
+        border-radius: 20px;
+        transition: none !important; /* отключаем hover-анимацию */
     }
 
-    .reasons_description {
-        font-size: 16px;
+    .imageWrapper:hover {
+        transform: none !important; /* hover без эффекта */
     }
+
+    .reasons_photo {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlayContent {
+        inset: 0;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 24px;
+        max-width: 100%;
+        background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.6) 80%,
+                transparent 90%
+        );
+    }
+
+    .overlayContent h3 {
+        font-size: clamp(18px, 5vw, 22px);
+        line-height: 1.3;
+    }
+
+    .reasons_text {
+        font-size: clamp(15px, 1.6vw, 20px);
+        font-weight: 500;
+        color: var(--black);
+    }
+}
+
+@media (min-width: 781px) {
+
 }

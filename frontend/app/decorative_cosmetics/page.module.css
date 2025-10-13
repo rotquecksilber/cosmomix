@@ -1,39 +1,116 @@
+
 .wrapper {
-    font-family: "Montserrat", sans-serif;
     color: var(--primary);
-    background: #fff;
     overflow-x: hidden;
     margin-top: 130px;
 }
 
-/* ---------- Hero ---------- */
-.hero {
-    background: linear-gradient(135deg, #f7f6fb, #e9e3f9);
-    padding: 6rem 2rem 4rem;
-    text-align: center;
-}
-.heroContent {
+/* ---------- Hero Banner ---------- */
+.heroBanner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+.bannerVideo_mobile {
+    display: none;
+}
+
+/* Видео */
+.bannerVideo_mobile,
+.bannerVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Градиент поверх видео */
+.bannerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0) 80%
+    );
+    z-index: 1;
+}
+
+/* Контент поверх */
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+
+    gap: 1rem;
+}
 
 .heroContent h1 {
-    font-size: 3rem;
+    font-size: clamp(22px, 2.4vw, 40px);
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.heroContent p {
+    font-size: clamp(16px, 2vw, 18px);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    color: white;
+}
+
+/* Кнопка */
+.button {
+    min-width: 200px !important;
+    font-weight: 500 !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
+}
+
+
+/* ---------- Hero ---------- */
+.hero {
+    background: linear-gradient(135deg, #f7f6fb, #e9e3f9);
+    padding: 2rem 1rem 2rem;
+    text-align: center;
+}
+.heroContent {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.heroContent h1 {
+    font-size: clamp(22px, 2.4vw, 40px) ;
     margin-bottom: 1rem;
 }
 
 .heroContent p {
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(16px, 2vw, 18px);
     margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+
+
 }
 
 .ctaButton {
-    /* можно добавить padding/margin если нужно */
+    min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
+
+}
+.button {
+    min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
 }
 
 /* ---------- Generic Section ---------- */
@@ -45,6 +122,7 @@
 }
 
 .section h2 {
+    font-size: clamp(22px, 2.4vw, 40px) ;
     margin-bottom: 2rem;
 }
 
@@ -58,11 +136,15 @@
 
 .card {
     flex: 1 1 250px;
-    background: #f7f6fb;
-    padding: 2rem;
-    border-radius: 1rem;
+    background: #eceafa;
+    padding: 1rem;
+    border-radius: 2rem;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pad {
+    padding: 1rem;
 }
 
 .card:hover {
@@ -70,11 +152,21 @@
 }
 
 .card span {
-    font-size: clamp(16px, 2vw, 24px);
+
     display: block;
     margin-bottom: 1rem;
 }
+.card p {
+    font-size: clamp(16px, 2vw, 18px);
+}
 
+.card_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 /* ---------- Expertise Grid ---------- */
 .grid {
     display: grid;
@@ -86,6 +178,7 @@
     background: #ece9f9;
     padding: 2rem;
     border-radius: 1rem;
+    font-size: clamp(16px, 2vw, 18px);
     font-weight: 500;
     transition: transform 0.3s ease;
 }
@@ -102,12 +195,14 @@
 }
 
 .product {
-    background: #f7f6fb;
+    background: #eceafa;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
+
+
 
 .product:hover {
     transform: translateY(-6px);
@@ -116,7 +211,15 @@
 .product p {
     padding: 1rem;
     font-weight: 500;
-    color: #444;
+    color: var(--primary);
+    font-size: clamp(16px, 2vw, 18px);
+
+}
+
+.cards_image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
 }
 
 /* ---------- Standards ---------- */
@@ -206,8 +309,56 @@
     }
 }
 
+
 /* ---------- Responsive ---------- */
+@media (max-width: 815px) {
+    .wrapper {
+
+        margin-top: 0;
+    }
+}
+
 @media (max-width: 768px) {
+.heroBanner {
+    height: 90vh;
+}
+    .heroContent h1 {
+        text-align: center;
+    }
+    .bannerVideo_mobile {
+
+        display: block;
+    }
+    .bannerVideo {
+        display: none;
+    }
+
+
+    .bannerOverlay {
+
+        background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0) 80%
+        );
+
+    }
+    .heroContent {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .heroContent p {
+text-align: center;
+
+
+
+    }
+
+
     .wrapper {
         margin-top: 0;
     }
@@ -217,11 +368,11 @@
     }
 
     .cards {
-        gap: 1rem;
+        gap: 3rem;
     }
 
     .products {
-        gap: 1rem;
+        gap: 3rem;
     }
 
     .grid {

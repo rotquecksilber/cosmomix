@@ -10,6 +10,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 20px;
+}
+
+.privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--primary);
+}
+.privacy_link {
+font-weight: 600;
 }
 
 .popup {
@@ -64,6 +77,11 @@
     cursor: pointer;
     font-size: clamp(14px, 1.5vw, 22px);
     font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.openButton:hover {
+    transform: scale(1.05);
 }
 
 .openButtonMobile {
@@ -130,6 +148,7 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: clamp(14px, 1.5vw, 18px);
+    z-index: 1;
 }
 
 /* --- Messages --- */
@@ -158,3 +177,4 @@
         display: none;
     }
 }
+

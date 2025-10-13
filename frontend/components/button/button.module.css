@@ -74,4 +74,13 @@
         background: var(--primary) !important; /* только если очень нужно */
     }
 
+    .standard,
+    .small {
+        transition: none;
+    }
+    .standard:hover,
+    .small:hover {
+       transform: none;
+    }
+
 }

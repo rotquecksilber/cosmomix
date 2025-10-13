@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 210px; /* задай нужную высоту */
+    height: 105px; /* задай нужную высоту */
     margin-top: 130px;
 
 
@@ -10,12 +10,13 @@
     background-size: cover; /* растянуть под размер блока */
     background-position: center; /* центрировать */
     background-repeat: no-repeat; /* не повторять */
+    z-index: 1;
 }
 
 @media (max-width: 1200px) {
 
     .banner {
-        height: 180px;
+        height: 90px;
         margin-top: 130px;
 padding: 20px;
         background-size: cover;

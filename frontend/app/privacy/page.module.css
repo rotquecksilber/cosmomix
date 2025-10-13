@@ -1,0 +1,314 @@
+.wrapper {
+
+    color: var(--primary);
+
+    overflow-x: hidden;
+margin-top: 130px ;
+}
+@media (max-width: 815px) {
+    .wrapper {
+        margin: 0 ;
+    }
+}
+
+/* ---------- Hero (used for general structure in the example, adjusting for Policy) ---------- */
+.hero {
+    background: linear-gradient(135deg, #f7f6fb, #e9e3f9);
+    padding: 2rem 1rem 2rem;
+    text-align: center;
+}
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroContent h1 {
+    font-size: clamp(22px, 2.4vw, 40px) ;
+    margin-bottom: 1rem;
+}
+
+.heroContent p {
+    font-size: clamp(16px, 2vw, 18px);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctaButton {
+    min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
+
+}
+.button {
+    min-width: 200px !important;
+    font-size: clamp(16px, 2vw, 18px) !important;
+}
+
+/* ---------- Generic Section (Policy Section) ---------- */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: clamp(22px, 2.4vw, 40px) ;
+    margin-bottom: 2rem;
+}
+
+/* ---------- Policy Page Specific Styles ---------- */
+.policySection {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left; /* Alignment for policy text */
+}
+
+.policyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.policyHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.policyHeader h1 {
+    font-size: clamp(26px, 3.5vw, 48px);
+    font-weight: 700;
+}
+
+.policySubsection {
+    margin-bottom: 20px;
+}
+
+.h2 {
+    font-size: clamp(20px, 2.2vw, 30px);
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.textBlock p {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+/* Table styles for Section 6 */
+.tableWrapper {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #e9e3f9;
+    border-radius: 8px;
+}
+
+.policyTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    min-width: 700px; /* Ensures horizontal scroll on small screens */
+}
+
+.policyTable th, .policyTable td {
+    padding: 12px 15px;
+    border: 1px solid #e9e3f9;
+    vertical-align: top;
+    text-align: left;
+}
+
+.policyTable th {
+    background-color: #f7f6fb;
+    font-weight: 600;
+    color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.policyTable tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+.policyTable tr:nth-child(even) {
+    background-color: #fcfcff;
+}
+
+.policyTable tr:hover {
+    background-color: #f0ecff;
+}
+
+.tableCell {
+    line-height: 1.5;
+}
+
+/* Hide mobile rows by default */
+.mobileRow {
+    display: none;
+}
+.desktopRow {
+    display: table-row;
+}
+.tableLabel {
+    font-weight: 600;
+    width: 30%;
+    background-color: #f7f6fb;
+}
+
+
+/* ---------- Cards ---------- */
+.cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 250px;
+    background: #eceafa;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card span {
+
+    display: block;
+    margin-bottom: 1rem;
+}
+.card p {
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+.card_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+/* ---------- Expertise Grid ---------- */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.tile {
+    background: #ece9f9;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- Products ---------- */
+.products {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.product {
+    background: #eceafa;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+
+
+.product:hover {
+    transform: translateY(-6px);
+}
+
+.product p {
+    padding: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    font-size: clamp(16px, 2vw, 18px);
+
+}
+
+.cards_image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* ---------- Standards ---------- */
+.standards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 24px);
+    color: #6a4ff7;
+}
+
+.standards span {
+    background: #f0ecff;
+    padding: 0.7rem 1.4rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 8px rgba(106, 79, 247, 0.15);
+}
+
+/* ---------- Blog ---------- */
+.blog {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    text-align: left;
+}
+
+.blog article {
+    background: #f7f6fb;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.blog article:hover {
+    transform: translateY(-6px);
+}
+
+.blog h3 {
+    margin-bottom: 1rem;
+}
+
+/* ---------- Final CTA ---------- */
+.finalCta {
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #CCB6EC);
+    color: white;
+    padding: 5rem 2rem;
+}
+
+.finalCta h2 {
+    margin-bottom: 1rem;
+}
+
+.finalCta p {
+    font-size: clamp(16px, 2vw, 24px);
+}

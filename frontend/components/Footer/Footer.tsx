@@ -23,9 +23,9 @@ export default function Footer() {
     {
       title: 'Производство',
       links: [
-        { text: 'Контрактное производство', href: '/capability' },
-        { text: 'Продукты', href: '/catalog' },
-        { text: 'Декоративная косметика', href: '/decorative_cosmetics' },
+        { text: 'Возможности COSMOMIX', href: '/capability' },
+        { text: 'Каталог продукции', href: '/catalog' },
+        { text: 'О производстве косметики', href: '/decorative_cosmetics' },
       ],
     },
     {
@@ -33,6 +33,7 @@ export default function Footer() {
       links: [
         { text: 'Вакансии', href: '/job' },
         { text: 'Правовая информация', href: '/legal' },
+        { text: 'Политика конфиденциальности', href: '/privacy' },
       ],
     },
   ];
@@ -69,15 +70,10 @@ export default function Footer() {
 
         <div className={styles.column}>
           <div className={styles.socials} aria-label="Социальные сети">
-            <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://t.me/cosmomix1" target="_blank" rel="noopener noreferrer">
               <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
-            </a>
-            <a href="https://vk.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials/vk.svg" alt="VK" width={24} height={24} />
-            </a>
-            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials/youtube.svg" alt="YouTube" width={24} height={24} />
-            </a>
+            </Link>
+            {/*Х*/}
           </div>
         </div>
 
@@ -97,7 +93,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className={styles.bottomRow}>
           <span>COSMOMIX</span>
-          <span>{new Date().getFullYear()}</span>
+          <span className={styles.date}>{new Date().getFullYear()}</span>
           <Image src="/logo.svg" alt="Logo" width={32} height={32} />
         </div>
       </div>

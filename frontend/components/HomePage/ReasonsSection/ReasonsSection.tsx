@@ -9,7 +9,7 @@ export default function ReasonsSection() {
   return (
     <section className={styles.reasons} aria-labelledby="production-heading">
       <div className={styles.reasons_wrapper}>
-        <Htag tag="h2" color="gradient" uppercase>
+        <Htag tag="h2" color="gradient" uppercase className={styles.h2}>
                     Производственное направление
         </Htag>
 

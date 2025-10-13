@@ -16,8 +16,9 @@ const navLinks = [
     href: '/catalog',
     text: 'Продукция',
     submenu: [
-      { href: '/catalog', text: 'Продукты' },
-      { href: '/decorative_cosmetics', text: 'Декоративная косметика' },
+      { href: '/decorative_cosmetics', text: 'О производстве косметики' },
+      { href: '/catalog', text: 'Каталог продукции' },
+
     ],
   },
   { href: '/contacts', text: 'Контакты' },
@@ -45,8 +46,8 @@ export default function Header() {
           <Image
             src="/logo.svg"
             alt="Логотип COSMOMIX — производство косметики"
-            height={128}
-            width={112}
+            height={80}
+            width={80}
             priority
           />
         </Link>
@@ -137,8 +138,8 @@ export default function Header() {
               <Image
                 src="/logo.svg"
                 alt="Логотип COSMOMIX — производство косметики"
-                height={100}
-                width={70}
+                height={58}
+                width={58}
                 priority
               />
             </Link>

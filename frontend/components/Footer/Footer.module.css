@@ -4,6 +4,7 @@
     color: #3d2e7c;
     font-size: 14px;
     border-top: 1px solid #3d2e7c;
+    z-index: 1;
 
 }
 
@@ -16,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
+
 }
 
 .column {
@@ -85,6 +87,7 @@
         padding: 20px;
         flex-direction: column;
         gap: 0;
+
     }
 
     .column {
@@ -137,17 +140,26 @@
         padding: 16px;
         margin-top: 20px;
         text-align: center;
+
     }
 
     .bottomRow {
         flex-direction: row;
-        gap: 6px;
+padding: 0;
+        justify-content: space-between;
     }
+.date {
+    display: flex;
+    align-items: center;
+
+    width: 84px;
+}
 
 
 }
 @media (max-width: 815px) {
     .footer {
         margin-bottom: 80px;
+
     }
 }

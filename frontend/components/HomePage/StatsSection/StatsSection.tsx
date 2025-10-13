@@ -6,9 +6,9 @@ import cn from 'classnames';
 import React from 'react';
 
 const numbers = [
-  { number: '20+', text: 'Партнеров по всей России' },
+  { number: '20+', text: 'партнеров по всей России' },
   { number: '500000+', text: 'единиц в месяц производственные возможности' },
-  { number: '30+', text: 'Экспертов\nв команде' }
+  { number: '30+', text: 'экспертов\nв команде' }
 ];
 
 export default function StatsSection() {

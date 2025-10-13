@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type FormData = {
     name: string;
@@ -214,7 +215,9 @@ export default function PopUp() {
                 placeholder="Комментарий"
                 {...register('comment')}
               />
-
+              <div className={styles.privacy}>
+                <p >Нажимая кнопку отправить, вы соглашаетесь<br/> с <Link href={'/privacy'} className={styles.privacy_link}>Политикой конфиденциальности</Link></p>
+              </div>
               {/* Кнопка отправки */}
               <button
                 type="submit"

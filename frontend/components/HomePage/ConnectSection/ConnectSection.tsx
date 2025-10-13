@@ -13,8 +13,8 @@ export default function ConnectSection() {
         <Image
           src="/home_page/connect.png"
           alt="Женщина с образцами косметики для производства по контракту"
-          width={349}
-          height={852}
+          width={750}
+          height={500}
           className={styles.connect_image}
         />
 
@@ -32,7 +32,7 @@ export default function ConnectSection() {
 
           {/* Мобильное изображение */}
           <Image
-            src="/home_page/connect_mobile.png"
+            src="/home_page/connect.png"
             alt="Женщина с образцами косметики для производства по контракту"
             width={244}
             height={305}
@@ -42,7 +42,7 @@ export default function ConnectSection() {
           {/* Кнопка открытия попапа */}
           <PopUpConnect
             trigger={
-              <Button color="primary" uppercase type="standard">
+              <Button color="primary" uppercase type="standard" className={styles.button}>
                                 Свяжитесь с нами
               </Button>
             }

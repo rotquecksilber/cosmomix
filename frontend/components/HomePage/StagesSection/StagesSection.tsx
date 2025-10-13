@@ -101,7 +101,7 @@ export default function StagesSection() {
           </div>
           <Image alt={'Линия под этапами'} src={'/home_page/stages_line.png'} height={7} width={995} />
         </div>
-        <Image alt={'Этапы сотрудничества'} src={'/home_page/stages_photo.png'} width={1260} height={1860} className={styles.stages_photo} />
+        <Image alt={'Этапы сотрудничества'} src={'/home_page/stages_photo.jpeg'} width={1260} height={1860} className={styles.stages_photo} />
       </div>
 
       {/* --- MOBILE --- */}

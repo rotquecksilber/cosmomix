@@ -62,7 +62,7 @@
     margin-top: 8px;
     line-height: 1.2;
     font-size: clamp(14px, 1.8vw, 24px);
-    font-weight: 200;
+    font-weight: 400;
     color: var(--white);
 }
 
