@@ -37,6 +37,10 @@
     /* Дополнительные стили, если надо */
 }
 
+.h2 {
+    text-align: center!important;
+}
+
 .imageWrapper {
     position: relative;
     width: auto;

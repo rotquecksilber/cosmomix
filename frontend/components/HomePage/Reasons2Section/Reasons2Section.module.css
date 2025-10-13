@@ -106,7 +106,7 @@ margin-top: 100px;
 
 @media (max-width: 780px) {
     .reasons {
-
+margin-top: 0;
     }
 
     .reasons_wrapper {

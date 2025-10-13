@@ -106,7 +106,7 @@ export default function StagesSection() {
 
       {/* --- MOBILE --- */}
       <div className={styles.mobileVersion}>
-        <Image alt={'Этапы сотрудничества'} src={'/home_page/stages_photo.jpeg'} width={900} height={1200} className={styles.stages_photo_mobile} />
+        <Image alt={'Этапы сотрудничества'} src={'/home_page/stages_photo.png'} width={900} height={1200} className={styles.stages_photo_mobile} />
         <Htag color={'gradient'} tag={'h2'} uppercase className={styles.mobileTitle}>
             Этапы производства
         </Htag>

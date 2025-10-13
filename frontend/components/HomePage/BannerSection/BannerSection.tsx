@@ -52,7 +52,7 @@ export default function BannerSection() {
 
         <p className={styles.text_description}>
                     Контрактное производство — это не просто услуга, а тонкий процесс, где технологии встречаются с
-                    креативом, а качество становится приоритетом.
+                    креативом, а качество является приоритетом.
         </p>
 
         <Button href="/capability" color="soft" uppercase type="standard" className={styles.desktop}>

@@ -21,12 +21,16 @@ export default function PartnersSection() {
             height={100}
             className={styles.partners_image}
           />
-          <Htag color={'primary'} tag={'h3'} uppercase>
+          <div className={styles.text_wrapper}>
+
+
+            <Htag color={'primary'} tag={'h3'} uppercase>
                     MANLYPRO
-          </Htag>
-          <p>
+            </Htag>
+            <p>
                     @manlyprocosmetics
-          </p>
+            </p>
+          </div>
         </div>
         <div className={styles.partners_wrapper}>
           <Image
@@ -37,12 +41,14 @@ export default function PartnersSection() {
             height={100}
             className={styles.partners_image}
           />
-          <Htag color={'primary'} tag={'h3'} uppercase>
-                    BLOOMY
-          </Htag>
-          <p>
-                    @bloomymakeupru
-          </p>
+          <div className={styles.text_wrapper}>
+            <Htag color={'primary'} tag={'h3'} uppercase>
+                      BLOOMY
+            </Htag>
+            <p>
+                      @bloomymakeupru
+            </p>
+          </div>
         </div>
       </div>
     </section>
