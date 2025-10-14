@@ -31,8 +31,6 @@ export default function Footer() {
     {
       title: 'Информация',
       links: [
-        { text: 'Вакансии', href: '/job' },
-        { text: 'Правовая информация', href: '/legal' },
         { text: 'Политика конфиденциальности', href: '/privacy' },
       ],
     },

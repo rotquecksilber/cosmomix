@@ -74,7 +74,7 @@ export default function DecorativeCosmeticsPage() {
         </section>
 
         {/* About */}
-        <section className={styles.section} aria-labelledby="about-decorative">
+        <section className={cn(styles.section, styles.section_button)} aria-labelledby="about-decorative">
           <motion.div
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -106,6 +106,7 @@ export default function DecorativeCosmeticsPage() {
               </motion.article>
             ))}
           </div>
+
         </section>
 
         {/* Expertise */}
@@ -141,7 +142,7 @@ export default function DecorativeCosmeticsPage() {
           </div>
         </section>
 
-        <section className={styles.section} aria-labelledby="about-decorative">
+        <section className={cn(styles.section, styles.section_button)} aria-labelledby="about-decorative">
           <motion.div
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -153,7 +154,7 @@ export default function DecorativeCosmeticsPage() {
 
           <div className={styles.cards}>
             {[
-              {src: '/images/lipstick.PNG', alt: 'Помада', text: 'Любые виды помад'},
+              {src: '/images/lipstick.png', alt: 'Помада', text: 'Любые виды помад'},
               {src: '/images/eyeshadow.png', alt: 'Блески', text: 'Блески для губ'},
               {src: '/images/foundation.PNG', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры'},
               {src: '/images/highlighter.PNG', alt: 'Тушь', text: 'Тушь'},
@@ -175,6 +176,7 @@ export default function DecorativeCosmeticsPage() {
               </motion.article>
             ))}
           </div>
+          <Button color={'primary'} type={'standard'} href={'/catalog'} className={styles.ctaButton_1}>Полный каталог</Button>
         </section>
 
 
