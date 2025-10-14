@@ -1,20 +1,23 @@
 'use client';
-
+import Link from 'next/link'; // Импорт стилей библиотеки
 import { useState, useEffect, ReactNode, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form'; // !!! ДОБАВЛЕН Controller
 import styles from '../PopUp/PopUp.module.css';
 import cn from 'classnames';
 import Image from 'next/image';
+import PhoneInput from 'react-phone-input-2'; // !!! ДОБАВЛЕН PhoneInput
+import 'react-phone-input-2/lib/style.css';
+
 
 type FormData = {
-    name: string;
-    phone: string;
-    email: string;
-    comment?: string;
+  name: string;
+  phone: string;
+  email: string;
+  comment?: string;
 };
 
 type PopUpConnectProps = {
-    trigger: ReactNode;
+  trigger: ReactNode;
 };
 
 export default function PopUpConnect({ trigger }: PopUpConnectProps) {
@@ -33,14 +36,24 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
+    control, // !!! ДОБАВЛЕН control
+  } = useForm<FormData>({
+    // Устанавливаем телефон в '7' (код России) для корректного отображения PhoneInput
+    defaultValues: { name: '', email: '', comment: '', phone: '7' }
+  });
 
   /* ==========================
        Управление попапом
     ========================= */
   const togglePopup = () => {
-    setIsOpen((prev) => !prev);
-    setStatus(null);
+    setIsOpen((prev) => {
+      if (!prev) {
+        // Сброс формы и статуса при открытии, чтобы телефон не "ломался"
+        reset({ name: '', email: '', comment: '', phone: '7' });
+        setStatus(null);
+      }
+      return !prev;
+    });
   };
 
   // Закрытие по Escape и блокировка фокуса внутри модалки
@@ -52,10 +65,17 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
     };
 
     const focusableElements = popupRef.current?.querySelectorAll<HTMLElement>(
-      'input, textarea, button, [tabindex]:not([tabindex="-1"])'
+      'input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), button:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])'
     );
-    const firstEl = focusableElements?.[0];
-    const lastEl = focusableElements?.[focusableElements.length - 1];
+
+    // Фильтруем элементы, чтобы исключить скрытые или неактивные
+    const filteredElements = Array.from(focusableElements || []).filter(el =>
+      el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0
+    );
+
+    const firstEl = filteredElements?.[0];
+    const lastEl = filteredElements?.[filteredElements.length - 1];
+
 
     const trapFocus = (e: KeyboardEvent) => {
       if (e.key !== 'Tab') return;
@@ -73,6 +93,7 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keydown', trapFocus);
 
+    // Устанавливаем фокус на первый элемент формы, если он есть
     firstEl?.focus();
 
     return () => {
@@ -107,7 +128,9 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
 
       await res.json();
       setStatus('success');
-      reset();
+
+      // !!! ИСПРАВЛЕНИЕ: Сброс на '7' для PhoneInput
+      reset({ name: '', email: '', comment: '', phone: '7' });
 
       setTimeout(() => {
         setIsOpen(false);
@@ -165,11 +188,11 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
               onClick={togglePopup}
               aria-label="Закрыть попап"
             >
-                            ×
+                  ×
             </button>
 
             <h2 id="popupTitle" className={styles.title}>
-                            Оставить заявку
+                  Оставить заявку
             </h2>
 
             <form
@@ -179,10 +202,11 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
               suppressHydrationWarning
               aria-describedby="formStatus"
             >
+              {/* Имя */}
               <input
                 type="text"
                 placeholder="Имя"
-                {...register('name', { required: 'Введите имя' })}
+                {...register('name', {required: 'Введите имя'})}
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'nameError' : undefined}
               />
@@ -192,18 +216,26 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
                 </span>
               )}
 
-              <input
-                type="tel"
-                placeholder="Телефон"
-                {...register('phone', {
-                  required: 'Введите телефон',
-                  pattern: {
-                    value: /^[0-9+()\-\s]*$/,
-                    message: 'Некорректный формат телефона',
-                  },
-                })}
-                aria-invalid={!!errors.phone}
-                aria-describedby={errors.phone ? 'phoneError' : undefined}
+              {/* Телефон (Controller с PhoneInput) */}
+              <Controller
+                control={control}
+                name="phone"
+                rules={{
+                  validate: (value) =>
+                    (value && value.length > 1) || 'Введите телефон',
+                }}
+                render={({field: {onChange, value}}) => (
+                  <PhoneInput
+                    country="ru"
+                    value={value}
+                    onChange={(val: string) => onChange(val)}
+                    countryCodeEditable={false}
+                    enableAreaCodes={false}
+                    // Используем классы для стилизации
+                    inputClass={styles.inputBox__input_phone}
+                    containerClass={styles.inputBox__phone_container}
+                  />
+                )}
               />
               {errors.phone && (
                 <span id="phoneError" className={styles.error}>
@@ -211,6 +243,7 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
                 </span>
               )}
 
+              {/* Email */}
               <input
                 type="email"
                 placeholder="Email"
@@ -230,28 +263,33 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
                 </span>
               )}
 
+              {/* Комментарий */}
               <textarea
                 placeholder="Комментарий"
                 {...register('comment')}
               />
-
+              <div className={styles.privacy}>
+                <span>Нажимая кнопку отправить, вы соглашаетесь<br/> с <Link href={'/privacy'}
+                  className={styles.privacy_link}>Политикой
+                  конфиденциальности</Link></span>
+              </div>
               <button
                 type="submit"
                 className={cn(styles.submitButton)}
                 suppressHydrationWarning
               >
-                                Отправить
+                Отправить
               </button>
 
               {/* Сообщения пользователю */}
               {status === 'success' && (
                 <p id="formStatus" className={styles.success}>
-                                    ✅ Спасибо, заявка отправлена!
+                    ✅ Спасибо, заявка отправлена!
                 </p>
               )}
               {status === 'error' && (
                 <p id="formStatus" className={styles.error}>
-                                    ❌ Ошибка, попробуйте снова.
+                    ❌ Ошибка, попробуйте снова.
                 </p>
               )}
             </form>

@@ -20,6 +20,7 @@
     font-size: 0.6rem;
     text-align: center;
     color: var(--primary);
+
 }
 .privacy_link {
 font-weight: 600;
@@ -178,3 +179,68 @@ font-weight: 600;
     }
 }
 
+/* PopUp.module.css */
+
+/* ... (Ваши существующие стили) ... */
+
+/* --- Стилизация PhoneInput через :global() для соответствия дизайну --- */
+
+.inputBox :global(.react-phone-input-2) {
+    width: 100%;
+    /* Важно, чтобы контейнер был относительным для правильного позиционирования флага */
+    position: relative;
+}
+
+.inputBox :global(.form-control) {
+    /* Копируем стили из .inputBox input */
+    width: 100% !important;
+    height: auto !important; /* Убираем фиксированную высоту */
+
+    padding: 12px 16px !important;
+    padding-left: 60px !important; /* Отступ, чтобы номер не залезал на флаг */
+
+    border: 1px solid var(--primary) !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-family: inherit !important;
+    background-color: #fff !important;
+    color: var(--primary) !important;
+
+    box-shadow: none !important; /* Убираем стандартную тень */
+}
+
+.inputBox :global(.form-control:focus) {
+    /* Фокусные стили */
+    outline: none !important;
+    border-color: var(--primary, #6C63FF) !important;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2) !important;
+}
+
+.inputBox :global(.flag-dropdown) {
+    /* Контейнер флага: позиционируем внутри инпута */
+    border: none !important;
+    background-color: transparent !important;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Занимает всю высоту инпута */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px 0 0 8px !important; /* Закругляем только слева */
+}
+
+.inputBox :global(.selected-flag) {
+    /* Выбранный флаг */
+    height: 100%;
+    padding-left: 12px !important; /* Начальный отступ */
+    padding-right: 8px !important;
+    display: flex;
+    align-items: center;
+}
+
+.inputBox :global(.country-list) {
+    /* Выпадающий список стран */
+    z-index: 1001;
+}

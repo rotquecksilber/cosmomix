@@ -286,3 +286,15 @@
         padding-left: 10px !important;
     }
 }
+.privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--primary);
+
+}
+.privacy_link {
+    font-weight: 600;
+}

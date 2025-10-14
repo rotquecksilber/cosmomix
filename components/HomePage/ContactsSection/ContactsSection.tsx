@@ -6,12 +6,13 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import styles from './ContactsSection.module.css';
 import Htag from '@/components/htag/htag';
+import Link from 'next/link';
 
 type FormData = {
   name: string;
   email: string;
-  phone?: string;
-  message: string;
+  phone: string;
+  message?: string;
 };
 
 export default function ContactsSection() {
@@ -24,8 +25,9 @@ export default function ContactsSection() {
     formState: { errors },
     reset,
   } = useForm<FormData>({
-    // Устанавливаем phone: undefined для корректного сброса PhoneInput
-    defaultValues: { name: '', email: '', message: '', phone: undefined }
+    // Устанавливаем телефон в '7' (код России, поскольку country="ru"),
+    // чтобы PhoneInput всегда начинал с него.
+    defaultValues: { name: '', email: '', message: '', phone: '7' }
   });
 
   const onSubmit = async (data: FormData) => {
@@ -50,12 +52,13 @@ export default function ContactsSection() {
       await res.json();
       setStatus('success');
 
-      // Явный сброс всех полей, включая phone: undefined
+      // !!! ИЗМЕНЕНИЕ: Явный сброс поля phone на '7' (код России)
+      // Это заставляет PhoneInput вернуться в исходное состояние.
       reset({
         name: '',
         email: '',
         message: '',
-        phone: undefined,
+        phone: '7',
       });
 
       setTimeout(() => setStatus(null), 2000);
@@ -104,7 +107,7 @@ export default function ContactsSection() {
             type="text"
             placeholder="Ваше имя"
             className={styles.contacts_form__input}
-            {...register('name', { required: 'Введите имя' })}
+            {...register('name', {required: 'Введите имя'})}
             aria-invalid={!!errors.name}
           />
           {errors.name && <span className={styles.error}>{errors.name.message}</span>}
@@ -128,41 +131,46 @@ export default function ContactsSection() {
           <Controller
             control={control}
             name="phone"
-            render={({ field: { onChange, value } }) => (
+            rules={{
+              validate: (value) =>
+                (value && value.length > 1) || 'Введите телефон',
+            }}
+            render={({field: {onChange, value}}) => (
               <PhoneInput
                 country="ru"
                 value={value}
                 onChange={(val: string) => onChange(val)}
                 countryCodeEditable={false}
                 enableAreaCodes={false}
-                // Пропс inputClass можно использовать для добавления ваших стилей,
-                // но для полной кастомизации нужны глобальные стили в CSS-модуле.
-                // inputClass={styles.contacts_form__input}
               />
             )}
           />
+          {errors.phone && <span className={styles.error}>{errors.phone.message}</span>}
 
           <textarea
             id="message"
-            placeholder="Сообщение"
+            placeholder="Комментарий"
             className={styles.contacts_form__textarea}
             rows={5}
-            {...register('message', { required: 'Введите сообщение' })}
+            {...register('message')}
             aria-invalid={!!errors.message}
           />
-          {errors.message && <span className={styles.error}>{errors.message.message}</span>}
-
+          <div className={styles.privacy}>
+            <span>Нажимая кнопку отправить, вы соглашаетесь<br/> с <Link href={'/privacy'}
+              className={styles.privacy_link}>Политикой
+                  конфиденциальности</Link></span>
+          </div>
           <button type="submit" className={styles.contacts_form__button}>Отправить</button>
 
           {/* Статусы */}
           {status === 'success' && (
             <p id="form-status" className={styles.success} role="status">
-                  ✅ Спасибо, сообщение отправлено!
+                ✅ Спасибо, сообщение отправлено!
             </p>
           )}
           {status === 'error' && (
             <p id="form-status" className={styles.error} role="alert">
-                  ❌ Ошибка, попробуйте снова.
+                ❌ Ошибка, попробуйте снова.
             </p>
           )}
         </form>

@@ -239,17 +239,16 @@
     font-weight: 500;
 }
 
-/* Подменю внутри мобильного меню */
-/* Плавное раскрытие подменю */
 .submenuMobile {
     margin-top: 0.5rem;
     font-size: clamp(14px, 1.5vw, 24px);
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition:
-            max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-            opacity 0.5s ease;
+    /* Use 'ease-in-out' for smoother start and end */
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in;
+    list-style: none; /* Add this if it's missing from parent list */
+    padding-left: 0; /* Add this to ensure proper centering if list-style is removed */
 }
 
 .submenuMobile_open {

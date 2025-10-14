@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form'; // !!! ДОБАВЛЕН Controller
 import styles from './PopUp.module.css';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import PhoneInput from 'react-phone-input-2'; // !!! ДОБАВЛЕН PhoneInput
+import 'react-phone-input-2/lib/style.css'; // Импорт стилей библиотеки
 
 type FormData = {
     name: string;
@@ -19,11 +21,26 @@ export default function PopUp() {
   const [status, setStatus] = useState<null | 'success' | 'error'>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    control // !!! ДОБАВЛЕН control
+  } = useForm<FormData>({
+    // Устанавливаем телефон в '7' (код России) для корректного отображения PhoneInput
+    defaultValues: { name: '', email: '', comment: '', phone: '7' }
+  });
 
   const togglePopup = () => {
-    setIsOpen(prev => !prev);
-    setStatus(null); // сбрасываем статус при открытии/закрытии
+    setIsOpen(prev => {
+      if (!prev) {
+        // Сброс формы и статуса при открытии, чтобы телефон не "ломался"
+        reset({ name: '', email: '', comment: '', phone: '7' });
+        setStatus(null);
+      }
+      return !prev;
+    });
   };
 
   // --- Управление фокусом при открытии/закрытии ---
@@ -58,7 +75,14 @@ export default function PopUp() {
       console.log('Ответ API:', result);
 
       setStatus('success');
-      reset();
+
+      // !!! ИСПРАВЛЕНИЕ: Явный сброс поля phone на '7' (код России)
+      reset({
+        name: '',
+        email: '',
+        comment: '',
+        phone: '7',
+      });
 
       // Закрыть окно через 2 сек после успеха
       setTimeout(() => {
@@ -164,21 +188,27 @@ export default function PopUp() {
                 </span>
               )}
 
-              {/* Телефон */}
+              {/* Телефон (Controller с PhoneInput) */}
 
-              <input
-                id="phone"
-                type="tel"
-                placeholder="Телефон"
-                {...register('phone', {
-                  required: 'Введите телефон',
-                  pattern: {
-                    value: /^[0-9+()\-\s]*$/,
-                    message: 'Некорректный формат телефона',
-                  },
-                })}
-                aria-invalid={!!errors.phone}
-                aria-describedby={errors.phone ? 'phone-error' : undefined}
+              <Controller
+                control={control}
+                name="phone"
+                rules={{
+                  validate: (value) =>
+                    (value && value.length > 1) || 'Введите телефон', // Проверяем, что введено что-то кроме кода страны
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <PhoneInput
+                    country="ru"
+                    value={value}
+                    onChange={(val: string) => onChange(val)}
+                    countryCodeEditable={false}
+                    enableAreaCodes={false}
+                    // Добавляем класс, чтобы PhoneInput наследовал стили
+                    inputClass={styles.input}
+                    containerClass={styles.phoneContainer} // Класс для внешнего контейнера
+                  />
+                )}
               />
               {errors.phone && (
                 <span id="phone-error" className={styles.error} role="alert">
@@ -201,6 +231,7 @@ export default function PopUp() {
                 })}
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
+                className={styles.input} // Добавляем класс для стандартного поля
               />
               {errors.email && (
                 <span id="email-error" className={styles.error} role="alert">
@@ -214,6 +245,7 @@ export default function PopUp() {
                 id="comment"
                 placeholder="Комментарий"
                 {...register('comment')}
+                className={styles.input} // Добавляем класс для стандартного поля
               />
               <div className={styles.privacy}>
                 <p >Нажимая кнопку отправить, вы соглашаетесь<br/> с <Link href={'/privacy'} className={styles.privacy_link}>Политикой конфиденциальности</Link></p>
@@ -245,4 +277,3 @@ export default function PopUp() {
     </div>
   );
 }
-
