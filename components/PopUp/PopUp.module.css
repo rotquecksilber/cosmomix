@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--brand-light-60);
+
     z-index: 1000;
     display: flex;
     justify-content: center;

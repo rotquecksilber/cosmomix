@@ -42,7 +42,7 @@ export default function Header() {
     <header className={styles.header_desk} role="banner">
       {/* --- Desktop --- */}
       <div className={styles.header_desk__wrapper}>
-        <Link href="/public" aria-label="Перейти на главную страницу COSMOMIX">
+        <Link href="/" aria-label="Перейти на главную страницу COSMOMIX">
           <Image
             src="/logo.svg"
             alt="Логотип COSMOMIX — производство косметики"
@@ -197,7 +197,9 @@ export default function Header() {
                         {isSubmenuOpen && (
                           <ul
                             id={`submenu-mobile-${index}`}
-                            className={styles.submenuMobile}
+                            className={cs(styles.submenuMobile, {
+                              [styles.submenuMobile_open]: isSubmenuOpen,
+                            })}
                             role="menu"
                             aria-label={`Подменю раздела ${link.text}`}
                           >

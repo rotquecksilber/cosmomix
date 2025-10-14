@@ -65,7 +65,7 @@ const CardStack: React.FC = () => {
                     height={96}
                     className={styles.step_number}
                   />
-                  <h3 className={styles.title}>{card.title}</h3>
+                  <Htag color={'primary'} tag={'h3'} className={styles.title_h3}>{card.title}</Htag>
                 </div>
                 <p className={styles.step_description}>{card.description}</p>
               </div>
@@ -91,7 +91,7 @@ export default function StagesSection() {
               <div key={number} className={styles.step} role="group" aria-label={`Этап ${number}: ${title}`}>
                 <Image alt={`Этап ${number}`} src={image} width={138} height={144} className={styles.step_number} />
                 <div>
-                  <Htag color={'primary'} tag={'h3'} uppercase={false} className={styles.title}>
+                  <Htag color={'primary'} tag={'h3'} uppercase={false} className={styles.title_h3}>
                     {title}
                   </Htag>
                   <p className={styles.step_description}>{description}</p>

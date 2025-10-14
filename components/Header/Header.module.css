@@ -66,10 +66,29 @@
     z-index: 2;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    transform-origin: top;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
+/* Анимация появления мегаменю сверху вниз */
 .hasSubmenu:hover .megamenu {
     display: grid;
+    opacity: 1;
+    transform: translateY(0);
+    animation: megamenuSlideDown 0.3s ease forwards;
+}
+
+@keyframes megamenuSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Продукты внутри мегаменю */
@@ -164,16 +183,29 @@
     max-height: 70vh;
     overflow-y: auto;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(20px);
     pointer-events: none;
     transition: all 0.3s ease;
     padding: 20px;
 }
 
+/* Анимация снизу вверх при открытии */
 .mobileMenu__open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    animation: slideUp 0.35s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .mobileMenu_menu {
@@ -211,6 +243,16 @@
 .submenuMobile {
     margin-top: 0.5rem;
     font-size: clamp(14px, 1.5vw, 24px);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+/* активное состояние (раскрытое подменю) */
+.submenuMobile_open {
+    max-height: 400px; /* ограничитель, чтобы было плавное открытие */
+    opacity: 1;
 }
 
 .submenuMobile li {
@@ -229,6 +271,9 @@
 .submenuMobile a:hover {
     color: #563d82;
 }
+
+
+
 
 /* ==============================
    6. Дополнительные элементы

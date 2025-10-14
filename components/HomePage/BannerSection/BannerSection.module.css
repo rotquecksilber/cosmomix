@@ -97,7 +97,7 @@
 ========================== */
 .text_description {
     font-size: clamp(16px, 2.2vw, 32px);
-    font-weight: 400;
+    font-weight: 500;
     color: #fff;
     margin: 10px 0 40px 0;
     z-index: 2;

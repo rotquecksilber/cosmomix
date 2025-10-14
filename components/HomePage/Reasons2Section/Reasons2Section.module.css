@@ -16,7 +16,7 @@ margin-top: 100px;
     max-width: 1400px; /* ограничивает ширину, чтобы карточки не расползались */
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
     align-items: center;
     margin: 0 auto;
     padding: 0 95px; /* заменил margin на padding для стабильного отступа внутри */
@@ -110,8 +110,8 @@ margin-top: 0;
     }
 
     .reasons_wrapper {
-        padding: 40px 15px; /* вернули внутренние отступы вместо margin */
-        gap: 32px;
+        padding: 20px 15px; /* вернули внутренние отступы вместо margin */
+        gap: 20px;
         text-align: center;
     }
 
@@ -147,7 +147,7 @@ margin-top: 0;
         justify-content: flex-end;
         align-items: center;
         text-align: center;
-        gap: 16px;
+        gap: 20px;
         padding: 24px;
         max-width: 100%;
         background: linear-gradient(
@@ -159,7 +159,7 @@ margin-top: 0;
     }
 
     .overlayContent h3 {
-        font-size: clamp(18px, 5vw, 22px);
+
         line-height: 1.3;
     }
 

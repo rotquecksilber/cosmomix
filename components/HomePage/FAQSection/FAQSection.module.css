@@ -33,7 +33,7 @@
 
 .title {
     z-index: 1;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 
 }
 
@@ -67,7 +67,7 @@
 
 .question {
     padding: 10px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--primary);
     font-size: clamp(18px, 2vw, 22px);
 }
@@ -87,7 +87,7 @@
     font-size: clamp(16px, 2vw, 20px);
     color: var(--black);
     line-height: 1.6;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 @media (max-width: 901px) {
@@ -110,7 +110,7 @@
 
     .title {
         font-size: clamp(20px, 6vw, 28px);
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
@@ -136,6 +136,7 @@
 
     .answer {
         font-size: 16px;
+        font-weight: 500;
         padding: 12px 20px 20px;
         line-height: 1.5;
     }
