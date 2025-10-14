@@ -67,6 +67,11 @@
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
 
+.title {
+    font-size: clamp(20px, 3vw, 40px) !important;
+
+}
+
 /* ---------- Заголовок карточки ---------- */
 .cardTitle {
     font-size: 1.75rem;
@@ -147,7 +152,7 @@
 @media (max-width: 780px) {
     .title {
         text-align: left !important;
-        font-size: 1.7rem !important;
+
     }
 }
 

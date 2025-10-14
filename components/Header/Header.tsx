@@ -131,7 +131,7 @@ export default function Header() {
         <div className={styles.header_mobile__wrapper}>
           <div className={styles.header_mobile__logo}>
             <Link
-              href="/public"
+              href="/"
               aria-label="Перейти на главную страницу COSMOMIX"
               onClick={closeMenu}
             >

@@ -29,7 +29,7 @@
 }
 
 .contacts_data_title {
-    font-size: 70px;
+    font-size: 70px !important;
     margin-bottom: 45px;
 }
 
@@ -136,7 +136,7 @@
     }
 
     .contacts_data_title {
-        font-size: clamp(36px, 7vw, 46px);
+        font-size: clamp(36px, 7vw, 46px)!important;
         margin-bottom: 30px;
     }
 

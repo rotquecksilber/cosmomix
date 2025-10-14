@@ -36,7 +36,7 @@
 .page {
 
     color: var(--primary, #111);
-
+margin-bottom: 100px;
 
 }
 
@@ -93,4 +93,11 @@ margin: 0 95px;
         margin: 0 20px;
     }
 
+    .title {
+        margin-top: 40px !important;
+    }
+
+    .page {
+        margin-bottom: 40px;
+    }
 }
