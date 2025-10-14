@@ -196,3 +196,93 @@
         transform: none;
     }
 }
+
+/* ContactsSection.module.css */
+
+/* ... (Ваши существующие стили) ... */
+
+/* --- Стили для PhoneInput --- */
+/* Используем :global() для переопределения стилей сторонней библиотеки */
+
+.contacts_form :global(.react-phone-input-2) {
+    /* Контейнер: убедимся, что он занимает всю ширину */
+    width: 100%;
+}
+
+.contacts_form :global(.form-control) {
+    /* Стиль самого поля ввода (копируем из .contacts_form__input) */
+    padding: 12px 16px !important;
+    padding-left: 60px !important; /* Увеличиваем левый отступ, чтобы флаг не "прилипал" к тексту */
+    font-size: clamp(16px, 2vw, 24px) !important;
+    color: var(--primary) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--primary) !important;
+    background-color: transparent !important;
+    height: auto !important; /* Важно, чтобы избежать фиксированной высоты */
+    width: 100% !important;
+    box-shadow: none !important; /* Убираем стандартную тень */
+}
+
+.contacts_form :global(.form-control:focus) {
+    /* Стиль при фокусе */
+    border-bottom: 1px solid #7e5bef !important;
+    box-shadow: none !important;
+}
+
+.contacts_form :global(.flag-dropdown) {
+    /* Контейнер флага и выпадающего списка */
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+
+    /* Флаг должен находиться *над* полем ввода и иметь тот же левый отступ, что и input */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex; /* Чтобы флаг и стрелка были по центру */
+    align-items: center;
+    /* Добавляем небольшой отступ справа от флага, чтобы он не сливался с началом номера */
+    padding-right: 8px !important;
+}
+
+.contacts_form :global(.selected-flag) {
+    /* Выбранный флаг */
+    padding: 0 5px !important; /* Немного уменьшаем отступы вокруг флага */
+    height: 100%;
+    background-color: transparent !important;
+    /* Размещаем его немного правее */
+    padding-left: 16px !important;
+}
+
+.contacts_form :global(.country-list) {
+    /* Стили для самого выпадающего списка стран */
+    z-index: 1000; /* Убедимся, что он находится над другими элементами */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contacts_form :global(.country) {
+    /* Стили для элементов в выпадающем списке */
+    padding: 10px 15px;
+}
+
+.contacts_form :global(.country:hover) {
+    /* Стиль при наведении на страну */
+    background-color: #f0f0f0 !important;
+}
+
+/* --- Адаптивные стили для PhoneInput --- */
+
+@media (max-width: 1000px) {
+    .contacts_form :global(.form-control) {
+        font-size: clamp(14px, 4vw, 20px) !important;
+        padding: 10px 14px !important;
+        padding-left: 55px !important; /* Меньше отступ на мобильных */
+    }
+
+    .contacts_form :global(.selected-flag) {
+        padding-left: 10px !important;
+    }
+}

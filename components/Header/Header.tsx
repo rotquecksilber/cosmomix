@@ -157,88 +157,87 @@ export default function Header() {
         </div>
 
         {menuOpen && (
-          <>
-            <nav
-              className={cs(styles.mobileMenu, styles.mobileMenu__open)}
-              role="menu"
-              aria-label="Мобильная навигация"
-            >
-              <ul className={styles.mobileMenu_menu}>
-                {navLinks.map((link, index) => {
-                  const isActive = pathName === link.href;
-                  const isSubmenuOpen = openSubmenu === index;
+          <nav
+            className={cs(styles.mobileMenu, styles.mobileMenu__open)}
+            role="menu"
+            aria-label="Мобильная навигация"
+          >
+            <ul className={styles.mobileMenu_menu}>
+              {navLinks.map((link, index) => {
+                const isActive = pathName === link.href;
+                const isSubmenuOpen = openSubmenu === index;
 
-                  if (link.submenu) {
-                    return (
-                      <li key={index} role="none">
-                        <button
-                          type="button"
-                          className={cs(styles.mobileMenu_link, {
-                            [styles.active]: isActive,
-                          })}
-                          onClick={() => toggleSubmenu(index)}
-                          aria-expanded={isSubmenuOpen}
-                          aria-controls={`submenu-mobile-${index}`}
-                          aria-label={`Открыть подменю ${link.text}`}
-                        >
-                          <div className={styles.subArrow}>
-                            {link.text}
-                            <Image
-                              className={styles.subArrow_arrow}
-                              src="/arrow.svg"
-                              alt=""
-                              height={10}
-                              width={10}
-                              aria-hidden="true"
-                            />
-                          </div>
-                        </button>
-
-                        {isSubmenuOpen && (
-                          <ul
-                            id={`submenu-mobile-${index}`}
-                            className={cs(styles.submenuMobile, {
-                              [styles.submenuMobile_open]: isSubmenuOpen,
-                            })}
-                            role="menu"
-                            aria-label={`Подменю раздела ${link.text}`}
-                          >
-                            {link.submenu.map((sub, subIndex) => (
-                              <li key={subIndex} onClick={closeMenu} role="none">
-                                <Link
-                                  href={sub.href}
-                                  className={styles.submenuLink}
-                                  role="menuitem"
-                                >
-                                  {sub.text}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    );
-                  }
-
+                if (link.submenu) {
                   return (
-                    <li key={index} onClick={closeMenu} role="none">
-                      <Link
-                        href={link.href}
+                    <li key={index} role="none">
+                      <button
+                        type="button"
                         className={cs(styles.mobileMenu_link, {
                           [styles.active]: isActive,
                         })}
-                        role="menuitem"
-                        aria-current={isActive ? 'page' : undefined}
+                        onClick={() => toggleSubmenu(index)}
+                        aria-expanded={isSubmenuOpen}
+                        aria-controls={`submenu-mobile-${index}`}
+                        aria-label={`Открыть подменю ${link.text}`}
                       >
-                        {link.text}
-                      </Link>
+                        <div className={styles.subArrow}>
+                          {link.text}
+                          <Image
+                            className={cs(styles.subArrow_arrow, {
+                              [styles.subArrow_arrow_open]: isSubmenuOpen,
+                            })}
+                            src="/arrow.svg"
+                            alt=""
+                            height={10}
+                            width={10}
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </button>
+
+                      <ul
+                        id={`submenu-mobile-${index}`}
+                        className={cs(styles.submenuMobile, {
+                          [styles.submenuMobile_open]: isSubmenuOpen,
+                        })}
+                        role="menu"
+                        aria-label={`Подменю раздела ${link.text}`}
+                      >
+                        {link.submenu.map((sub, subIndex) => (
+                          <li key={subIndex} onClick={closeMenu} role="none">
+                            <Link
+                              href={sub.href}
+                              className={styles.submenuLink}
+                              role="menuitem"
+                            >
+                              {sub.text}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </li>
                   );
-                })}
-              </ul>
-            </nav>
-          </>
+                }
+
+                return (
+                  <li key={index} onClick={closeMenu} role="none">
+                    <Link
+                      href={link.href}
+                      className={cs(styles.mobileMenu_link, {
+                        [styles.active]: isActive,
+                      })}
+                      role="menuitem"
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {link.text}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         )}
+
       </div>
     </header>
   );
