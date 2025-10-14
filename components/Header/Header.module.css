@@ -231,16 +231,16 @@
     width: 100%;
 }
 
-.mobileMenu_link:hover {
-    font-weight: 800;
-}
+
 
 .mobileMenu_link.active {
     font-weight: 500;
 }
 
 .submenuMobile {
-    margin-top: 0.5rem;
+
+
+    margin-top: 0;
     font-size: clamp(14px, 1.5vw, 24px);
     overflow: hidden;
     max-height: 0;
@@ -252,7 +252,7 @@
 }
 
 .submenuMobile_open {
-
+margin-top: 10px;
     max-height: 500px; /* увеличить до безопасной высоты */
     opacity: 1;
 }
@@ -302,6 +302,10 @@
 @media (max-width: 815px) {
     .header_desk__wrapper {
         display: none;
+    }
+
+    .submenuLink:hover {
+        color: var(--primary);
     }
 }
 
