@@ -68,7 +68,7 @@ export default function Footer() {
 
         <div className={styles.column}>
           <div className={styles.socials} aria-label="Социальные сети">
-            <Link href="https://t.me/cosmomix1" target="_blank" rel="noopener noreferrer">
+            <Link href="https://t.me/cosmomix1" target="_blank" rel="noopener noreferrer nofollow">
               <Image src="/socials/telegram.svg" alt="Telegram" width={24} height={24} />
             </Link>
             {/*Х*/}

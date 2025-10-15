@@ -35,6 +35,28 @@ export default function AboutPage() {
         })}
       </Script>
 
+      {/* Breadcrumbs для страницы About */}
+      <Script type="application/ld+json" id="breadcrumbs-schema" strategy="afterInteractive">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Главная',
+              'item': 'https://cosmo-mix.ru'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'О COSMOMIX',
+              'item': 'https://cosmo-mix.ru/about'
+            }
+          ]
+        })}
+      </Script>
+
       {/* Баннер */}
       <Banner title={'О COSMOMIX'} />
 
@@ -54,7 +76,7 @@ export default function AboutPage() {
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Отдел собственного импорта ингредиентов COSMOMIX"
-                src="/about/import.png"
+                src="/about_images/import.png"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -67,7 +89,7 @@ export default function AboutPage() {
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Работа лаборатории и производства COSMOMIX"
-                src="/about/work.PNG"
+                src="/about_images/work.PNG"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -103,7 +125,7 @@ export default function AboutPage() {
               </div>
               <Image
                 alt="MANLYPRO сотрудничает с COSMOMIX"
-                src="/about/manlypro.jpg"
+                src="/about_images/manlypro.jpg"
                 width={5963}
                 height={3491}
                 className={styles.accordion_picture}
@@ -155,7 +177,7 @@ export default function AboutPage() {
 
               <Image
                 alt="Производственные мощности COSMOMIX"
-                src="/about/cosmomix.jpg"
+                src="/about_images/cosmomix.jpg"
                 width={609}
                 height={391}
                 className={styles.accordion_picture}

@@ -37,6 +37,28 @@ export default function ContractProductionPage() {
         })}
       </Script>
 
+      {/* Breadcrumbs для страницы "Наши возможности" */}
+      <Script type="application/ld+json" id="breadcrumbs-capability-schema" strategy="afterInteractive">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Главная',
+              'item': 'https://cosmo-mix.ru'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Наши возможности',
+              'item': 'https://cosmo-mix.ru/capability'
+            }
+          ]
+        })}
+      </Script>
+
       <main className={styles.page}>
         <Banner title="Возможности COSMOMIX" />
         <BackgroundVideo src={'/capability/1.mp4'} className={styles.capabilityVideo} />

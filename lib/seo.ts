@@ -13,6 +13,22 @@ export const seoData: Record<string, Metadata> = {
       'разработка косметических формул',
       'российский производитель косметики',
     ],
+    openGraph: {
+      title: 'Контрактное производство декоративной косметики — COSMOMIX',
+      description:
+          'Полный цикл: разработка, производство и упаковка декоративной косметики. COSMOMIX — ваш надёжный партнёр.',
+      url: 'https://cosmo-mix.ru',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/home_page/decor.png',
+          width: 1400,
+          height: 545,
+          alt: 'COSMOMIX — контрактное производство косметики',
+        },
+      ],
+      type: 'website',
+    },
   },
 
   about: {
@@ -26,6 +42,22 @@ export const seoData: Record<string, Metadata> = {
       'косметическая лаборатория',
       'контрактное производство косметики в России',
     ],
+    openGraph: {
+      title: 'О компании — COSMOMIX',
+      description:
+          'COSMOMIX — контрактное производство декоративной косметики полного цикла для брендов любого масштаба.',
+      url: 'https://cosmo-mix.ru/about',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          width: 2223,
+          height: 1234,
+          alt: 'О компании COSMOMIX',
+        },
+      ],
+      type: 'website',
+    },
   },
 
   capability: {
@@ -39,6 +71,22 @@ export const seoData: Record<string, Metadata> = {
       'производство помад и теней',
       'упаковка косметики',
     ],
+    openGraph: {
+      title: 'Наши возможности — COSMOMIX',
+      description:
+          'COSMOMIX: полный цикл услуг — разработка, производство и упаковка декоративной косметики.',
+      url: 'https://cosmo-mix.ru/capability',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          width: 2223,
+          height: 1234,
+          alt: 'Возможности COSMOMIX',
+        },
+      ],
+      type: 'website',
+    },
   },
 
   catalog: {
@@ -53,6 +101,22 @@ export const seoData: Record<string, Metadata> = {
       'хайлайтеры производство',
       'каталог косметики COSMOMIX',
     ],
+    openGraph: {
+      title: 'Каталог продукции — COSMOMIX',
+      description:
+          'Современные формулы декоративной косметики, трендовые текстуры, стойкие пигменты — каталог продукции COSMOMIX.',
+      url: 'https://cosmo-mix.ru/catalog',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          width: 2223,
+          height: 1234,
+          alt: 'Каталог COSMOMIX',
+        },
+      ],
+      type: 'website',
+    },
   },
 
   contacts: {
@@ -65,6 +129,22 @@ export const seoData: Record<string, Metadata> = {
       'заказать производство косметики',
       'партнёрство в косметике',
     ],
+    openGraph: {
+      title: 'Контакты — COSMOMIX',
+      description:
+          'Свяжитесь с COSMOMIX для консультации по контрактному производству декоративной косметики.',
+      url: 'https://cosmo-mix.ru/contacts',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          width: 2223,
+          height: 1234,
+          alt: 'Контакты COSMOMIX',
+        },
+      ],
+      type: 'website',
+    },
   },
 
   decorative_cosmetics: {
@@ -77,5 +157,21 @@ export const seoData: Record<string, Metadata> = {
       'создание бренда декоративной косметики',
       'контрактное производство макияжа',
     ],
+    openGraph: {
+      title: 'Декоративная косметика — COSMOMIX',
+      description:
+          'Контрактное производство декоративной косметики: помады, тени, пудры, хайлайтеры и другое под вашим брендом.',
+      url: 'https://cosmo-mix.ru/decorative-cosmetics',
+      siteName: 'COSMOMIX',
+      images: [
+        {
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          width: 2223,
+          height: 1234,
+          alt: 'Декоративная косметика COSMOMIX',
+        },
+      ],
+      type: 'website',
+    },
   },
 };

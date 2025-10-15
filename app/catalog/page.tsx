@@ -52,6 +52,28 @@ export default function CatalogPage() {
         })}
       </Script>
 
+      <Script type="application/ld+json" id="breadcrumbs-catalog-schema" strategy="afterInteractive">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Главная',
+              'item': 'https://cosmo-mix.ru'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Каталог продукции',
+              'item': 'https://cosmo-mix.ru/catalog'
+            }
+          ]
+        })}
+      </Script>
+
+
 
       <div className={styles.page}>
         <Banner title="Продукты"/>
