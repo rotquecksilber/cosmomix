@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 type Props = {
     src: string; // путь к видео без расширения
@@ -9,35 +9,16 @@ type Props = {
 
 export const BackgroundVideo: React.FC<Props> = ({ src, poster, className }) => {
   const ref = useRef<HTMLVideoElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Ленивое подключение видео только когда оно в viewport
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
 
   useEffect(() => {
     const v = ref.current;
-    if (!v || !isVisible) return;
-
+    if (!v) return;
     const playPromise = v.play();
     if (playPromise && playPromise.catch) playPromise.catch(() => {});
-
     return () => {
-      if (v && !v.paused) v.pause();
+      if (!v.paused) v.pause();
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <video
@@ -48,13 +29,14 @@ export const BackgroundVideo: React.FC<Props> = ({ src, poster, className }) => 
       loop
       muted
       playsInline
-      preload="metadata"
+      preload="auto"
       controls={false}
       aria-hidden
-
     >
-      {isVisible && <source src={`${src}.webm`} type="video/webm" />}
-      {isVisible && <source src={`${src}.mp4`} type="video/mp4" />}
+      {/* Сначала webm, затем mp4 как fallback */}
+      <source src={`${src}.webm`} type="video/webm" />
+      <source src={`${src}.mp4`} type="video/mp4" />
+            Ваш браузер не поддерживает воспроизведение видео.
     </video>
   );
 };
