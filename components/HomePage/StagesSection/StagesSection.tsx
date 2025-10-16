@@ -7,13 +7,13 @@ import Image from 'next/image';
 import Htag from '@/components/htag/htag';
 
 const steps = [
-  { title: 'Первичная консультация', number: 1, description: 'Обсуждение ваших потребностей и целей', image: '/home_page/numbers/1.jpg' },
-  { title: 'Заполнение брифа', number: 2, description: 'Совместное заполнение брифа, чтобы определить основные требования к продукции и дизайну', image: '/home_page/numbers/2.jpg' },
-  { title: 'Заключение договора', number: 3, description: 'Официальное заключение договора о сотрудничестве и контрактном производстве косметики между вашей компанией и COSMOMIX', image: '/home_page/numbers/4.jpg' },
-  { title: 'Разработка концепции', number: 4, description: 'Разработка цветов (для декоративной косметики), добавление ароматов и тд', image: '/home_page/numbers/3.jpg' },
-  { title: 'Тестирование продуктов', number: 5, description: 'Тестирование в термокамере на старение, замораживание и тд', image: '/home_page/numbers/5.jpg' },
-  { title: 'Производство', number: 6, description: 'Осуществление производства косметических продуктов с соблюдением всех стандартов качества и безопасности', image: '/home_page/numbers/6.jpg' },
-  { title: 'Упаковка и доставка', number: 7, description: 'Упаковка готовой продукции и доставка в указанное вами место назначения', image: '/home_page/numbers/7.jpg' },
+  { title: 'Первичная консультация', number: 1, description: 'Обсуждение ваших потребностей и целей', image: '/home_page/numbers/1.webp' },
+  { title: 'Заполнение брифа', number: 2, description: 'Совместное заполнение брифа, чтобы определить основные требования к продукции и дизайну', image: '/home_page/numbers/2.webp' },
+  { title: 'Заключение договора', number: 3, description: 'Официальное заключение договора о сотрудничестве и контрактном производстве косметики между вашей компанией и COSMOMIX', image: '/home_page/numbers/4.webp' },
+  { title: 'Разработка концепции', number: 4, description: 'Разработка цветов (для декоративной косметики), добавление ароматов и тд', image: '/home_page/numbers/3.webp' },
+  { title: 'Тестирование продуктов', number: 5, description: 'Тестирование в термокамере на старение, замораживание и тд', image: '/home_page/numbers/5.webp' },
+  { title: 'Производство', number: 6, description: 'Осуществление производства косметических продуктов с соблюдением всех стандартов качества и безопасности', image: '/home_page/numbers/6.webp' },
+  { title: 'Упаковка и доставка', number: 7, description: 'Упаковка готовой продукции и доставка в указанное вами место назначения', image: '/home_page/numbers/7.webp' },
 ];
 
 const CARD_OFFSET_X = 220;
