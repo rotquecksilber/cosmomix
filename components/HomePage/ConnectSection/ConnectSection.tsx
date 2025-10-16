@@ -11,7 +11,7 @@ export default function ConnectSection() {
       <div className={styles.connect_wrapper}>
         {/* Десктоп изображение */}
         <Image
-          src="/home_page/connect.png"
+          src="/home_page/connect.webp"
           alt="Женщина с образцами косметики для производства по контракту"
           width={750}
           height={500}
@@ -32,7 +32,7 @@ export default function ConnectSection() {
 
           {/* Мобильное изображение */}
           <Image
-            src="/home_page/connect.png"
+            src="/home_page/connect.webp"
             alt="Женщина с образцами косметики для производства по контракту"
             width={244}
             height={305}

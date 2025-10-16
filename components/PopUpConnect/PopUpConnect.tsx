@@ -176,7 +176,7 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
           >
             {/* Декоративный фон */}
             <Image
-              src="/Logo.png"
+              src="/Logo.webp"
               alt="Логотип"
               className={styles.logo}
               width={300}

@@ -65,7 +65,7 @@ export default function FAQSection() {
       />
 
       <Image
-        src={'/home_page/questions/logo.png'}
+        src={'/home_page/questions/logo.webp'}
         alt={'контрактное производство косметики'}
         width={946}
         height={996}

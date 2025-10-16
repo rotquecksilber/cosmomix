@@ -9,7 +9,7 @@ export default function BannerSection() {
     <section className={styles.banner_wrapper} aria-label="Hero section баннера COSMOMIX">
       {/* Фоновое изображение (fallback, если видео не загрузится) */}
       <Image
-        src="/banner/banner_background.png"
+        src="/banner/banner_background.webp"
         width={1513}
         height={565}
         alt="Фоновое изображение баннера производства COSMOMIX"
@@ -19,11 +19,11 @@ export default function BannerSection() {
 
       {/* Видео на фоне */}
       <BackgroundVideo
-        src="/home_page/video/banner_video.mp4"
+        src="/home_page/video/banner_video"
         className={styles.banner_model}
       />
       <BackgroundVideo
-        src="/home_page/video/banner_video_mobile.mp4"
+        src="/home_page/video/banner_video_mobile"
         className={styles.banner_model_mobile}
       />
 
@@ -35,7 +35,7 @@ export default function BannerSection() {
       {/* Текстовая обёртка */}
       <div className={styles.banner_textWrapper}>
         <Image
-          src="/banner/cosmomix2023.png"
+          src="/banner/cosmomix2023.webp"
           width={1060}
           height={136}
           alt="Логотип COSMOMIX"

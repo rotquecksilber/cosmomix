@@ -23,7 +23,7 @@ export default function ReasonsSection() {
             <div className={styles.imageWrapper}>
               <Image
                 className={styles.reasons_photo}
-                src="/home_page/decor.png"
+                src="/home_page/decor.webp"
                 alt="Производство декоративной косметики COSMOMIX"
                 fill
                 priority

@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 
 type Props = {
-    src: string;
+    src: string; // путь к видео без расширения
     poster?: string;
     className?: string;
 };
@@ -13,16 +13,17 @@ export const BackgroundVideo: React.FC<Props> = ({ src, poster, className }) => 
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    const p = v.play();
-    if (p && p.catch) p.catch(() => {});
-    return () => { if (!v.paused) v.pause(); };
+    const playPromise = v.play();
+    if (playPromise && playPromise.catch) playPromise.catch(() => {});
+    return () => {
+      if (!v.paused) v.pause();
+    };
   }, []);
 
   return (
     <video
       ref={ref}
       className={className}
-      src={src}
       poster={poster}
       autoPlay
       loop
@@ -30,8 +31,12 @@ export const BackgroundVideo: React.FC<Props> = ({ src, poster, className }) => 
       playsInline
       preload="auto"
       controls={false}
-
       aria-hidden
-    />
+    >
+      {/* Сначала webm, затем mp4 как fallback */}
+      <source src={`${src}.webm`} type="video/webm" />
+      <source src={`${src}.mp4`} type="video/mp4" />
+            Ваш браузер не поддерживает воспроизведение видео.
+    </video>
   );
 };

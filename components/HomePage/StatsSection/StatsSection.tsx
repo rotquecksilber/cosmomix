@@ -17,7 +17,7 @@ export default function StatsSection() {
       <div className={styles.numbers_wrapper}>
         {/* Верхняя декоративная линия */}
         <Image
-          src="/home_page/numbers_top.png"
+          src="/home_page/numbers_top.webp"
           alt="Декоративная линия"
           width={602}
           height={10}
@@ -48,7 +48,7 @@ export default function StatsSection() {
 
         {/* Нижняя декоративная линия */}
         <Image
-          src="/home_page/numbers_top.png"
+          src="/home_page/numbers_top.webp"
           alt="Декоративная линия"
           width={602}
           height={10}

@@ -142,7 +142,7 @@ export default function PopUp() {
 
             {/* Декоративный фон */}
             <Image
-              src="/Logo.png"
+              src="/Logo.webp"
               alt=""
               className={styles.logo}
               width={300}

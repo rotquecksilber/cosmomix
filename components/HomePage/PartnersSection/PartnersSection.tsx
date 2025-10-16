@@ -16,7 +16,7 @@ export default function PartnersSection() {
           <Image
             role="listitem"
             alt="ManlyPro – партнер COSMOMIX"
-            src={'/home_page/partners/manlypro.jpg'}
+            src={'/home_page/partners/manlypro.webp'}
             width={1500}
             height={1500}
             className={styles.partners_image}
@@ -36,7 +36,7 @@ export default function PartnersSection() {
           <Image
             role="listitem"
             alt="Bloomy – партнер COSMOMIX"
-            src={'/home_page/partners/bloomy.jpg'}
+            src={'/home_page/partners/bloomy.webp'}
             width={1500}
             height={1500}
             className={styles.partners_image}

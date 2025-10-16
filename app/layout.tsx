@@ -7,6 +7,7 @@ import { montserrat } from '@/lib/fonts';
 import Footer from '@/components/Footer/Footer';
 import type { Metadata } from 'next';
 import { seoData } from '@/lib/seo';
+import OldBrowserWarning from '@/components/OldBrowserWarning';
 
 export const metadata: Metadata = seoData.home;
 
@@ -61,6 +62,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={montserrat.variable}>
+        <OldBrowserWarning />
         <Header/>
         {children}
         <Footer/>
