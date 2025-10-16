@@ -62,11 +62,11 @@ export default function DecorativeCosmeticsPage() {
         {/* Hero */}
         <section className={styles.heroBanner} aria-label="Главный раздел о декоративной косметике">
           <BackgroundVideo
-            src="/decor/decor.mp4"
+            src="/decor/decor"
             className={styles.bannerVideo}
           />
           <BackgroundVideo
-            src="/decor/decor_mobile.mp4"
+            src="/decor/decor_mobile"
             className={styles.bannerVideo_mobile}
           />
           <div className={styles.bannerOverlay}></div>
