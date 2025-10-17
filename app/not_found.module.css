@@ -1,0 +1,40 @@
+.error_404 {
+    margin: 200px 95px 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.error_404_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    width: 50vw;
+}
+
+.error_404_title {
+    font-weight: 600;
+    font-size: clamp(100px, 20vw, 300px);
+}
+
+.description {
+    text-align: center;
+    font-weight: 400;
+    font-size: clamp(28px, 2vw, 48px);
+
+}
+@media (max-width: 815px) {
+    .error_404 {
+        margin: 40px 20px 40px;
+        flex-direction: column;
+    }
+
+    .description {
+
+        font-weight: 400;
+        font-size: clamp(14px, 1.5vw, 30px);
+
+    }
+}

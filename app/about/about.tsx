@@ -76,7 +76,7 @@ export default function AboutPage() {
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Отдел собственного импорта ингредиентов COSMOMIX"
-                src="/about_images/import.png"
+                src="/about_images/import.webp"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <figure className={styles.about_wrapper}>
               <Image
                 alt="Работа лаборатории и производства COSMOMIX"
-                src="/about_images/work.PNG"
+                src="/about_images/work.webp"
                 width={609}
                 height={391}
                 className={styles.about_image}
@@ -125,7 +125,7 @@ export default function AboutPage() {
               </div>
               <Image
                 alt="MANLYPRO сотрудничает с COSMOMIX"
-                src="/about_images/manlypro.jpg"
+                src="/about_images/manlypro.webp"
                 width={5963}
                 height={3491}
                 className={styles.accordion_picture}
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
               <Image
                 alt="Производственные мощности COSMOMIX"
-                src="/about_images/cosmomix.jpg"
+                src="/about_images/cosmomix.webp"
                 width={609}
                 height={391}
                 className={styles.accordion_picture}
@@ -211,7 +211,7 @@ export default function AboutPage() {
 
         <figure className={styles.team_main}>
           <Image
-            src="/team/team_group.jpg"
+            src="/team/team_group.webp"
             alt="Команда COSMOMIX"
             width={1200}
             height={500}
@@ -230,7 +230,7 @@ export default function AboutPage() {
           <section className={styles.team_member} aria-labelledby="member-daria">
             <figure className={styles.team_image_wrapper}>
               <Image
-                src="/team/CEO.PNG"
+                src="/team/CEO.webp"
                 alt="Семёнова Дарья — Основатель COSMOMIX"
                 width={400}
                 height={500}
@@ -257,7 +257,7 @@ export default function AboutPage() {
           <section className={styles.team_member} aria-labelledby="member-lyubov">
             <figure className={styles.team_image_wrapper}>
               <Image
-                src="/team/technologist.jpg"
+                src="/team/technologist.webp"
                 alt="Богданова Любовь — Старший технолог"
                 width={400}
                 height={500}

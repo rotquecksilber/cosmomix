@@ -107,9 +107,9 @@ export default function DecorativeCosmeticsPage() {
 
           <div className={styles.cards}>
             {[
-              {icon: '/decor/1.png', text: 'Современные формулы'},
-              {icon: '/decor/2.png', text: 'Соответствие актуальным трендам'},
-              {icon: '/decor/3.png', text: 'Научный подход и инновации'},
+              {icon: '/decor/1.webp', text: 'Современные формулы'},
+              {icon: '/decor/2.webp', text: 'Соответствие актуальным трендам'},
+              {icon: '/decor/3.webp', text: 'Научный подход и инновации'},
             ].map((item, i) => (
               <motion.article
                 key={i}
@@ -176,10 +176,10 @@ export default function DecorativeCosmeticsPage() {
 
           <div className={styles.cards}>
             {[
-              {src: '/images/lipstick.png', alt: 'Помада', text: 'Любые виды помад'},
-              {src: '/images/eyeshadow.png', alt: 'Блески', text: 'Блески для губ'},
-              {src: '/images/foundation.PNG', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры'},
-              {src: '/images/highlighter.PNG', alt: 'Тушь', text: 'Тушь'},
+              {src: '/images/lipstick.webp', alt: 'Помада', text: 'Любые виды помад'},
+              {src: '/images/eyeshadow.webp', alt: 'Блески', text: 'Блески для губ'},
+              {src: '/images/foundation.webp', alt: 'Рассыпчатые пудры', text: 'Рассыпчатые пудры'},
+              {src: '/images/highlighter.webp', alt: 'Тушь', text: 'Тушь'},
             ].map((item, i) => (
               <motion.article
                 key={i}
