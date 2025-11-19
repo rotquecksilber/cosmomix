@@ -1,8 +1,9 @@
-'use client';
 
 import styles from './page.module.css';
 import Htag from '@/components/htag/htag';
 import React from 'react';
+import type {Metadata} from 'next';
+import {seoData} from '@/lib/seo';
 
 // Текст политики конфиденциальности
 const policyText = {
@@ -156,7 +157,7 @@ const policyText = {
 };
 
 
-
+export const metadata: Metadata = seoData.privacy;
 export default function PrivacyPolicyPage() {
   return (
     <main className={styles.wrapper}>

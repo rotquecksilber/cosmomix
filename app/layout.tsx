@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { seoData } from '@/lib/seo';
 
 
+
 export const metadata: Metadata = seoData.home;
 
 export default function RootLayout({
@@ -80,6 +81,7 @@ export default function RootLayout({
 
         <Header/>
         {children}
+
         <Footer/>
       </body>
     </html>
