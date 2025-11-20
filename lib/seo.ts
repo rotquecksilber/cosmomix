@@ -21,7 +21,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/home_page/decor.png',
+          url: 'https://cosmo-mix.ru/home_page/decor.webp',
           width: 1400,
           height: 545,
           alt: 'COSMOMIX — контрактное производство косметики',
@@ -50,7 +50,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.webp',
           width: 2223,
           height: 1234,
           alt: 'О компании COSMOMIX',
@@ -79,7 +79,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.webp',
           width: 2223,
           height: 1234,
           alt: 'Возможности COSMOMIX',
@@ -109,7 +109,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.webp',
           width: 2223,
           height: 1234,
           alt: 'Каталог COSMOMIX',
@@ -137,7 +137,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.webp',
           width: 2223,
           height: 1234,
           alt: 'Контакты COSMOMIX',
@@ -165,7 +165,7 @@ export const seoData: Record<string, Metadata> = {
       siteName: 'COSMOMIX',
       images: [
         {
-          url: 'https://cosmo-mix.ru/about_images/cosmomix.jpg',
+          url: 'https://cosmo-mix.ru/about_images/cosmomix.webp',
           width: 2223,
           height: 1234,
           alt: 'Декоративная косметика COSMOMIX',
