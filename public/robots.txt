@@ -1,6 +1,11 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /manifest.json
+Disallow: /service-worker.js
+Disallow: /sw.js
 
 # Host
 Host: https://cosmo-mix.ru
