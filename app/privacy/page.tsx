@@ -159,8 +159,32 @@ const policyText = {
 
 export const metadata: Metadata = seoData.privacy;
 export default function PrivacyPolicyPage() {
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: 'https://cosmo-mix.ru',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Политика конфиденциальности',
+        item: 'https://cosmo-mix.ru/privacy',
+      },
+    ],
+  };
+
   return (
     <main className={styles.wrapper}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbsJsonLd)}}
+      />
+
       <section className={styles.policySection} aria-label="Политика обработки персональных данных">
         <div className={styles.policyContent}>
           <div className={styles.policyHeader}>
@@ -184,7 +208,7 @@ export default function PrivacyPolicyPage() {
           {/* Render Section 6 as a Table */}
           <div className={styles.policySubsection}>
             <Htag tag={'h2'} className={styles.h2} color={'primary'}>
-              6. Цели обработки персональных данных
+                6. Цели обработки персональных данных
             </Htag>
             <div className={styles.tableWrapper}>
               <table className={styles.policyTable}>

@@ -4,7 +4,7 @@ import Htag from '@/components/htag/htag';
 import styles from './page.module.css';
 import Image from 'next/image';
 import Banner from '@/components/banner/banner';
-import Script from 'next/script';
+
 import { ChevronDown } from 'lucide-react';
 
 export default function AboutPage() {
@@ -12,50 +12,7 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Schema для организации */}
-      <Script type="application/ld+json" id="organization-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          'name': 'COSMOMIX',
-          'url': 'https://cosmo-mix.ru',
-          'logo': 'https://cosmo-mix.ru/logo.svg',
-          'founder': [
-            {
-              '@type': 'Person',
-              'name': 'Семёнова Дарья',
-              'jobTitle': 'Основатель COSMOMIX'
-            },
-            {
-              '@type': 'Person',
-              'name': 'Богданова Любовь',
-              'jobTitle': 'Старший технолог'
-            }
-          ]
-        })}
-      </Script>
 
-      {/* Breadcrumbs для страницы About */}
-      <Script type="application/ld+json" id="breadcrumbs-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Главная',
-              'item': 'https://cosmo-mix.ru'
-            },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': 'О COSMOMIX',
-              'item': 'https://cosmo-mix.ru/about'
-            }
-          ]
-        })}
-      </Script>
 
       {/* Баннер */}
       <Banner title={'О COSMOMIX'} />

@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './page.module.css';
 import Banner from '@/components/banner/banner';
 import Htag from '@/components/htag/htag';
-import Script from 'next/script';
+
 import LavaLampScene from '@/components/LavaScene/LavaScene';
 
 import {usePathname} from 'next/navigation';
@@ -13,51 +13,7 @@ export default function ContractProductionPage() {
   const pathname = usePathname();
   return (
     <>
-      {/* Schema для страницы */}
-      <Script type="application/ld+json" id="contract-production-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          'name': 'COSMOMIX',
-          'url': 'https://cosmo-mix.ru',
-          'logo': 'https://cosmo-mix.ru/logo.svg',
 
-          'department': [
-            {
-              '@type': 'Organization',
-              'name': 'Лаборатория Cosmomix',
-              'description': 'Разработка всех видов декоративной косметики, тестирование формул, подбор оттенков.'
-            },
-            {
-              '@type': 'Organization',
-              'name': 'Контрактное производство Cosmomix',
-              'description': 'Все этапы производства декоративной косметики, фасовка, упаковка, сопровождение заказов.'
-            }
-          ]
-        })}
-      </Script>
-
-      {/* Breadcrumbs для страницы "Наши возможности" */}
-      <Script type="application/ld+json" id="breadcrumbs-capability-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Главная',
-              'item': 'https://cosmo-mix.ru'
-            },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': 'Наши возможности',
-              'item': 'https://cosmo-mix.ru/capability'
-            }
-          ]
-        })}
-      </Script>
 
       <main className={styles.page}>
         <Banner title="Возможности COSMOMIX" />

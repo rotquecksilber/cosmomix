@@ -48,19 +48,20 @@ export default function FAQSection() {
       <Script
         id="faq-schema"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            'mainEntity': questionsData.map(item => ({
+            mainEntity: questionsData.map((item) => ({
               '@type': 'Question',
-              'name': item.question,
-              'acceptedAnswer': {
+              name: item.question,
+              acceptedAnswer: {
                 '@type': 'Answer',
-                'text': item.answer
-              }
-            }))
-          })
+                text: item.answer,
+              },
+            })),
+          }),
         }}
       />
 

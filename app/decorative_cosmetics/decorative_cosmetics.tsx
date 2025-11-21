@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Htag from '@/components/htag/htag';
 import Button from '@/components/button/button';
 import PopUpConnect from '@/components/PopUpConnect/PopUpConnect';
-import Script from 'next/script';
+
 
 import React from 'react';
 import cn from 'classnames';
@@ -17,43 +17,7 @@ export default function DecorativeCosmeticsPage() {
 
   return (
     <>
-      {/* Schema для страницы */}
-      <Script type="application/ld+json" id="decorative-cosmetics-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Product',
-          'name': 'Декоративная косметика COSMOMIX',
-          'brand': {
-            '@type': 'Organization',
-            'name': 'COSMOMIX',
-            'logo': 'https://cosmo-mix.ru/logo.svg',
-            'url': 'https://cosmo-mix.ru'
-          },
-          'description': 'Создание декоративной косметики, инновационные формулы, соответствие трендам и высоким стандартам качества.',
-          'category': ['Помады', 'Блески для губ', 'Пудры', 'Тушь']
-        })}
-      </Script>
 
-      <Script type="application/ld+json" id="breadcrumbs-decorative-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Главная',
-              'item': 'https://cosmo-mix.ru'
-            },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': 'Декоративная косметика',
-              'item': 'https://cosmo-mix.ru/decorative_cosmetics'
-            }
-          ]
-        })}
-      </Script>
 
 
       <main className={styles.wrapper}>

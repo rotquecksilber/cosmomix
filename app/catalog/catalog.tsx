@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './page.module.css';
 import Htag from '@/components/htag/htag';
 import Banner from '@/components/banner/banner';
-import Script from 'next/script';
+
 import LavaLampScene from '@/components/LavaScene/LavaScene';
 import {usePathname} from 'next/navigation';
 
@@ -14,64 +14,6 @@ export default function CatalogPage() {
   const pathname = usePathname();
   return (
     <>
-
-
-      <title>Каталог продукции — COSMOMIX</title>
-      <meta
-        name="description"
-        content="Каталог декоративной косметики, произведённой COSMOMIX. Современные формулы, трендовые текстуры, стойкие пигменты и качественные ингредиенты."
-      />
-
-
-
-      {/* Schema.org JSON-LD */}
-      <Script
-        id="catalog-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          'name': 'Каталог косметических продуктов COSMOMIX',
-          'url': 'https://cosmomix.ru/catalog',
-          'description': 'Каталог декоративной и уходовой косметики: продукты для губ, глаз, лица, а также продукты в разработке.',
-          'mainEntity': [
-            {
-              '@type': 'Product',
-              'name': 'Блеск для губ',
-              'category': 'Жидкие продукты для губ'
-            },
-            {
-              '@type': 'Product',
-              'name': 'Масло для губ',
-              'category': 'Жидкие продукты для губ'
-            }
-            // …остальные продукты
-          ]
-        })}
-      </Script>
-
-      <Script type="application/ld+json" id="breadcrumbs-catalog-schema" strategy="afterInteractive">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Главная',
-              'item': 'https://cosmo-mix.ru'
-            },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': 'Каталог продукции',
-              'item': 'https://cosmo-mix.ru/catalog'
-            }
-          ]
-        })}
-      </Script>
 
 
 
