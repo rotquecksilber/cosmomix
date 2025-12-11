@@ -198,6 +198,49 @@ export default function CatalogPage() {
           </ul>
         </section>
 
+        {/* Запечённые продукты */}
+        <section className={styles.section} aria-labelledby="baked">
+          <Htag tag="h2" color="gradient" uppercase className={styles.title}>
+            Запечённые продукты
+          </Htag>
+
+          <ul className={styles.list}>
+            {[
+              {
+                title: 'Запечённый хайлайтер',
+                description:
+                    'Создает эффект свечения кожи изнутри.'
+              },
+              {
+                title: 'Запечённый скульптор',
+                description:
+                    'Идеален для деликатного моделирования лица.'
+              },
+              {
+                title: 'Запечённый бронзер',
+                description:
+                    'Придаёт коже лёгкий эффект загара.'
+              },
+              {
+                title: 'Запечённые румяна',
+                description:
+                    'Создаёт эффект нежного естественного румянца.'
+              },
+              {
+                title: 'Запечённая пудра',
+                description:
+                    'Фиксирует макияж, выравнивает тон кожи и создаёт мягкий "soft-focus" эффект.'
+              }
+            ].map((item) => (
+              <li key={item.title}>
+                <span className={styles.itemTitle}>{item.title}</span>
+                <p className={styles.itemDescription}>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+
         {/* В стадии разработки */}
         <section className={styles.section} aria-labelledby="development">
           <Htag tag="h2" color="gradient" uppercase className={styles.title}>
@@ -213,10 +256,6 @@ export default function CatalogPage() {
               'Прессованные румяна',
               'Прессованные скульпторы',
               'Прессованные бронзеры',
-              'Запеченные пудры',
-              'Запеченные румяна',
-              'Запеченные хайлайтеры',
-              'Запеченные бронзеры',
               'Гелевые карандаши для губ',
               'Гелевые карандаши для глаз',
               'Гелевые карандаши для бровей'
