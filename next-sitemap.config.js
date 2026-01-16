@@ -25,6 +25,7 @@ module.exports = {
           '/casinoet',
           '/virtuals',
           '/*%20',
+          '/*?page=support',
         ],
       },
     ],
