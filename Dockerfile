@@ -1,27 +1,28 @@
 # -----------------------------
-# 1. Билдим приложение
+# 1. Build
 # -----------------------------
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm ci --legacy-peer-deps
+
 COPY . .
 RUN npm run build
 
 # -----------------------------
-# 2. Production runner
+# 2. Production
 # -----------------------------
-FROM node:20-alpine AS runner
+FROM node:24-alpine AS runner
 
 WORKDIR /app
+
 COPY --from=builder /app ./
 
-# Важно: слушаем порт, который назначает Timeweb
 ENV HOSTNAME=0.0.0.0
-ENV PORT=${PORT:-3000}
+ENV PORT=3000
 
-EXPOSE $PORT
+EXPOSE 3000
 
-# CMD запускает Next.js на правильном порту
 CMD ["sh", "-c", "npm run start -- -p $PORT -H $HOSTNAME"]

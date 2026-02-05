@@ -6,6 +6,18 @@ Disallow: /api/
 Disallow: /manifest.json
 Disallow: /service-worker.js
 Disallow: /sw.js
+Disallow: /*?utm*
+Disallow: /*?etext*
+Disallow: /*?ybaip*
+Disallow: /*&utm*
+Disallow: /*&etext*
+Disallow: /*&ybaip*
+Disallow: /casino
+Disallow: /casinest
+Disallow: /casinoet
+Disallow: /virtuals
+Disallow: /*%20
+Disallow: /*?page=support
 
 # Host
 Host: https://cosmo-mix.ru
