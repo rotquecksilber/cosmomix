@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 
-export function proxy(request: NextRequest) {
-    const nonce = crypto.randomUUID();
+export function middleware(request: NextRequest) {
+    const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
     const csp = [
         "default-src 'self'",
-        `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://mc.yandex.com https://informer.yandex.ru`,
-        `style-src 'self' 'nonce-${nonce}'`,
+        `script-src 'self' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://mc.yandex.com https://informer.yandex.ru 'nonce-${nonce}'`,
+        `style-src 'self' 'unsafe-inline' 'nonce-${nonce}'`,
         "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://ssl.gstatic.com https://mc.yandex.ru https://mc.yandex.com https://informer.yandex.ru",
         "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://mc.yandex.ru https://mc.yandex.com https://yandexmetrica.com",
         "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com",
@@ -21,6 +21,7 @@ export function proxy(request: NextRequest) {
 
     const pathname = request.nextUrl.pathname.toLowerCase();
 
+    // Блокировка нежелательных URL
     if (
         pathname.startsWith('/casino') ||
         pathname.startsWith('/casinest') ||
