@@ -72,7 +72,7 @@ export default function PopUp() {
       if (!res.ok) throw new Error('Ошибка сети');
 
       const result = await res.json();
-      console.log('Ответ API:', result);
+
 
       setStatus('success');
 
