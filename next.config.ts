@@ -19,19 +19,17 @@ const nextConfig: NextConfig = {
                         key: 'Content-Security-Policy',
                         value: [
                             "default-src 'self'",
-                            // JS: Next.js chunks + аналитика
                             "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://mc.yandex.com https://informer.yandex.ru",
-                            // CSS: inline разрешён для Next.js
                             "style-src 'self' 'unsafe-inline'",
                             "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://ssl.gstatic.com https://mc.yandex.ru https://mc.yandex.com https://informer.yandex.ru",
-                            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://mc.yandex.ru https://mc.yandex.com https://yandexmetrica.com",
+                            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://mc.yandex.ru https://mc.yandex.com https://yandexmetrica.com wss://mc.yandex.ru",
                             "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com",
                             "frame-ancestors 'none'",
                             "form-action 'self'",
                             "base-uri 'self'",
                             "object-src 'none'",
                             "manifest-src 'self'",
-                            "upgrade-insecure-requests",
+                            "upgrade-insecure-requests"
                         ].join('; '),
                     },
                 ],
