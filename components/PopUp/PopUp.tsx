@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useForm, Controller } from 'react-hook-form'; // !!! ДОБАВЛЕН Controller
+import { useForm, Controller } from 'react-hook-form';
 import styles from './PopUp.module.css';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import PhoneInput from 'react-phone-input-2'; // !!! ДОБАВЛЕН PhoneInput
-import 'react-phone-input-2/lib/style.css'; // Импорт стилей библиотеки
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 type FormData = {
     name: string;
@@ -17,263 +17,251 @@ type FormData = {
 };
 
 export default function PopUp() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState<null | 'success' | 'error'>(null);
-  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [status, setStatus] = useState<null | 'success' | 'error'>(null);
+    const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    control // !!! ДОБАВЛЕН control
-  } = useForm<FormData>({
-    // Устанавливаем телефон в '7' (код России) для корректного отображения PhoneInput
-    defaultValues: { name: '', email: '', comment: '', phone: '7' }
-  });
-
-  const togglePopup = () => {
-    setIsOpen(prev => {
-      if (!prev) {
-        // Сброс формы и статуса при открытии, чтобы телефон не "ломался"
-        reset({ name: '', email: '', comment: '', phone: '7' });
-        setStatus(null);
-      }
-      return !prev;
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        control
+    } = useForm<FormData>({
+        defaultValues: { name: '', email: '', comment: '', phone: '7' }
     });
-  };
 
-  // --- Управление фокусом при открытии/закрытии ---
-  useEffect(() => {
-    if (isOpen && closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
-  }, [isOpen]);
+    const togglePopup = () => {
+        setIsOpen(prev => {
+            if (!prev) {
+                reset({ name: '', email: '', comment: '', phone: '7' });
+                setStatus(null);
+            }
+            return !prev;
+        });
+    };
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      const res = await fetch(
-        `https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=${process.env.NEXT_PUBLIC_DIRECTUAL_APP_ID}&sessionID=`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.name,
-            phone: data.phone,
-            email: data.email,
-            comment: data.comment,
-            chat_key: process.env.NEXT_PUBLIC_DIRECTUAL_CHAT_KEY,
-          }),
+    useEffect(() => {
+        if (isOpen && closeButtonRef.current) {
+            closeButtonRef.current.focus();
         }
-      );
+    }, [isOpen]);
 
-      if (!res.ok) throw new Error('Ошибка сети');
+    const onSubmit = async (data: FormData) => {
+        try {
+            const res = await fetch(
+                `https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=${process.env.NEXT_PUBLIC_DIRECTUAL_APP_ID}&sessionID=`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: data.name,
+                        phone: data.phone,
+                        email: data.email,
+                        comment: data.comment,
+                        chat_key: process.env.NEXT_PUBLIC_DIRECTUAL_CHAT_KEY,
+                    }),
+                }
+            );
 
-      const result = await res.json();
+            if (!res.ok) throw new Error('Ошибка сети');
 
+            const result = await res.json();
 
-      setStatus('success');
+            setStatus('success');
 
-      // !!! ИСПРАВЛЕНИЕ: Явный сброс поля phone на '7' (код России)
-      reset({
-        name: '',
-        email: '',
-        comment: '',
-        phone: '7',
-      });
+            reset({
+                name: '',
+                email: '',
+                comment: '',
+                phone: '7',
+            });
 
-      // Закрыть окно через 2 сек после успеха
-      setTimeout(() => {
-        setIsOpen(false);
-        setStatus(null);
-      }, 2000);
-    } catch (error) {
-      console.error('Ошибка при отправке формы:', error);
-      setStatus('error');
-    }
-  };
+            setTimeout(() => {
+                setIsOpen(false);
+                setStatus(null);
+            }, 2000);
+        } catch (error) {
+            console.error('Ошибка при отправке формы:', error);
+            setStatus('error');
+        }
+    };
 
-
-  return (
-    <div>
-      {/* Кнопка для десктопа */}
-      <button
-        onClick={togglePopup}
-        className={cn(styles.openButton)}
-        suppressHydrationWarning
-        aria-haspopup="dialog"
-        aria-expanded={isOpen}
-        aria-controls="popup-dialog"
-      >
-                Оставить заявку
-      </button>
-
-      {/* Кнопка для мобилы с иконкой */}
-      <button
-        onClick={togglePopup}
-        className={cn(styles.openButtonMobile)}
-        suppressHydrationWarning
-        aria-label="Открыть форму заявки"
-        aria-haspopup="dialog"
-        aria-expanded={isOpen}
-        aria-controls="popup-dialog"
-      >
-        <Image src="/Vector.svg" alt="" width={25} height={25} role="presentation"  />
-      </button>
-
-      {isOpen && (
-        <div
-          className={styles.overlay}
-          onClick={togglePopup}
-          role="presentation"
-          aria-hidden={!isOpen}
-        >
-          <div
-            className={styles.popup}
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            id="popup-dialog"
-            aria-labelledby="popup-title"
-            aria-describedby="popup-description"
-          >
-
-            {/* Декоративный фон */}
-            <Image
-              src="/Logo.webp"
-              alt=""
-              className={styles.logo}
-              width={300}
-              height={300}
-              role="presentation"
-            />
-
+    return (
+        <div>
+            {/* Кнопка для десктопа */}
             <button
-              className={styles.closeButton}
-              onClick={togglePopup}
-              aria-label="Закрыть форму"
-              ref={closeButtonRef}
+                onClick={togglePopup}
+                className={cn(styles.openButton)}
+                suppressHydrationWarning
+                aria-haspopup="dialog"
+                aria-expanded={isOpen}
+                aria-controls="popup-dialog"
             >
-                            ×
+                Оставить заявку
             </button>
 
-            <h2 className={styles.title} id="popup-title">
-                            Оставить заявку
-            </h2>
-
-
-
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className={cn(styles.form, styles.inputBox)}
-              noValidate
-              suppressHydrationWarning
-              aria-live="polite"
+            {/* Кнопка для мобилы с иконкой */}
+            <button
+                onClick={togglePopup}
+                className={cn(styles.openButtonMobile)}
+                suppressHydrationWarning
+                aria-label="Открыть форму заявки"
+                aria-haspopup="dialog"
+                aria-expanded={isOpen}
+                aria-controls="popup-dialog"
             >
-              {/* Имя */}
+                <Image src="/Vector.svg" alt="" width={25} height={25} role="presentation" />
+            </button>
 
-              <input
-                id="name"
-                type="text"
-                placeholder="Имя"
-                {...register('name', { required: 'Введите имя' })}
-                aria-invalid={!!errors.name}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-              />
-              {errors.name && (
-                <span id="name-error" className={styles.error} role="alert">
+            {isOpen && (
+                <div
+                    className={styles.overlay}
+                    onClick={togglePopup}
+                    role="presentation"
+                    aria-hidden={!isOpen}
+                >
+                    <div
+                        className={styles.popup}
+                        onClick={(e) => e.stopPropagation()}
+                        role="dialog"
+                        aria-modal="true"
+                        id="popup-dialog"
+                        aria-labelledby="popup-title"
+                        aria-describedby="popup-description"
+                    >
+                        {/* Декоративный фон */}
+                        <Image
+                            src="/Logo.webp"
+                            alt=""
+                            className={styles.logo}
+                            width={300}
+                            height={300}
+                            role="presentation"
+                        />
+
+                        <button
+                            className={styles.closeButton}
+                            onClick={togglePopup}
+                            aria-label="Закрыть форму"
+                            ref={closeButtonRef}
+                        >
+                            ×
+                        </button>
+
+                        <h2 className={styles.title} id="popup-title">
+                            Оставить заявку
+                        </h2>
+
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className={cn(styles.form, styles.inputBox)}
+                            noValidate
+                            suppressHydrationWarning
+                            aria-live="polite"
+                        >
+                            {/* Имя */}
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Имя"
+                                {...register('name', { required: 'Введите имя' })}
+                                aria-invalid={!!errors.name}
+                                aria-describedby={errors.name ? 'name-error' : undefined}
+                            />
+                            {errors.name && (
+                                <span id="name-error" className={styles.error} role="alert">
                   {errors.name.message}
                 </span>
-              )}
+                            )}
 
-              {/* Телефон (Controller с PhoneInput) */}
-
-              <Controller
-                control={control}
-                name="phone"
-                rules={{
-                  validate: (value) =>
-                    (value && value.length > 1) || 'Введите телефон', // Проверяем, что введено что-то кроме кода страны
-                }}
-                render={({ field: { onChange, value } }) => (
-                  <PhoneInput
-                    country="ru"
-                    value={value}
-                    onChange={(val: string) => onChange(val)}
-                    countryCodeEditable={false}
-                    enableAreaCodes={false}
-                    // Добавляем класс, чтобы PhoneInput наследовал стили
-                    inputClass={styles.input}
-                    containerClass={styles.phoneContainer} // Класс для внешнего контейнера
-                  />
-                )}
-              />
-              {errors.phone && (
-                <span id="phone-error" className={styles.error} role="alert">
+                            {/* Телефон */}
+                            <Controller
+                                control={control}
+                                name="phone"
+                                rules={{
+                                    validate: (value) =>
+                                        (value && value.length > 1) || 'Введите телефон',
+                                }}
+                                render={({ field: { onChange, value } }) => (
+                                    <PhoneInput
+                                        country="ru"
+                                        value={value}
+                                        onChange={(val: string) => onChange(val)}
+                                        countryCodeEditable={false}
+                                        enableAreaCodes={false}
+                                        inputClass={styles.input}
+                                        containerClass={styles.phoneContainer}
+                                    />
+                                )}
+                            />
+                            {errors.phone && (
+                                <span id="phone-error" className={styles.error} role="alert">
                   {errors.phone.message}
                 </span>
-              )}
+                            )}
 
-              {/* Email */}
-
-              <input
-                id="email"
-                type="email"
-                placeholder="Email"
-                {...register('email', {
-                  required: 'Введите email',
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: 'Некорректный формат email',
-                  },
-                })}
-                aria-invalid={!!errors.email}
-                aria-describedby={errors.email ? 'email-error' : undefined}
-                className={styles.input} // Добавляем класс для стандартного поля
-              />
-              {errors.email && (
-                <span id="email-error" className={styles.error} role="alert">
+                            {/* Email */}
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Email"
+                                {...register('email', {
+                                    required: 'Введите email',
+                                    pattern: {
+                                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                        message: 'Некорректный формат email',
+                                    },
+                                })}
+                                aria-invalid={!!errors.email}
+                                aria-describedby={errors.email ? 'email-error' : undefined}
+                                className={styles.input}
+                            />
+                            {errors.email && (
+                                <span id="email-error" className={styles.error} role="alert">
                   {errors.email.message}
                 </span>
-              )}
+                            )}
 
-              {/* Комментарий */}
+                            {/* Комментарий */}
+                            <textarea
+                                id="comment"
+                                placeholder="Комментарий"
+                                {...register('comment')}
+                                className={styles.input}
+                            />
 
-              <textarea
-                id="comment"
-                placeholder="Комментарий"
-                {...register('comment')}
-                className={styles.input} // Добавляем класс для стандартного поля
-              />
-              <div className={styles.privacy}>
-                <p >Нажимая кнопку отправить, вы соглашаетесь<br/> с <Link href={'/privacy'} className={styles.privacy_link}>Политикой конфиденциальности</Link></p>
-              </div>
-              {/* Кнопка отправки */}
-              <button
-                type="submit"
-                className={cn(styles.submitButton)}
-                suppressHydrationWarning
-              >
+                            <div className={styles.privacy}>
+                                <p>
+                                    Нажимая кнопку отправить, вы соглашаетесь<br />
+                                    с <Link href={'/privacy'} className={styles.privacy_link}>Политикой конфиденциальности</Link>
+                                </p>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className={cn(styles.submitButton)}
+                                suppressHydrationWarning
+                            >
                                 Отправить
-              </button>
+                            </button>
 
-              {/* Сообщения пользователю */}
-              {status === 'success' && (
-                <p className={styles.success} role="status" aria-live="assertive">
+                            {status === 'success' && (
+                                <p className={styles.success} role="status" aria-live="assertive">
                                     ✅ Спасибо, заявка отправлена!
-                </p>
-              )}
-              {status === 'error' && (
-                <p className={styles.error} role="alert" aria-live="assertive">
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className={styles.error} role="alert" aria-live="assertive">
                                     ❌ Ошибка, попробуйте снова.
-                </p>
-              )}
-            </form>
-          </div>
+                                </p>
+                            )}
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 }
