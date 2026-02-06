@@ -107,37 +107,41 @@ export default function PopUpConnect({ trigger }: PopUpConnectProps) {
     ========================= */
   const onSubmit = async (data: FormData) => {
     try {
-      const res = await fetch(
-        `https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=${process.env.NEXT_PUBLIC_DIRECTUAL_APP_ID}&sessionID=`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.name,
-            phone: data.phone,
-            email: data.email,
-            comment: data.comment,
-            chat_key: process.env.NEXT_PUBLIC_DIRECTUAL_CHAT_KEY,
-          }),
-        }
-      );
+      const res = await fetch('/api/directual-submit', {   // ← вот это главное изменение
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          comment: data.comment,
+        }),
+      });
 
-      if (!res.ok) throw new Error('Ошибка сети');
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Ошибка сети');
+      }
 
-      await res.json();
+      const result = await res.json();
+
       setStatus('success');
 
-      // !!! ИСПРАВЛЕНИЕ: Сброс на '7' для PhoneInput
-      reset({ name: '', email: '', comment: '', phone: '7' });
+      reset({
+        name: '',
+        email: '',
+        comment: '',
+        phone: '7',
+      });
 
       setTimeout(() => {
         setIsOpen(false);
         setStatus(null);
       }, 2000);
-    } catch (error) {
-      console.error('Ошибка при отправке формы:', error);
+    } catch (error: any) {
+      console.error('Ошибка при отправке:', error);
       setStatus('error');
     }
   };

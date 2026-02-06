@@ -32,37 +32,39 @@ export default function ContactsSection() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const res = await fetch(
-        `https://api.directual.com/good/api/v5/data/PopUp_Requests/new_request?appID=${process.env.NEXT_PUBLIC_DIRECTUAL_APP_ID}&sessionID=`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: data.name,
-            phone: data.phone,
-            email: data.email,
-            comment: data.message,
-            chat_key: process.env.NEXT_PUBLIC_DIRECTUAL_CHAT_KEY,
-          }),
-        }
-      );
+      const res = await fetch('/api/directual-submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          message: data.message,
+        }),
+      });
 
-      if (!res.ok) throw new Error('Ошибка сети');
+      if (!res.ok) {
+
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Ошибка сети / сервера');
+      }
 
       await res.json();
+
       setStatus('success');
 
-      // !!! ИЗМЕНЕНИЕ: Явный сброс поля phone на '7' (код России)
-      // Это заставляет PhoneInput вернуться в исходное состояние.
       reset({
         name: '',
         email: '',
         message: '',
-        phone: '7',
+        phone: '7',       
       });
 
       setTimeout(() => setStatus(null), 2000);
-    } catch (err) {
+
+    } catch (err: any) {
       console.error('Ошибка при отправке формы:', err);
       setStatus('error');
     }
