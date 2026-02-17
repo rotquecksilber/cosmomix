@@ -5,10 +5,10 @@
     transform: translateX(-50%);
     width: calc(100% - 40px);
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgb(246, 244, 255);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,15 +36,18 @@
 
 .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+align-items: center;
     justify-content: center;
-    flex: 1;
+    gap: 1rem;
+
 }
 
 .text {
     font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: 500;
     line-height: 1.4;
-    margin-bottom: 0.5rem;
+
 }
 
 .accept {
@@ -87,5 +90,8 @@
     }
     .iconWrapper {
         margin-bottom: 0.5rem;
+    }
+    .content {
+        flex-direction: column;
     }
 }

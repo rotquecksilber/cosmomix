@@ -59,7 +59,7 @@ export default function ContactsSection() {
         name: '',
         email: '',
         message: '',
-        phone: '7',       
+        phone: '7',
       });
 
       setTimeout(() => setStatus(null), 2000);

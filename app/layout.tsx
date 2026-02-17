@@ -7,6 +7,7 @@ import { montserrat } from '@/lib/fonts';
 import Footer from '@/components/Footer/Footer';
 import type { Metadata } from 'next';
 import { seoData } from '@/lib/seo';
+import CookieConsent from "@/components/CookieConsent/CookieConsent";
 
 
 
@@ -84,6 +85,7 @@ export default function RootLayout({
         {children}
 
         <Footer/>
+      <CookieConsent/>
       </body>
     </html>
   );

@@ -20,17 +20,6 @@ export default function CookieConsent() {
   return (
     <div className={styles.cookieBanner}>
       <div className={styles.bannerContent}>
-        {/* SVG Icon слева на всю высоту */}
-        <div className={styles.iconWrapper}>
-          <svg
-            className={styles.icon}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="#6a4ff7"
-          >
-            <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 15a1 1 0 11-1-1 1 1 0 011 1zm4-4a1 1 0 11-1-1 1 1 0 011 1zm-8 0a1 1 0 11-1-1 1 1 0 011 1zm2-3a1 1 0 11-1-1 1 1 0 011 1z"/>
-          </svg>
-        </div>
 
         {/* Текст и кнопка справа */}
         <div className={styles.content}>
