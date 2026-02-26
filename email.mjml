@@ -1,0 +1,155 @@
+<mjml>
+    <mj-head>
+        <mj-title>Анкета COSMOMIX</mj-title>
+        <mj-attributes>
+            <mj-all font-family="'Helvetica Neue', Arial, sans-serif" />
+            <mj-text font-size="14px" color="#333333" line-height="22px" />
+        </mj-attributes>
+        <mj-style>
+            .section-box { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 20px; }
+            .header-bg { background-color: #5F4AE8; }
+            .label { font-weight: bold; color: #718096; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+            .value { font-size: 15px; color: #1a202c; padding-bottom: 12px; border-bottom: 1px solid #f7fafc; margin-bottom: 10px; }
+            .other-text { font-style: italic; color: #4A5568; background: #F7FAFC; padding: 8px; border-radius: 4px; }
+            .num { background-color: #5F4AE8; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 10px; }
+        </mj-style>
+    </mj-head>
+    <mj-body background-color="#F8FAFC">
+
+        <mj-section css-class="header-bg" padding="30px">
+            <mj-column>
+                <mj-text align="center" color="#ffffff" font-size="24px" font-weight="bold">
+                    АНКЕТА НОВОГО КЛИЕНТА
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section padding="20px"></mj-section>
+
+        <mj-section background-color="#ffffff" border-radius="8px" padding="20px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">1</span> Контактная информация
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">ФИО</div><div class="value">{{fullName}}</div>
+                    <div class="label">Должность</div><div class="value">{{position}}</div>
+                    <div class="label">E-mail</div><div class="value">{{email}}</div>
+                    <div class="label">Номер телефона</div><div class="value">{{phone}}</div>
+                    <div class="label">WhatsApp / Telegram / WeChat</div><div class="value">{{messenger}}</div>
+                    <div class="label">Способ связи</div><div class="value">{{preferredContact}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">2</span> Общая информация о компании
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">Название компании</div><div class="value">{{companyName}}</div>
+                    <div class="label">Зарегистрированный бренд</div><div class="value">{{registeredBrand}}</div>
+                    <div class="label">Город/регион</div><div class="value">{{cityRegion}}</div>
+                    <div class="label">Год основания</div><div class="value">{{foundationYear}}</div>
+                    <div class="label">Сайт / соцсети</div><div class="value">{{websiteSocial}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">3</span> Основной бизнес
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">Выбранные варианты</div><div class="value">{{mainBusiness}}</div>
+                    <div class="label">Другое (бизнес)</div><div class="other-text">{{otherBusiness}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">4</span> Опыт с контрактными производителями
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">Ранее работали с</div><div class="value">{{previousManufacturers}}</div>
+                    <div class="label">Другое (производитель)</div><div class="other-text">{{otherManufacturer}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">5</span> Категории продукции для производства
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">Уход за лицом ({{faceCare}})</div><div class="value">{{faceCareDetails}}</div>
+                    <div class="label">Декоративная косметика ({{decorativeCosmetics}})</div><div class="value">{{decorativeDetails}}</div>
+                    <div class="label">Другое ({{otherCategory}})</div><div class="value">{{otherCategoryDetails}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">6-8</span> Объемы и ассортимент
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">6 Стартовый объем</div><div class="value">{{startVolume}}</div>
+                    <div class="label">7 Ежемесячный объем</div><div class="value">{{monthlyVolume}}</div>
+                    <div class="label">8 Планируемый ассортимент</div><div class="value">{{assortment}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">9</span> Этап проекта
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="label">Текущая стадия</div><div class="value">{{projectStage}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">10</span> Каналы продаж
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="value" style="border:none">{{salesChannels}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section background-color="#ffffff" padding="20px" padding-top="0px">
+            <mj-column>
+                <mj-text font-size="16px" font-weight="bold" color="#5F4AE8">
+                    <span class="num">11</span> Target price
+                </mj-text>
+                <mj-divider border-width="1px" border-color="#edf2f7" />
+                <mj-text>
+                    <div class="value" style="font-weight: bold; color: #5F4AE8; border:none">{{targetPrice}}</div>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+
+        <mj-section padding="20px"></mj-section>
+
+    </mj-body>
+</mjml>
