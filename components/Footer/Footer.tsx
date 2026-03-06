@@ -84,6 +84,11 @@ export default function Footer() {
             <div>
               <Link href="tel:+74951200596">+7 (495) 120-05-96</Link>
             </div>
+            <div>
+            <Link href="https://t.me/+79091600596" target="_blank" className={styles.contacts_data__a}>
+              Чат в Телеграм
+            </Link>
+            </div>
           </div>
         </div>
       </div>

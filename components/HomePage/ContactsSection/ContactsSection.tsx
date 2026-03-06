@@ -83,6 +83,12 @@ export default function ContactsSection() {
             <a href="tel:+74951200596" className={styles.contacts_data__a}>+7 (495) 120-05-96</a>
           </div>
           <div>
+            <Htag tag="h3" color="white" className={styles.contacts_data__h3}>Чат в Телеграм</Htag>
+            <a href="https://t.me/+79091600596" className={styles.contacts_data__a}>
+              +7 (909) 160-05-96
+            </a>
+          </div>
+          <div>
             <Htag tag="h3" color="white" className={styles.contacts_data__h3}>Электронная почта</Htag>
             <a href="mailto:info@cosmo-mix.ru" className={styles.contacts_data__a}>info@cosmo-mix.ru</a>
           </div>
@@ -95,7 +101,7 @@ export default function ContactsSection() {
 
       <div className={styles.contacts_form__wrapper}>
         <Htag tag="h2" color="gradient" uppercase className={styles.contacts_form__title}>
-          <span>Как</span><br />мы можем вам помочь?
+          <span>Как</span><br/>мы можем вам помочь?
         </Htag>
 
         <form
